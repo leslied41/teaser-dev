@@ -11,6 +11,9 @@ import VideoBg from "../components/videoBg";
 const Home: NextPage = () => {
   const [update, setUpdate] = useState(false);
   const indexRef = useRef<number>(0);
+  const touchStartPositionRef = useRef<number>();
+  const currentPositionRef = useRef<number>();
+
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       if (indexRef.current < data.length - 1) {
@@ -34,11 +37,51 @@ const Home: NextPage = () => {
       }
     }
   };
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartPositionRef.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: TouchEvent) => {
+    currentPositionRef.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: TouchEvent) => {
+    if (!touchStartPositionRef.current) return;
+    if (!currentPositionRef.current) return;
+
+    if (currentPositionRef.current - touchStartPositionRef.current < -50) {
+      if (indexRef.current < data.length - 1) {
+        indexRef.current = indexRef.current + 1;
+        return setUpdate((prev) => !prev);
+      }
+      if (indexRef.current === data.length - 1) {
+        indexRef.current = 0;
+        return setUpdate((prev) => !prev);
+      }
+    }
+    if (currentPositionRef.current - touchStartPositionRef.current > 50) {
+      if (indexRef.current > 0) {
+        indexRef.current = indexRef.current - 1;
+        return setUpdate((prev) => !prev);
+      }
+      if (indexRef.current === 0) {
+        indexRef.current = data.length - 1;
+        return setUpdate((prev) => !prev);
+      }
+    }
+  };
+
   useEffect(() => {
     const debounceFn = debounce(wheel, 100);
+    const debounceTouchMove = debounce(handleTouchMove, 50);
     window.addEventListener("wheel", debounceFn);
+    window.addEventListener("touchstart", (e) => handleTouchStart(e));
+    window.addEventListener("touchmove", debounceTouchMove);
+    window.addEventListener("touchend", (e) => handleTouchEnd(e));
+
     return () => {
       window.removeEventListener("wheel", debounceFn);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", debounceTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
   return (
