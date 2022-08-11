@@ -6,6 +6,7 @@ import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
 var debounce = require("lodash.debounce");
 import { data } from "../components/TitleAndSubtitle/data";
+import VideoBg from "../components/videoBg";
 
 const Home: NextPage = () => {
   const [update, setUpdate] = useState(false);
@@ -42,20 +43,14 @@ const Home: NextPage = () => {
   }, []);
   return (
     <div className="h-screen w-full">
-      <ExhibitionInfo className="fixed top-3 left-3" />
+      <ExhibitionInfo className="fixed top-2 left-2 sm:top-3 sm:left-3" />
       <TitleAndSubtitle
         className="fixed bottom-0 left-0"
         obj={data[indexRef.current]}
         index={indexRef.current}
       />
-      <LocaleSwitch className="fixed top-3 right-3" />
-      <video
-        src="/videoBg.mp4"
-        autoPlay
-        muted
-        loop
-        className="h-full w-full object-cover"
-      ></video>
+      <LocaleSwitch />
+      <VideoBg index={indexRef.current} />
     </div>
   );
 };

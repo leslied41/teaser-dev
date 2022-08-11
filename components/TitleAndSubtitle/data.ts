@@ -17,28 +17,28 @@ export const data = [
     title_cn: "管偉邦",
     subtitle_cn: "離島",
   },
-  {
-    title: "lam tung pang",
-    subtitle: "wanchai",
-    title_cn: "林東鵬",
-    subtitle_cn: "灣仔",
-  },
-  {
-    title: "leung ka yin, joey",
-    subtitle: "the peak",
-    title_cn: "梁嘉賢",
-    subtitle_cn: "山頂",
-  },
-  {
-    title: "wong chun hei",
-    subtitle: "kowloon peninsula",
-    title_cn: "黃進曦",
-    subtitle_cn: "九龍",
-  },
-  {
-    title: "wong lai ching, fiona",
-    subtitle: "pok fu lam",
-    title_cn: "黃麗貞",
-    subtitle_cn: "薄扶林",
-  },
+  // {
+  //   title: "lam tung pang",
+  //   subtitle: "wanchai",
+  //   title_cn: "林東鵬",
+  //   subtitle_cn: "灣仔",
+  // },
+  // {
+  //   title: "leung ka yin, joey",
+  //   subtitle: "the peak",
+  //   title_cn: "梁嘉賢",
+  //   subtitle_cn: "山頂",
+  // },
+  // {
+  //   title: "wong chun hei",
+  //   subtitle: "kowloon peninsula",
+  //   title_cn: "黃進曦",
+  //   subtitle_cn: "九龍",
+  // },
+  // {
+  //   title: "wong lai ching, fiona",
+  //   subtitle: "pok fu lam",
+  //   title_cn: "黃麗貞",
+  //   subtitle_cn: "薄扶林",
+  // },
 ];

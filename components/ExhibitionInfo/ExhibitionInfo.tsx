@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import s from "./ExhibitionInfo.module.css";
 import cn from "clsx";
 import { useRouter } from "next/router";
@@ -12,8 +12,11 @@ const ExhibitionInfo: FC<Props> = ({ className }) => {
   return (
     <div
       className={cn(
-        " flex flex-col gap-y-10 text-base text-white mix-blend-exclusion",
-        className
+        " flex flex-col gap-y-10 text-base sm:text-sm text-white mix-blend-exclusion",
+        className,
+        {
+          ["!text-base-cn sm:!text-sm-cn"]: router.locale === "cn",
+        }
       )}
     >
       <div>
@@ -47,4 +50,4 @@ const ExhibitionInfo: FC<Props> = ({ className }) => {
     </div>
   );
 };
-export default ExhibitionInfo;
+export default memo(ExhibitionInfo);
