@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import type { NextPage } from "next";
-import s from "../styles/Home.module.css";
 import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
@@ -37,16 +36,18 @@ const Home: NextPage = () => {
       }
     }
   };
+
   const handleTouchStart = (e: TouchEvent) => {
     touchStartPositionRef.current = e.touches[0].clientY;
   };
+
   const handleTouchMove = (e: TouchEvent) => {
     currentPositionRef.current = e.touches[0].clientY;
   };
+
   const handleTouchEnd = (e: TouchEvent) => {
     if (!touchStartPositionRef.current) return;
     if (!currentPositionRef.current) return;
-
     if (currentPositionRef.current - touchStartPositionRef.current < -50) {
       if (indexRef.current < data.length - 1) {
         indexRef.current = indexRef.current + 1;
@@ -73,9 +74,9 @@ const Home: NextPage = () => {
     const debounceFn = debounce(wheel, 100);
     const debounceTouchMove = debounce(handleTouchMove, 50);
     window.addEventListener("wheel", debounceFn);
-    window.addEventListener("touchstart", (e) => handleTouchStart(e));
+    window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", debounceTouchMove);
-    window.addEventListener("touchend", (e) => handleTouchEnd(e));
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("wheel", debounceFn);
@@ -84,6 +85,7 @@ const Home: NextPage = () => {
       window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
+
   return (
     <div className="h-screen w-full">
       <ExhibitionInfo className="fixed top-2 left-2 sm:top-3 sm:left-3" />

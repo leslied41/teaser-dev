@@ -15,7 +15,6 @@ interface Props {
 }
 
 const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
-  console.log(index);
   const router = useRouter();
   return (
     <div

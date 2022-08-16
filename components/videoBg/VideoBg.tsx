@@ -1,6 +1,7 @@
 import React, { FC, createRef, useMemo, useEffect } from "react";
 import { data } from "../TitleAndSubtitle/data";
 import cn from "clsx";
+import s from "./VideoBg.module.css";
 
 interface Props {
   index: number;
@@ -12,7 +13,7 @@ const VideoBg: FC<Props> = ({ index }) => {
       Array(data.length)
         .fill(null)
         .map((_, index) => createRef<HTMLVideoElement>()),
-    []
+    [data]
   );
   const operate = (index: number) => {
     elRefs.forEach((e, i) => {
@@ -33,9 +34,13 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgMain.mp4"
         muted
         loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 0,
-        })}
+        className={cn(
+          "h-full w-full object-cover hidden ",
+          {
+            ["!block"]: index === 0,
+          },
+          s.video
+        )}
       ></video>
       <video
         preload="auto"
@@ -43,9 +48,13 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgWanChai.mp4"
         muted
         loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 1,
-        })}
+        className={cn(
+          "h-full w-full object-cover hidden ",
+          {
+            ["!block"]: index === 1,
+          },
+          s.video
+        )}
       ></video>
       <video
         preload="auto"
@@ -53,9 +62,13 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgYuenLong.mp4"
         muted
         loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 2,
-        })}
+        className={cn(
+          "h-full w-full object-cover hidden ",
+          {
+            ["!block"]: index === 2,
+          },
+          s.video
+        )}
       ></video>
       {/* <video
         src="/videoBgMainMobile.mp4"
