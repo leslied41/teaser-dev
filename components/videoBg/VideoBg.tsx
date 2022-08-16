@@ -29,6 +29,8 @@ const VideoBg: FC<Props> = ({ index }) => {
   return (
     <>
       <video
+        playsInline={true}
+        controls={false}
         preload="auto"
         ref={elRefs[0]}
         src="/videoBgMain.mp4"
@@ -43,6 +45,8 @@ const VideoBg: FC<Props> = ({ index }) => {
         )}
       ></video>
       <video
+        playsInline={true}
+        controls={false}
         preload="auto"
         ref={elRefs[1]}
         src="/videoBgWanChai.mp4"
@@ -57,6 +61,8 @@ const VideoBg: FC<Props> = ({ index }) => {
         )}
       ></video>
       <video
+        playsInline={true}
+        controls={false}
         preload="auto"
         ref={elRefs[2]}
         src="/videoBgYuenLong.mp4"
