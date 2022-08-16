@@ -38,11 +38,11 @@ const Home: NextPage = () => {
   };
 
   const handleTouchStart = (e: TouchEvent) => {
-    touchStartPositionRef.current = e.touches[0].clientY;
+    touchStartPositionRef.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    currentPositionRef.current = e.touches[0].clientY;
+    currentPositionRef.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e: TouchEvent) => {

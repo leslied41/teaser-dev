@@ -36,13 +36,9 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgMain.mp4"
         muted
         loop
-        className={cn(
-          "h-full w-full object-cover hidden ",
-          {
-            ["!block"]: index === 0,
-          },
-          s.video
-        )}
+        className={cn("h-full w-full object-cover hidden ", {
+          ["!block"]: index === 0,
+        })}
       ></video>
       <video
         playsInline={true}
@@ -52,13 +48,9 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgWanChai.mp4"
         muted
         loop
-        className={cn(
-          "h-full w-full object-cover hidden ",
-          {
-            ["!block"]: index === 1,
-          },
-          s.video
-        )}
+        className={cn("h-full w-full object-cover hidden ", {
+          ["!block"]: index === 1,
+        })}
       ></video>
       <video
         playsInline={true}
@@ -68,13 +60,9 @@ const VideoBg: FC<Props> = ({ index }) => {
         src="/videoBgYuenLong.mp4"
         muted
         loop
-        className={cn(
-          "h-full w-full object-cover hidden ",
-          {
-            ["!block"]: index === 2,
-          },
-          s.video
-        )}
+        className={cn("h-full w-full object-cover hidden ", {
+          ["!block"]: index === 2,
+        })}
       ></video>
       {/* <video
         src="/videoBgMainMobile.mp4"
