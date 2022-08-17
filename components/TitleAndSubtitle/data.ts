@@ -4,18 +4,21 @@ export const data = [
     subtitle: "reimaging hong kong landscapes",
     title_cn: "極目足下",
     subtitle_cn: "想見香港風光",
+    src: "/videoBgMain.mp4",
   },
   {
     title: "ho yuen leung",
     subtitle: "yuen long",
     title_cn: "何遠良",
     subtitle_cn: "元朗",
+    src: "/videoBgWanChai.mp4",
   },
   {
     title: "koon wai bong",
     subtitle: "outlying islands",
     title_cn: "管偉邦",
     subtitle_cn: "離島",
+    src: "/videoBgYuenLong.mp4",
   },
   // {
   //   title: "lam tung pang",

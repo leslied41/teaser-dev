@@ -20,57 +20,30 @@ const VideoBg: FC<Props> = ({ index }) => {
       if (i === index) e.current?.play();
     });
   };
+
   useEffect(() => {
-    if (index === 0) operate(0);
-    if (index === 1) operate(1);
-    if (index === 2) operate(2);
+    data.forEach((item, i) => {
+      if (i === index) operate(index);
+    });
   }, [elRefs, index]);
 
   return (
     <>
-      <video
-        playsInline={true}
-        controls={false}
-        preload="auto"
-        ref={elRefs[0]}
-        src="/videoBgMain.mp4"
-        muted
-        loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 0,
-        })}
-      ></video>
-      <video
-        playsInline={true}
-        controls={false}
-        preload="auto"
-        ref={elRefs[1]}
-        src="/videoBgWanChai.mp4"
-        muted
-        loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 1,
-        })}
-      ></video>
-      <video
-        playsInline={true}
-        controls={false}
-        preload="auto"
-        ref={elRefs[2]}
-        src="/videoBgYuenLong.mp4"
-        muted
-        loop
-        className={cn("h-full w-full object-cover hidden ", {
-          ["!block"]: index === 2,
-        })}
-      ></video>
-      {/* <video
-        src="/videoBgMainMobile.mp4"
-        autoPlay
-        muted
-        loop
-        className="h-full w-full object-cover block sm:hidden"
-      ></video> */}
+      {data.map((item, i) => (
+        <video
+          key={item.title}
+          playsInline={true}
+          controls={false}
+          preload="auto"
+          ref={elRefs[i]}
+          src={item.src}
+          muted
+          loop
+          className={cn("h-full w-full object-cover hidden ", {
+            ["!block"]: index === i,
+          })}
+        ></video>
+      ))}
     </>
   );
 };

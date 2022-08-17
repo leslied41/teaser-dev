@@ -19,6 +19,7 @@ interface Props {
     subtitle: string;
     title_cn: string;
     subtitle_cn: string;
+    src: string;
   };
   index: number;
 }

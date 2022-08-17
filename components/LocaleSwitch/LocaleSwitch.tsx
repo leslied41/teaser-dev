@@ -6,10 +6,12 @@ const LocaleSwitch = () => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 
-  const changeToEN = () => {
+  const changeToEN = (e: React.MouseEvent) => {
+    e.stopPropagation();
     router.push({ pathname, query }, asPath, { locale: "en" });
   };
-  const changeToCn = () => {
+  const changeToCn = (e: React.MouseEvent) => {
+    e.stopPropagation();
     router.push({ pathname, query }, asPath, { locale: "cn" });
   };
 
