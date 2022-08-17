@@ -87,7 +87,7 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full">
+    <div className="absolute inset-0 w-full">
       <ExhibitionInfo className="fixed top-2 left-2 sm:top-3 sm:left-3" />
       <TitleAndSubtitle
         className="fixed bottom-0 left-0"
