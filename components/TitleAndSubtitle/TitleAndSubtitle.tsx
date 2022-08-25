@@ -43,6 +43,10 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
     const getElementWidth = () => {
       const eW = divRef.current?.getBoundingClientRect().width;
       if (rowRef.current === false) return;
+      //when row-col, do not change element width, cause now the widht is smaller due to row-col.
+      //and if its width get updated, this widht will be shorter than viewport widht, layout will
+      //be changed to row again. so once row-col just keep this width and this widht will be the breakpoint.
+      //when it get wider, it will be wider than element width, and row-col will become col.
       else {
         eWidthRef.current = eW;
         setUpdateWidth(!updateWidth);
@@ -77,14 +81,14 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
       >
         <p
           className={cn(
-            "text-title-color text-lg sm:text-xl whitespace-nowrap",
+            " text-title-color text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
             }
           )}
         >
           <span
-            className={cn("bg-black inline-block", {
+            className={cn("p-1 bg-black inline-block", {
               ["!bg-white"]: index !== 0,
             })}
           >
@@ -93,14 +97,14 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
         </p>
         <p
           className={cn(
-            "text-title-color text-base sm:text-lg flex items-end whitespace-nowrap",
+            " text-title-color text-base sm:text-lg flex items-end whitespace-nowrap",
             {
               ["text-base sm:!text-ml"]: router.locale === "cn",
             }
           )}
         >
           <span
-            className={cn("bg-black  flex items-center justify-center", {
+            className={cn("p-1 bg-black  flex items-center justify-center", {
               ["!bg-white"]: index !== 0,
             })}
           >

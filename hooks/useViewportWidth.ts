@@ -5,7 +5,6 @@ const useViewportWidth = () => {
   const canUseDOM = typeof window !== "undefined";
   const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
   const [viewportWidth, setViewportWidth] = useState<number>();
-
   useIsomorphicLayoutEffect(() => {
     const w = window.innerWidth;
     setViewportWidth(w);

@@ -94,6 +94,13 @@ const Home: NextPage = () => {
         obj={data[indexRef.current]}
         index={indexRef.current}
       />
+      {/* so my current method to change title and subtitle might not be good, casue it may
+      make it impossible to implement animation. another solution is to use map function, to generaete all
+      the titleandsubtitle componets here, and add like opacity to each element to realize same result.
+      and regarding long name and short name break difference might be easier to implement as well.
+      in each componet, width can be calculated and to decide col or row layout. and default layout 
+      will be set as row, through calculation in uselayouteffect, layout can be changed inside. it is 
+      an easier solution aoviding complciated and unnecessary logics.  */}
       <LocaleSwitch />
       <VideoBg index={indexRef.current} />
     </div>

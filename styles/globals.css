@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "M XiangHe Hei TC W40 Book";
+  src: url("../public/fonts/1550f6de-fef5-4c44-b340-fce51a46d38e.woff")
+      format("woff"),
+    url("../public/fonts/92b93fd2-fbe9-4351-96a5-c907bb4a1a87.woff2")
+      format("woff2");
+}
+
 :root {
   --title-color: #c68f5c;
 }
@@ -9,8 +17,16 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.cn {
+  font-family: "M XiangHe Hei TC W40 Book", -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+.en {
+  font-family: "M XiangHe Hei TC W40 Book", -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 a {
