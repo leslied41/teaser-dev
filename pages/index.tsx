@@ -71,7 +71,7 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    const debounceFn = debounce(wheel, 100);
+    const debounceFn = debounce(wheel, 25);
     const debounceTouchMove = debounce(handleTouchMove, 50);
     window.addEventListener("wheel", debounceFn);
     window.addEventListener("touchstart", handleTouchStart);
