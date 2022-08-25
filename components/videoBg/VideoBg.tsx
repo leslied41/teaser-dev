@@ -1,13 +1,14 @@
 import React, { FC, createRef, useMemo, useEffect } from "react";
 import { data } from "../TitleAndSubtitle/data";
 import cn from "clsx";
-import s from "./VideoBg.module.css";
+import useBreakpoints from "../../hooks/useBreakpoints";
 
 interface Props {
   index: number;
 }
 
 const VideoBg: FC<Props> = ({ index }) => {
+  const { mobile } = useBreakpoints();
   const elRefs = useMemo(
     () =>
       Array(data.length)
@@ -36,13 +37,18 @@ const VideoBg: FC<Props> = ({ index }) => {
           controls={false}
           preload="auto"
           ref={elRefs[i]}
-          src={item.src}
           muted
           loop
           className={cn("h-full w-full object-cover hidden ", {
             ["!block"]: index === i,
           })}
-        ></video>
+        >
+          <source
+            type="video/mp4"
+            src={mobile ? item.mobileSrc : item.src}
+            className="hidden sm:block"
+          ></source>
+        </video>
       ))}
     </>
   );
