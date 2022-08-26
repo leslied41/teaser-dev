@@ -5,9 +5,12 @@ import useBreakpoints from "../../hooks/useBreakpoints";
 
 interface Props {
   index: number;
+  updateIndexRef: (index: number) => void;
+  setUpdate: (update: boolean) => void;
+  update: boolean;
 }
 
-const VideoBg: FC<Props> = ({ index }) => {
+const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
   const { mobile } = useBreakpoints();
   const elRefs = useMemo(
     () =>
@@ -19,6 +22,7 @@ const VideoBg: FC<Props> = ({ index }) => {
   const operate = (index: number) => {
     elRefs.forEach((e, i) => {
       if (i === index) e.current?.play();
+      if (i !== index) e.current?.pause();
     });
   };
 
@@ -27,6 +31,26 @@ const VideoBg: FC<Props> = ({ index }) => {
       if (i === index) operate(index);
     });
   }, [elRefs, index]);
+
+  useEffect(() => {
+    const fns = elRefs.map((e, i) => {
+      return () => {
+        if (i === elRefs.length - 1) updateIndexRef(0);
+        else updateIndexRef(i + 1);
+        setUpdate(!update);
+      };
+    });
+
+    elRefs.forEach((e, i) => {
+      e.current?.addEventListener("ended", fns[i]);
+    });
+
+    return () => {
+      elRefs.forEach((e, i) => {
+        e.current?.removeEventListener("ended", fns[i]);
+      });
+    };
+  }, [update]);
 
   return (
     <>
@@ -38,7 +62,6 @@ const VideoBg: FC<Props> = ({ index }) => {
           preload="auto"
           ref={elRefs[i]}
           muted
-          loop
           className={cn("h-full w-full object-cover hidden ", {
             ["!block"]: index === i,
           })}

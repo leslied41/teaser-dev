@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import type { NextPage } from "next";
 import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
 var debounce = require("lodash.debounce");
+var throttle = require("lodash.throttle");
 import { data } from "../components/TitleAndSubtitle/data";
 import VideoBg from "../components/videoBg";
 
@@ -70,8 +71,15 @@ const Home: NextPage = () => {
     }
   };
 
+  const updateIndexRef = useMemo(
+    () => (index: number) => {
+      indexRef.current = index;
+    },
+    []
+  );
+
   useEffect(() => {
-    const debounceFn = debounce(wheel, 25);
+    const debounceFn = debounce(wheel, 35);
     const debounceTouchMove = debounce(handleTouchMove, 50);
     window.addEventListener("wheel", debounceFn);
     window.addEventListener("touchstart", handleTouchStart);
@@ -102,7 +110,12 @@ const Home: NextPage = () => {
       will be set as row, through calculation in uselayouteffect, layout can be changed inside. it is 
       an easier solution aoviding complciated and unnecessary logics.  */}
       <LocaleSwitch />
-      <VideoBg index={indexRef.current} />
+      <VideoBg
+        index={indexRef.current}
+        updateIndexRef={updateIndexRef}
+        setUpdate={setUpdate}
+        update={update}
+      />
     </div>
   );
 };
