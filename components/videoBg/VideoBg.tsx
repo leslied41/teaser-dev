@@ -22,7 +22,10 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
   const operate = (index: number) => {
     elRefs.forEach((e, i) => {
       if (i === index) e.current?.play();
-      if (i !== index) e.current?.pause();
+      if (i !== index) {
+        e.current?.pause();
+        e.current!.currentTime = 0;
+      }
     });
   };
 
@@ -69,7 +72,6 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
           <source
             type="video/mp4"
             src={mobile ? item.mobileSrc : item.src}
-            className="hidden sm:block"
           ></source>
         </video>
       ))}
