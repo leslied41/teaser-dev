@@ -10,7 +10,6 @@ import cn from "clsx";
 import { useRouter } from "next/router";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import useViewportWith from "../../hooks/useViewportWidth";
-import { truncate } from "fs";
 var debounce = require("lodash.debounce");
 
 interface Props {
@@ -76,7 +75,6 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
         setHideen(false);
       }, 500);
     }
-
     setTimeout(() => {
       setHideen(true);
     }, 8000);
@@ -86,7 +84,7 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
     <>
       <div
         className={cn(
-          "flex-col   uppercase flex  max-w-0 overflow-hidden transition-all duration-[2700ms]",
+          "flex-col   uppercase flex  max-w-0 overflow-hidden transition-all duration-[3000ms]",
           className,
           {
             ["max-w-full transition-all duration-[2000ms]"]: !hideen,
@@ -107,9 +105,9 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
         >
           <span
             className={cn(
-              "inline-block max-w-0 transition-all duration-[2000ms] delay-700  overflow-hidden",
+              "inline-block max-w-0 transition-all duration-[1000ms] delay-[1000ms]  overflow-hidden",
               {
-                ["max-w-full transition-all duration-[2000ms] !delay-[0ms]"]:
+                ["max-w-full transition-all duration-[1000ms] !delay-[0ms]"]:
                   !hideen,
               }
             )}
@@ -128,9 +126,9 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
         >
           <span
             className={cn(
-              "inline-block max-w-0  overflow-hidden transition-all duration-[2000ms]",
+              "inline-block max-w-0  overflow-hidden transition-all duration-[1000ms]",
               {
-                ["max-w-full transition-all duration-[2000ms] delay-700"]:
+                ["max-w-full transition-all duration-[1000ms] delay-[1000ms]"]:
                   !hideen,
               }
             )}
@@ -155,7 +153,6 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
             " text-title-color h-fit w-fit  bg-black text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
-              ["!bg-white"]: order !== 0,
             }
           )}
         >
@@ -168,7 +165,6 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
             " text-title-color h-fit w-fit bg-black text-base sm:text-lg flex items-end whitespace-nowrap",
             {
               ["text-base sm:!text-ml"]: router.locale === "cn",
-              ["!bg-white"]: order !== 0,
             }
           )}
         >
