@@ -10,6 +10,7 @@ import cn from "clsx";
 import { useRouter } from "next/router";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import useViewportWith from "../../hooks/useViewportWidth";
+import { truncate } from "fs";
 var debounce = require("lodash.debounce");
 
 interface Props {
@@ -21,10 +22,10 @@ interface Props {
     subtitle_cn: string;
     src: string;
   };
-  index: number;
+  order: number;
 }
 
-const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
+const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
   const canUseDOM = typeof window !== "undefined";
   const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
   const router = useRouter();
@@ -33,6 +34,7 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
   const rowRef = useRef(true);
   const [updateWidth, setUpdateWidth] = useState(false);
   const [updateRow, setUpdateRow] = useState(true);
+  const [hideen, setHideen] = useState(true);
 
   const { viewportWidth } = useViewportWith();
 
@@ -43,10 +45,6 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
     const getElementWidth = () => {
       const eW = divRef.current?.getBoundingClientRect().width;
       if (rowRef.current === false) return;
-      //when row-col, do not change element width, cause now the widht is smaller due to row-col.
-      //and if its width get updated, this widht will be shorter than viewport widht, layout will
-      //be changed to row again. so once row-col just keep this width and this widht will be the breakpoint.
-      //when it get wider, it will be wider than element width, and row-col will become col.
       else {
         eWidthRef.current = eW;
         setUpdateWidth(!updateWidth);
@@ -57,7 +55,7 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
     return () => {
       window.removeEventListener("resize", debounceFn);
     };
-  }, [index, router.locale]);
+  }, [router.locale]);
 
   useIsomorphicLayoutEffect(() => {
     if (eWidthRef.current! < viewportWidth!) {
@@ -70,53 +68,81 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
     }
   }, [viewportWidth, updateWidth]);
 
+  useEffect(() => {
+    if (order === 0) {
+      setHideen(false);
+    } else {
+      setTimeout(() => {
+        setHideen(false);
+      }, 500);
+    }
+
+    setTimeout(() => {
+      setHideen(true);
+    }, 8000);
+  }, [order]);
+
   return (
     <>
       <div
-        className={cn("flex flex-col w-fit uppercase", className, {
-          ["!flex-col"]:
-            (index == 0 && router.locale !== "cn") || rowRef.current == false,
-          ["!flex-row"]: rowRef.current === true,
-        })}
+        className={cn(
+          "flex-col   uppercase flex  max-w-0 overflow-hidden transition-all duration-[2700ms]",
+          className,
+          {
+            ["max-w-full transition-all duration-[2000ms]"]: !hideen,
+            ["!flex-col !items-start"]:
+              (order == 0 && router.locale !== "cn") || rowRef.current == false,
+            ["!flex-row items-end"]: rowRef.current === true,
+          }
+        )}
       >
         <p
           className={cn(
-            " text-title-color text-lg sm:text-xl whitespace-nowrap",
+            "p-1 text-title-color h-fit w-fit  bg-black text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
+              ["!bg-white"]: order !== 0,
             }
           )}
         >
           <span
-            className={cn("p-1 bg-black inline-block", {
-              ["!bg-white"]: index !== 0,
-            })}
+            className={cn(
+              "inline-block max-w-0 transition-all duration-[2000ms] delay-700  overflow-hidden",
+              {
+                ["max-w-full transition-all duration-[2000ms] !delay-[0ms]"]:
+                  !hideen,
+              }
+            )}
           >
             {router.locale === "en" ? obj.title : obj.title_cn}
           </span>
         </p>
         <p
           className={cn(
-            " text-title-color text-base sm:text-lg flex items-end whitespace-nowrap",
+            "p-1 text-title-color h-fit w-fit bg-black text-base sm:text-lg flex items-end whitespace-nowrap",
             {
               ["text-base sm:!text-ml"]: router.locale === "cn",
+              ["!bg-white"]: order !== 0,
             }
           )}
         >
           <span
-            className={cn("p-1 bg-black  flex items-center justify-center", {
-              ["!bg-white"]: index !== 0,
-            })}
+            className={cn(
+              "inline-block max-w-0  overflow-hidden transition-all duration-[2000ms]",
+              {
+                ["max-w-full transition-all duration-[2000ms] delay-700"]:
+                  !hideen,
+              }
+            )}
           >
-            {index !== 0 && (
+            {order !== 0 && (
               <ArrowRightAltIcon className="text-base sm:!text-lg" />
             )}
             {router.locale === "en" ? obj.subtitle : obj.subtitle_cn}
           </span>
         </p>
       </div>
-      {/* this is the copy of above that is used to update the expected width, as only the width of the div when
-      flex-direction: row is needed. So in this copy, the flex-derection is fixed as flex-row.*/}
+      {/* copy above */}
       <div
         ref={divRef}
         className={cn(
@@ -126,34 +152,28 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, index }) => {
       >
         <p
           className={cn(
-            "text-title-color text-lg sm:text-xl whitespace-nowrap",
+            " text-title-color h-fit w-fit  bg-black text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
+              ["!bg-white"]: order !== 0,
             }
           )}
         >
-          <span
-            className={cn("bg-black inline-block", {
-              ["!bg-white"]: index !== 0,
-            })}
-          >
+          <span className={cn("p-1  inline-block")}>
             {router.locale === "en" ? obj.title : obj.title_cn}
           </span>
         </p>
         <p
           className={cn(
-            "text-title-color text-base sm:text-lg flex items-end whitespace-nowrap",
+            " text-title-color h-fit w-fit bg-black text-base sm:text-lg flex items-end whitespace-nowrap",
             {
               ["text-base sm:!text-ml"]: router.locale === "cn",
+              ["!bg-white"]: order !== 0,
             }
           )}
         >
-          <span
-            className={cn("bg-black  flex items-center justify-center", {
-              ["!bg-white"]: index !== 0,
-            })}
-          >
-            {index !== 0 && (
+          <span className={cn("p-1  flex items-center justify-center")}>
+            {order !== 0 && (
               <ArrowRightAltIcon className="text-base sm:!text-lg" />
             )}
             {router.locale === "en" ? obj.subtitle : obj.subtitle_cn}

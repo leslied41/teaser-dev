@@ -7,6 +7,7 @@ var debounce = require("lodash.debounce");
 var throttle = require("lodash.throttle");
 import { data } from "../components/TitleAndSubtitle/data";
 import VideoBg from "../components/videoBg";
+import cn from "clsx";
 
 const Home: NextPage = () => {
   const [update, setUpdate] = useState(false);
@@ -97,18 +98,18 @@ const Home: NextPage = () => {
   return (
     <div className="absolute inset-0 w-full">
       <ExhibitionInfo className="fixed top-2 left-2 sm:top-3 sm:left-3" />
-      <TitleAndSubtitle
-        className="fixed bottom-0 left-0"
-        obj={data[indexRef.current]}
-        index={indexRef.current}
-      />
-      {/* so my current method to change title and subtitle might not be good, casue it may
-      make it impossible to implement animation. another solution is to use map function, to generaete all
-      the titleandsubtitle componets here, and add like opacity to each element to realize same result.
-      and regarding long name and short name break difference might be easier to implement as well.
-      in each componet, width can be calculated and to decide col or row layout. and default layout 
-      will be set as row, through calculation in uselayouteffect, layout can be changed inside. it is 
-      an easier solution aoviding complciated and unnecessary logics.  */}
+      {data.map((item, i) => {
+        if (i === indexRef.current)
+          return (
+            <TitleAndSubtitle
+              key={i}
+              className={cn("fixed bottom-0 left-0")}
+              obj={data[indexRef.current]}
+              order={i}
+            />
+          );
+      })}
+
       <LocaleSwitch />
       <VideoBg
         index={indexRef.current}
