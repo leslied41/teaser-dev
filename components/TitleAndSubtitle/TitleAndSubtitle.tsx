@@ -84,10 +84,10 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
     <>
       <div
         className={cn(
-          "flex-col   uppercase flex  max-w-0 overflow-hidden transition-all duration-[3000ms]",
+          "flex-col   uppercase flex  max-w-0 overflow-hidden transition-all duration-[2000ms]",
           className,
           {
-            ["max-w-full transition-all duration-[2000ms]"]: !hideen,
+            ["max-w-full transition-all"]: !hideen,
             ["!flex-col !items-start"]:
               (order == 0 && router.locale !== "cn") || rowRef.current == false,
             ["!flex-row items-end"]: rowRef.current === true,

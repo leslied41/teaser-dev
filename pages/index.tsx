@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
+import ProgressBar from "../components/progressBar/";
 var debounce = require("lodash.debounce");
 var throttle = require("lodash.throttle");
 import { data } from "../components/TitleAndSubtitle/data";
@@ -97,7 +98,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="absolute inset-0 w-full">
-      <ExhibitionInfo className="fixed top-2 left-2 sm:top-3 sm:left-3" />
+      <ExhibitionInfo className="fixed top-[26px] left-2 sm:top-9 sm:left-3" />
       {data.map((item, i) => {
         if (i === indexRef.current)
           return (
@@ -109,7 +110,10 @@ const Home: NextPage = () => {
             />
           );
       })}
-
+      <ProgressBar
+        className="fixed top-2 sm:top-3 w-full"
+        index={indexRef.current}
+      />
       <LocaleSwitch />
       <VideoBg
         index={indexRef.current}
