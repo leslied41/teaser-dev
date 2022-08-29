@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       if (indexRef.current < data.length - 1) {
-        indexRef.current = indexRef.current + 1;
+        indexRef!.current = indexRef.current! + 1;
         return setUpdate((prev) => !prev);
       }
       if (indexRef.current === data.length - 1) {
