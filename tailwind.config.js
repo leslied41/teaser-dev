@@ -8,10 +8,11 @@ module.exports = {
     extend: {
       fontSize: {
         sm: ["12px", "12px"],
-        "sm-cn": ["12px", "20px"],
-        m: ["14px", "14px"],
-        base: ["16px", "16px"],
-        "base-cn": ["16px", "20px"],
+        "sm-cn": ["12px", "14px"],
+        m: ["16px", "16px"],
+        "m-cn": ["16px", "20px"],
+        base: ["12px", "12px"],
+        "base-cn": ["12px", "16px"],
         lg: ["32px", "32px"],
         ml: ["43px", "43px"],
         xl: ["56px", "56px"],

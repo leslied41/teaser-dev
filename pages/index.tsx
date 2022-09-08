@@ -4,17 +4,18 @@ import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
 import ProgressBar from "../components/progressBar/";
-var debounce = require("lodash.debounce");
-var throttle = require("lodash.throttle");
-import { data } from "../components/TitleAndSubtitle/data";
 import VideoBg from "../components/videoBg";
+import { data } from "../components/TitleAndSubtitle/data";
+import { useRouter } from "next/router";
 import cn from "clsx";
+var debounce = require("lodash.debounce");
 
 const Home: NextPage = () => {
   const [update, setUpdate] = useState(false);
   const indexRef = useRef<number>(0);
   const touchStartPositionRef = useRef<number>();
   const currentPositionRef = useRef<number>();
+  const router = useRouter();
 
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
@@ -98,7 +99,11 @@ const Home: NextPage = () => {
 
   return (
     <div className="absolute inset-0 w-full">
-      <ExhibitionInfo className="fixed top-[26px] left-2 sm:top-9 sm:left-3" />
+      <ExhibitionInfo
+        className={cn("fixed top-[60px] left-2 sm:top-[75px] sm:left-3", {
+          ["!top-[88px]"]: router.locale === "en",
+        })}
+      />
       {data.map((item, i) => {
         if (i === indexRef.current)
           return (

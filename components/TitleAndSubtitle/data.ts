@@ -19,7 +19,7 @@ export const data = [
   },
   {
     title: "koon wai bong",
-    subtitle: "outlying islands",
+    subtitle: "outlying island",
     title_cn: "管偉邦",
     subtitle_cn: "離島",
     src: "https://player.vimeo.com/progressive_redirect/playback/742714851/rendition/720p/file.mp4?loc=external&signature=7ab92c6d20a9d07b0b0e8446622326c798446b2f9b421ae28385a2b0c05405a7",
@@ -28,9 +28,9 @@ export const data = [
   },
   {
     title: "lam tung pang",
-    subtitle: "wanchai",
+    subtitle: "North Coast of Hong Kong Island",
     title_cn: "林東鵬",
-    subtitle_cn: "灣仔",
+    subtitle_cn: "港島北",
     src: "https://player.vimeo.com/progressive_redirect/playback/742691580/rendition/720p/file.mp4?loc=external&signature=9db15cd987ee83dd00af85fd8a1291aa279aa9fd108a9d3be417f002bdf4a4c0",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735527/rendition/540p/file.mp4?loc=external&signature=7a42d824e7c0a0a4dc39b02653193039bb82ddfa1fbfff4dc22ed26c92e7e440",
@@ -45,10 +45,10 @@ export const data = [
       "https://player.vimeo.com/progressive_redirect/playback/742735625/rendition/540p/file.mp4?loc=external&signature=b9a9062dc51d8af53ce1bb11841f6367f85e2129c26de652767da6d0e928b84a",
   },
   {
-    title: "wong chun hei",
-    subtitle: "kowloon peninsula",
+    title: "wong chun hei, stephen",
+    subtitle: "kowloon mountain ranges",
     title_cn: "黃進曦",
-    subtitle_cn: "九龍",
+    subtitle_cn: "九龍群山",
     src: "https://player.vimeo.com/progressive_redirect/playback/742691544/rendition/720p/file.mp4?loc=external&signature=577631aafe46c14a55215d5299c1cebc954d94621e75b8460482e75f5fc884bb",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735631/rendition/540p/file.mp4?loc=external&signature=203d7d969ece7866e1d75233989e25634509fc91d1cf2b3a7db99d2b869234c6",

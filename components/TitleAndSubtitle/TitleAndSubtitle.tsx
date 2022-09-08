@@ -10,6 +10,16 @@ import cn from "clsx";
 import { useRouter } from "next/router";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import useViewportWith from "../../hooks/useViewportWidth";
+import {
+  TitleCn,
+  TitleEn,
+  SubtitleCn,
+  SubtitleEn,
+  TitleEnMobile,
+  TitleCnMobile,
+  SubtitleCnMobile,
+  SubtitleEnMobile,
+} from "../icons";
 var debounce = require("lodash.debounce");
 
 interface Props {
@@ -96,10 +106,9 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
       >
         <p
           className={cn(
-            "p-1 text-title-color h-fit w-fit  bg-black text-lg sm:text-xl whitespace-nowrap",
+            "p-1 text-title-color h-fit w-fit  bg-white text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
-              ["!bg-white"]: order !== 0,
             }
           )}
         >
@@ -112,15 +121,26 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
               }
             )}
           >
-            {router.locale === "en" ? obj.title : obj.title_cn}
+            {order !== 0 && (router.locale === "en" ? obj.title : obj.title_cn)}
+            {order === 0 &&
+              (router.locale === "en" ? (
+                <>
+                  <TitleEn className="hidden sm:block" />
+                  <TitleEnMobile className="block sm:hidden" />
+                </>
+              ) : (
+                <>
+                  <TitleCn className="hidden sm:block" />
+                  <TitleCnMobile className="block sm:hidden" />
+                </>
+              ))}
           </span>
         </p>
         <p
           className={cn(
-            "p-1 text-title-color h-fit w-fit bg-black text-base sm:text-lg flex items-end whitespace-nowrap",
+            "p-1 text-title-color h-fit w-fit bg-white text-m sm:text-lg flex items-end whitespace-nowrap",
             {
-              ["text-base sm:!text-ml"]: router.locale === "cn",
-              ["!bg-white"]: order !== 0,
+              ["text-m sm:!text-ml"]: router.locale === "cn",
             }
           )}
         >
@@ -134,12 +154,26 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
             )}
           >
             {order !== 0 && (
-              <ArrowRightAltIcon className="text-base sm:!text-lg" />
+              <ArrowRightAltIcon className="text-m sm:!text-lg" />
             )}
-            {router.locale === "en" ? obj.subtitle : obj.subtitle_cn}
+            {order !== 0 &&
+              (router.locale === "en" ? obj.subtitle : obj.subtitle_cn)}
+            {order === 0 &&
+              (router.locale === "en" ? (
+                <>
+                  <SubtitleEn className="hidden sm:block" />
+                  <SubtitleEnMobile className="block sm:hidden" />
+                </>
+              ) : (
+                <>
+                  <SubtitleCn className="hidden sm:block" />
+                  <SubtitleCnMobile className="block sm:hidden" />
+                </>
+              ))}
           </span>
         </p>
       </div>
+
       {/* copy above */}
       <div
         ref={divRef}
@@ -150,29 +184,31 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
       >
         <p
           className={cn(
-            " text-title-color h-fit w-fit  bg-black text-lg sm:text-xl whitespace-nowrap",
+            " text-title-color h-fit w-fit  bg-white text-lg sm:text-xl whitespace-nowrap",
             {
               ["!text-xxl-cn sm:!text-xxl"]: router.locale === "cn",
             }
           )}
         >
-          <span className={cn("p-1  inline-block")}>
-            {router.locale === "en" ? obj.title : obj.title_cn}
-          </span>
+          {order !== 0 && (router.locale === "en" ? obj.title : obj.title_cn)}
+          {order === 0 && (router.locale === "en" ? <TitleEn /> : <TitleCn />)}
         </p>
         <p
           className={cn(
-            " text-title-color h-fit w-fit bg-black text-base sm:text-lg flex items-end whitespace-nowrap",
+            " text-title-color h-fit w-fit bg-white text-m sm:text-lg flex items-end whitespace-nowrap",
             {
-              ["text-base sm:!text-ml"]: router.locale === "cn",
+              ["text-m sm:!text-ml"]: router.locale === "cn",
             }
           )}
         >
           <span className={cn("p-1  flex items-center justify-center")}>
             {order !== 0 && (
-              <ArrowRightAltIcon className="text-base sm:!text-lg" />
+              <ArrowRightAltIcon className="text-m sm:!text-lg" />
             )}
-            {router.locale === "en" ? obj.subtitle : obj.subtitle_cn}
+            {order !== 0 &&
+              (router.locale === "en" ? obj.subtitle : obj.subtitle_cn)}
+            {order === 0 &&
+              (router.locale === "en" ? <SubtitleEn /> : <SubtitleCn />)}
           </span>
         </p>
       </div>
