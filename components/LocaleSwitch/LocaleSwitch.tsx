@@ -20,7 +20,7 @@ const LocaleSwitch = () => {
       <button
         onClick={changeToEN}
         className={cn(
-          "h-6 w-8 fixed top-[26px] right-2 sm:top-9 sm:right-3 border-white border-[1px]  text-base text-white mix-blend-exclusion z-50",
+          "h-6 w-8 fixed top-[26px] right-2 sm:top-9 sm:right-3 border-white border-[1px]  text-m text-white mix-blend-exclusion z-50",
           {
             ["!text-title-color bg-black !border-black !mix-blend-normal"]:
               router.locale === "en",
@@ -32,7 +32,7 @@ const LocaleSwitch = () => {
       <button
         onClick={changeToCn}
         className={cn(
-          "h-6 w-8 fixed top-[58px] sm:top-[68px] right-2 sm:right-3 border-white border-[1px]  text-base text-white mix-blend-exclusion z-50",
+          "h-6 w-8 fixed top-[58px] sm:top-[68px] right-2 sm:right-3 border-white border-[1px]  text-m text-white mix-blend-exclusion z-50",
           {
             ["!text-title-color bg-black !border-black !mix-blend-normal"]:
               router.locale === "cn",
