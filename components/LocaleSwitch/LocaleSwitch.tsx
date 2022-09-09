@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { memo } from "react";
 import { useRouter } from "next/router";
 import cn from "clsx";
 
