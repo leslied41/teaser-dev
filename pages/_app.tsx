@@ -1,25 +1,24 @@
 import type { ReactElement, ReactNode } from "react";
-import type { NextPage } from "next";
+import { FC } from "react";
 import type { AppProps } from "next/app";
+import { GlobalProvider } from "../components/common";
 import { useRouter } from "next/router";
 import "../styles/globals.css";
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
+const Noop: FC<{ children: ReactNode }> = ({ children }) => <>{children}</>;
 
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
-
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const getLayout = Component.getLayout ?? ((page) => page);
+  const Layout = (Component as any).Layout || Noop;
 
   return (
-    <div className={router.locale === "cn" ? "cn" : "en"}>
-      {getLayout(<Component {...pageProps} />)}
-    </div>
+    <GlobalProvider>
+      <div className={router.locale === "cn" ? "cn" : "en"}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
+    </GlobalProvider>
   );
 }
 
