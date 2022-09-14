@@ -3,10 +3,9 @@ import type { NextPageWithLayout } from "./_app";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import ProgressBar from "../components/progressBar/";
 import VideoBg from "../components/videoBg";
-import { MainNav } from "../components/common";
+import { GlobalLayout, MainNav } from "../components/common";
 import { LandingMenuIcon } from "../components/icons";
 import { data } from "../components/TitleAndSubtitle/data";
-import { useRouter } from "next/router";
 import cn from "clsx";
 var debounce = require("lodash.debounce");
 
@@ -15,7 +14,6 @@ const Home: NextPageWithLayout = () => {
   const indexRef = useRef<number>(0);
   const touchStartPositionRef = useRef<number>();
   const currentPositionRef = useRef<number>();
-  const router = useRouter();
 
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
@@ -100,7 +98,6 @@ const Home: NextPageWithLayout = () => {
   return (
     <div className="absolute inset-0 w-full">
       <ProgressBar className="fixed top-0 w-full " index={indexRef.current} />
-      <LandingMenuIcon className="fixed top-0 right-0 z-10 cursor-pointer" />
       <MainNav className="fixed top-3 z-10" embedIn="landing" />
       {data.map((item, i) => {
         if (i === indexRef.current)
@@ -123,3 +120,4 @@ const Home: NextPageWithLayout = () => {
   );
 };
 export default Home;
+Home.getLayout = GlobalLayout;
