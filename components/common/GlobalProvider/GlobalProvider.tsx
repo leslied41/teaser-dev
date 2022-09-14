@@ -57,7 +57,6 @@ const GlobalProvider: FC<GlobalProviderProps> = ({ children }) => {
     }),
     [openNavbar, setOpenNavbar]
   );
-  console.log(value);
   return (
     <GlobalProviderContext.Provider value={value}>
       {children}
