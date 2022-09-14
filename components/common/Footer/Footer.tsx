@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="w-full  bg-gray-700 p-4 pt-20 ">
       <div className="flex w-full mb-5">
         <div className="flex flex-2 justify-start">
-          <MainNav />
+          <MainNav embedIn="footer" />
         </div>
         <div className="flex-1 flex justify-end">
           <div>

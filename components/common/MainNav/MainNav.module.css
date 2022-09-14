@@ -1,0 +1,3 @@
+.parentSpan:hover span:first-child {
+  display: inline-block !important;
+}

@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import type { NextPageWithLayout } from "./_app";
-import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
-import LocaleSwitch from "../components/LocaleSwitch";
 import ProgressBar from "../components/progressBar/";
 import VideoBg from "../components/videoBg";
-import { Layout } from "../components/common";
+import { MainNav } from "../components/common";
+import { LandingMenuIcon } from "../components/icons";
 import { data } from "../components/TitleAndSubtitle/data";
 import { useRouter } from "next/router";
 import cn from "clsx";
@@ -100,11 +99,9 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <div className="absolute inset-0 w-full">
-      <ExhibitionInfo
-        className={cn("fixed top-[60px] left-2 sm:top-[75px] sm:left-3", {
-          ["!top-[88px]"]: router.locale === "en",
-        })}
-      />
+      <ProgressBar className="fixed top-0 w-full " index={indexRef.current} />
+      <LandingMenuIcon className="fixed top-0 right-0 z-10 cursor-pointer" />
+      <MainNav className="fixed top-3 z-10" embedIn="landing" />
       {data.map((item, i) => {
         if (i === indexRef.current)
           return (
@@ -116,11 +113,6 @@ const Home: NextPageWithLayout = () => {
             />
           );
       })}
-      <ProgressBar
-        className="fixed top-2 sm:top-3 w-full"
-        index={indexRef.current}
-      />
-      <LocaleSwitch />
       <VideoBg
         index={indexRef.current}
         updateIndexRef={updateIndexRef}
