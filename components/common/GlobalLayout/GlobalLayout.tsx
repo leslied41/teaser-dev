@@ -1,17 +1,12 @@
 import React, { FC, ReactNode } from "react";
 import { NavBar } from "..";
-import { LandingMenuIcon } from "../../icons";
-import { useGlobalContext } from "..";
+import { MenuButton } from "..";
 import s from "./GlobalLayout.module.css";
 
 const GlobalLayout: FC<{ children: ReactNode }> = ({ children }) => {
-  const { openNavbar, setOpenNavbar } = useGlobalContext();
-  const handleNavBar = () => setOpenNavbar!();
   return (
     <>
-      <button onClick={handleNavBar} className="fixed top-0 right-0 z-10 ">
-        <LandingMenuIcon />
-      </button>
+      <MenuButton className="fixed top-0 right-0 z-30" />
       <NavBar />
       <main>{children}</main>
     </>

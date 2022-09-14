@@ -9,7 +9,7 @@ module.exports = {
       fontSize: {
         sm: ["12px", "18px"],
         "sm-cn": ["12px", "14px"],
-        m: ["16px", "16px"],
+        m: ["22px", "22px"],
         "m-cn": ["16px", "20px"],
         base: ["12px", "12px"],
         "base-cn": ["12px", "16px"],

@@ -9,7 +9,7 @@ import React, {
 import cn from "clsx";
 import { useRouter } from "next/router";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import useViewportWith from "../../hooks/useViewportWidth";
+import useViewportWidth from "../../../hooks/useViewportWidth";
 import {
   TitleCn,
   TitleEn,
@@ -19,7 +19,7 @@ import {
   TitleCnMobile,
   SubtitleCnMobile,
   SubtitleEnMobile,
-} from "../icons";
+} from "../../icons";
 var debounce = require("lodash.debounce");
 
 interface Props {
@@ -45,7 +45,7 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
   const [updateRow, setUpdateRow] = useState(true);
   const [hideen, setHideen] = useState(true);
 
-  const { viewportWidth } = useViewportWith();
+  const { viewportWidth } = useViewportWidth();
 
   useIsomorphicLayoutEffect(() => {
     const eW = divRef.current?.getBoundingClientRect().width;

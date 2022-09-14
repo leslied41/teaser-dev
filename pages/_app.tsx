@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { FC } from "react";
 import type { AppProps } from "next/app";
 import { GlobalProvider } from "../components/common";

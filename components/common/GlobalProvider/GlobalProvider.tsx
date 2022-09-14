@@ -10,6 +10,7 @@ import React, {
 interface GlobalProviderProps {
   children?: any;
 }
+
 type GlobalProviderContextType = {
   openNavbar: Boolean;
   setOpenNavbar?: () => void;

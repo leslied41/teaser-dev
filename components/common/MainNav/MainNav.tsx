@@ -23,16 +23,22 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
       {navList.map((l, i) => (
         <li key={i} className="uppercase text-xl text-title-color ">
           <span
-            className={cn(s.parentSpan, "px-2", {
-              ["hover:bg-white"]: embedIn === "landing",
-            })}
+            className={cn(
+              s.parentSpan,
+              "flex items-center py-[6px] px-2 w-fit",
+              {
+                ["hover:bg-white"]: embedIn === "landing",
+              }
+            )}
           >
             {embedIn === "landing" && (
-              <span className="hidden">
+              <span className="hidden ">
                 <ArrowRightAltIcon fontSize="large" />
               </span>
             )}
-            <span className="cursor-pointer ">{isEn ? l.en : l.cn}</span>
+            <span className="cursor-pointer flex items-center ">
+              {isEn ? l.en : l.cn}
+            </span>
           </span>
         </li>
       ))}
