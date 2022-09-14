@@ -2,11 +2,9 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import ProgressBar from "../components/progressBar/";
 import VideoBg from "../components/videoBg";
-import { MainNav } from "../components/common";
+import { GlobalLayout, MainNav } from "../components/common";
 import { LandingMenuIcon } from "../components/icons";
-import { GlobalLayout } from "../components/common";
 import { data } from "../components/TitleAndSubtitle/data";
-import { useRouter } from "next/router";
 import cn from "clsx";
 var debounce = require("lodash.debounce");
 
@@ -15,7 +13,6 @@ const Home = () => {
   const indexRef = useRef<number>(0);
   const touchStartPositionRef = useRef<number>();
   const currentPositionRef = useRef<number>();
-  const router = useRouter();
 
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
@@ -124,3 +121,4 @@ const Home = () => {
 };
 Home.Layout = GlobalLayout;
 export default Home;
+Home.getLayout = GlobalLayout;
