@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        sm: ["12px", "12px"],
+        sm: ["12px", "18px"],
         "sm-cn": ["12px", "14px"],
         m: ["16px", "16px"],
         "m-cn": ["16px", "20px"],
@@ -21,6 +21,7 @@ module.exports = {
       },
       colors: {
         "title-color": "var(--title-color)",
+        "secondary-color": "var( --secondary-color)",
       },
     },
   },

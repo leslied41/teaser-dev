@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import type { NextPage } from "next";
+import type { NextPageWithLayout } from "./_app";
 import ExhibitionInfo from "../components/ExhibitionInfo";
 import TitleAndSubtitle from "../components/TitleAndSubtitle";
 import LocaleSwitch from "../components/LocaleSwitch";
 import ProgressBar from "../components/progressBar/";
 import VideoBg from "../components/videoBg";
+import { Layout } from "../components/common";
 import { data } from "../components/TitleAndSubtitle/data";
 import { useRouter } from "next/router";
 import cn from "clsx";
 var debounce = require("lodash.debounce");
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const [update, setUpdate] = useState(false);
   const indexRef = useRef<number>(0);
   const touchStartPositionRef = useRef<number>();
@@ -129,5 +130,4 @@ const Home: NextPage = () => {
     </div>
   );
 };
-
 export default Home;

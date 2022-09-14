@@ -34,7 +34,8 @@
   font-style: italic;
 }
 :root {
-  --title-color: #c68f5c;
+  --title-color: #c89c6c;
+  --secondary-color: #6f6f6f;
 }
 html,
 body {
