@@ -1,4 +1,4 @@
-import React, { FC, createRef, useMemo, useEffect } from "react";
+import React, { FC, createRef, useMemo, useEffect, useCallback } from "react";
 import { data } from "../TitleAndSubtitle/data";
 import cn from "clsx";
 import useBreakpoints from "../../../hooks/useBreakpoints";
@@ -18,24 +18,27 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
       Array(data.length)
         .fill(null)
         .map((_, index) => createRef<HTMLVideoElement>()),
-    [data]
+    []
   );
 
-  const operate = (index: number) => {
-    elRefs.forEach((e, i) => {
-      if (i === index) e.current?.play();
-      if (i !== index) {
-        e.current?.pause();
-        e.current!.currentTime = 0;
-      }
-    });
-  };
+  const operate = useCallback(
+    (index: number) => {
+      elRefs.forEach((e, i) => {
+        if (i === index) e.current?.play();
+        if (i !== index) {
+          e.current?.pause();
+          e.current!.currentTime = 0;
+        }
+      });
+    },
+    [index]
+  );
 
   useEffect(() => {
     data.forEach((item, i) => {
       if (i === index) operate(index);
     });
-  }, [elRefs, index]);
+  }, [elRefs, index, operate]);
 
   useEffect(() => {
     const fns = elRefs.map((e, i) => {
@@ -55,7 +58,7 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
         e.current?.removeEventListener("ended", fns[i]);
       });
     };
-  }, [update]);
+  }, [update, updateIndexRef, elRefs, setUpdate]);
 
   return (
     <>

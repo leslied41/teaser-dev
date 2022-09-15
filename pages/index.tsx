@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import TitleAndSubtitle from "../components/Landing/TitleAndSubtitle";
 import ProgressBar from "../components/Landing/progressBar";
 import VideoBg from "../components/Landing/videoBg";
@@ -70,7 +70,7 @@ const Home = () => {
     }
   };
 
-  const updateIndexRef = useMemo(
+  const updateIndexRef = useCallback(
     () => (index: number) => {
       indexRef.current = index;
     },
