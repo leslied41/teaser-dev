@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import { LandingMenuIcon, LandingMenuCloseIcon } from "../../icons";
 import { useGlobalContext } from "..";
 import cn from "clsx";
@@ -25,4 +25,4 @@ const MenuButton: FC<Props> = ({ className }) => {
   );
 };
 
-export default MenuButton;
+export default memo(MenuButton);

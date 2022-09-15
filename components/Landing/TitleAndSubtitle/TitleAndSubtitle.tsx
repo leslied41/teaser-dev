@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  useRef,
-  useState,
-  useLayoutEffect,
-  useEffect,
-  memo,
-} from "react";
+import React, { FC, useRef, useState, useLayoutEffect, useEffect } from "react";
 import cn from "clsx";
 import { useRouter } from "next/router";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
@@ -215,4 +208,4 @@ const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
     </>
   );
 };
-export default memo(TitleAndSubtitle);
+export default TitleAndSubtitle;

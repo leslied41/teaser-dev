@@ -4,9 +4,7 @@ import { LocaleSwitch } from "..";
 import { useGlobalContext } from "..";
 import cn from "clsx";
 
-interface Props {}
-
-const NavBar = (props: Props) => {
+const NavBar = () => {
   const { openNavbar } = useGlobalContext();
 
   return (

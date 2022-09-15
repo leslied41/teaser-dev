@@ -15,19 +15,24 @@ type GlobalProviderContextType = {
   openNavbar: Boolean;
   setOpenNavbar?: () => void;
 };
+
 enum ActionType {
   NAVBAR = "NAVBAR",
 }
+
 type Action = {
   type: ActionType;
   payload?: any;
 };
+
 type StateType = {
   openNavbar: boolean;
 };
+
 const defaultContextValue = {
   openNavbar: false,
 };
+
 const initialState = {
   openNavbar: false,
 };

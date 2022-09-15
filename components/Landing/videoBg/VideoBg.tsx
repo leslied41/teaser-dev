@@ -12,6 +12,7 @@ interface Props {
 
 const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
   const { mobile } = useBreakpoints();
+
   const elRefs = useMemo(
     () =>
       Array(data.length)
@@ -19,6 +20,7 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
         .map((_, index) => createRef<HTMLVideoElement>()),
     [data]
   );
+
   const operate = (index: number) => {
     elRefs.forEach((e, i) => {
       if (i === index) e.current?.play();

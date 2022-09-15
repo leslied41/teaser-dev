@@ -1,4 +1,4 @@
-import React, { FC, useRef } from "react";
+import React, { FC, memo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
@@ -53,4 +53,4 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
   );
 };
 
-export default MainNav;
+export default memo(MainNav);
