@@ -16,7 +16,7 @@ const NavBar = () => {
         }
       )}
     >
-      <MainNav embedIn="landing" />
+      <MainNav embedIn="navbar" />
       <LocaleSwitch className="absolute left-0 bottom-0" />
     </div>
   );
