@@ -69,12 +69,11 @@ const Home = () => {
       }
     }
   };
-
   const updateIndexRef = useCallback(
-    () => (index: number) => {
+    (index: number) => {
       indexRef.current = index;
     },
-    []
+    [update]
   );
 
   useEffect(() => {
