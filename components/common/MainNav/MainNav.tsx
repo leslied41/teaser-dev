@@ -22,11 +22,13 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
   const { setOpenNavbar } = useGlobalContext();
   const isEn = router.locale === "en";
 
-  const CloseNavbar = () => {
-    if (embedIn === "navbar" && setOpenNavbar)
-      setTimeout(() => {
-        setOpenNavbar(false);
-      }, 500);
+  const CloseNavbar = (location: string) => {
+    if (
+      embedIn === "navbar" &&
+      setOpenNavbar &&
+      router.pathname === `/${location}`
+    )
+      setOpenNavbar(false);
   };
 
   return (
@@ -35,7 +37,7 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
         {navList.map((l, i) => (
           <li key={i} className="uppercase text-xl text-title-color ">
             <Link href={`/${l.en}`}>
-              <a onClick={CloseNavbar}>
+              <a onClick={() => CloseNavbar(l.en)}>
                 <span
                   className={cn(
                     s.parentSpan,
