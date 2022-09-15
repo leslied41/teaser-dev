@@ -9,25 +9,23 @@ interface Props {
   order: number;
 }
 const Three: FC<Props> = ({ order }) => {
-  const textures_one = () =>
-    useLoader(TextureLoader, [
-      "/models/test/front.jpeg",
-      "/models/test/back.jpeg",
-      "/models/test/top.jpeg",
-      "/models/test/bottom.jpeg",
-      "/models/test/left.jpeg",
-      "/models/test/right.jpeg",
-    ]);
+  const textures_one = useLoader(TextureLoader, [
+    "/models/test/front.jpeg",
+    "/models/test/back.jpeg",
+    "/models/test/top.jpeg",
+    "/models/test/bottom.jpeg",
+    "/models/test/left.jpeg",
+    "/models/test/right.jpeg",
+  ]);
 
-  const textures_two = () =>
-    useLoader(TextureLoader, [
-      "/models/test_2/front.jpeg",
-      "/models/test_2/back.jpeg",
-      "/models/test_2/top.jpeg",
-      "/models/test_2/bottom.jpeg",
-      "/models/test_2/left.jpeg",
-      "/models/test_2/right.jpeg",
-    ]);
+  const textures_two = useLoader(TextureLoader, [
+    "/models/test_2/front.jpeg",
+    "/models/test_2/back.jpeg",
+    "/models/test_2/top.jpeg",
+    "/models/test_2/bottom.jpeg",
+    "/models/test_2/left.jpeg",
+    "/models/test_2/right.jpeg",
+  ]);
 
   const textures = useMemo(() => {
     let texture;
