@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import {
@@ -8,11 +8,19 @@ import {
 } from "../components/Exhibition";
 import { FloorPlan } from "../components/icons";
 import { GlobalLayout } from "../components/common";
+import { useGlobalContext } from "../components/common";
 
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {
   const [numberOfExhibitions, setNumberOfExhibitions] = useState(0);
+  const { setOpenNavbar } = useGlobalContext();
+
+  useEffect(() => {
+    if (setOpenNavbar) {
+      setOpenNavbar(false);
+    }
+  }, []);
 
   const handleIncrease = useCallback(() => {
     if (numberOfExhibitions === 1) setNumberOfExhibitions(0);

@@ -13,7 +13,7 @@ interface GlobalProviderProps {
 
 type GlobalProviderContextType = {
   openNavbar: Boolean;
-  setOpenNavbar?: () => void;
+  setOpenNavbar?: (value?: boolean) => void;
 };
 
 enum ActionType {
@@ -40,7 +40,9 @@ const initialState = {
 const reducer = (state: StateType, action: Action) => {
   switch (action.type) {
     case ActionType.NAVBAR:
-      return { ...state, openNavbar: !state.openNavbar };
+      if (action.payload !== undefined)
+        return { ...state, openNavbar: action.payload };
+      else return { ...state, openNavbar: !state.openNavbar };
   }
 };
 
@@ -51,7 +53,7 @@ const GlobalProvider: FC<GlobalProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const setOpenNavbar = useCallback(
-    () => dispatch({ type: ActionType.NAVBAR }),
+    (value?: boolean) => dispatch({ type: ActionType.NAVBAR, payload: value }),
     [dispatch]
   );
   const openNavbar = useMemo(() => state.openNavbar, [state.openNavbar]);
