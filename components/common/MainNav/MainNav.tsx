@@ -32,7 +32,16 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
   };
 
   return (
-    <nav className={className}>
+    <nav
+      className={className}
+      aria-label={
+        embedIn === "navbar"
+          ? "primary"
+          : embedIn === "landing"
+          ? "landing"
+          : "footer"
+      }
+    >
       <ul className="flex flex-col gap-3">
         {navList.map((l, i) => (
           <li key={i} className="uppercase text-xl text-title-color ">
@@ -48,7 +57,7 @@ const MainNav: FC<Props> = ({ className, embedIn }) => {
                   )}
                 >
                   {(embedIn === "landing" || "navbar") && (
-                    <span className="hidden ">
+                    <span className="hidden">
                       <ArrowRightAltIcon fontSize="large" />
                     </span>
                   )}

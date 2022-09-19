@@ -3,7 +3,7 @@ import TitleAndSubtitle from "../components/Landing/TitleAndSubtitle";
 import ProgressBar from "../components/Landing/progressBar";
 import VideoBg from "../components/Landing/videoBg";
 import { GlobalLayout, MainNav } from "../components/common";
-import { data } from "../components/Landing/TitleAndSubtitle/data";
+import { data } from "../public/Artists/data";
 import cn from "clsx";
 var debounce = require("lodash.debounce");
 

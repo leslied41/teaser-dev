@@ -1,0 +1,25 @@
+{
+  "title": "Teaser",
+  "titleTemplate": "%s - Teaser",
+  "description": "Teaser",
+  "openGraph": {
+    "title": "Teaser",
+    "description": "Teaser",
+    "type": "website",
+    "url": "https://hereandthere.hk/",
+    "site_name": "Teaser",
+    "images": [
+      {
+        "url": "/card.png",
+        "width": "800",
+        "height": "600",
+        "alt": "Teaser"
+      }
+    ]
+  },
+  "twitter": {
+    "handle": "Teaser",
+    "site": "Teaser",
+    "cardType": "summary_large_image"
+  }
+}

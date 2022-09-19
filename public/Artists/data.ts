@@ -16,6 +16,7 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742691678/rendition/720p/file.mp4?loc=external&signature=a5aebd6191565c4eba126481352a1f0f4b5bf0c237db81d762d18f61d988758f",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735425/rendition/540p/file.mp4?loc=external&signature=79043a82142f09094af080bbca84e791bc70b234d09d5d5bc4a159bb3992a131",
+    position: { lat: 40, lng: -80 },
   },
   {
     title: "koon wai bong",
@@ -25,6 +26,7 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742714851/rendition/720p/file.mp4?loc=external&signature=7ab92c6d20a9d07b0b0e8446622326c798446b2f9b421ae28385a2b0c05405a7",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735477/rendition/540p/file.mp4?loc=external&signature=7107cb4890dc900125f2790cb3beb8b7f7e6b23e8921ac71041d4567e2ac6fbe",
+    position: { lat: 30, lng: -60 },
   },
   {
     title: "lam tung pang",
@@ -34,6 +36,7 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742691580/rendition/720p/file.mp4?loc=external&signature=9db15cd987ee83dd00af85fd8a1291aa279aa9fd108a9d3be417f002bdf4a4c0",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735527/rendition/540p/file.mp4?loc=external&signature=7a42d824e7c0a0a4dc39b02653193039bb82ddfa1fbfff4dc22ed26c92e7e440",
+    position: { lat: 20, lng: -90 },
   },
   {
     title: "leung ka yin, joey",
@@ -43,6 +46,7 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742691627/rendition/720p/file.mp4?loc=external&signature=29b7c1597e8b760013291939bfa5881c8fd982e526c3ceda2ff2d5aa93f4101b",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735625/rendition/540p/file.mp4?loc=external&signature=b9a9062dc51d8af53ce1bb11841f6367f85e2129c26de652767da6d0e928b84a",
+    position: { lat: 70, lng: -10 },
   },
   {
     title: "wong chun hei, stephen",
@@ -52,6 +56,7 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742691544/rendition/720p/file.mp4?loc=external&signature=577631aafe46c14a55215d5299c1cebc954d94621e75b8460482e75f5fc884bb",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735631/rendition/540p/file.mp4?loc=external&signature=203d7d969ece7866e1d75233989e25634509fc91d1cf2b3a7db99d2b869234c6",
+    position: { lat: 10, lng: -85 },
   },
   {
     title: "wong lai ching, fiona",
@@ -61,5 +66,6 @@ export const data = [
     src: "https://player.vimeo.com/progressive_redirect/playback/742691500/rendition/720p/file.mp4?loc=external&signature=ca07a342d2693b1bef7c7f5045b5181d91adac8c8436207d7e27cfa7823c92d5",
     mobileSrc:
       "https://player.vimeo.com/progressive_redirect/playback/742735680/rendition/540p/file.mp4?loc=external&signature=93721876897b1eb92877669f4677633963ae32a5f7247f284446da8e187bb489",
+    position: { lat: 25, lng: -80 },
   },
 ];

@@ -14,7 +14,11 @@ const MenuButton: FC<Props> = ({ className }) => {
     setOpenNavbar();
   };
   return (
-    <button className={className} onClick={handleNavBar}>
+    <button
+      className={className}
+      onClick={handleNavBar}
+      aria-label={openNavbar ? "close narbar" : "open navbar"}
+    >
       <LandingMenuIcon
         className={cn("hidden", { ["!block"]: openNavbar === false })}
       />

@@ -1,0 +1,4 @@
+.liParent:hover span:first-child {
+  display: flex !important;
+  align-items: center;
+}

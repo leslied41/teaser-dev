@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import type { NextPageWithLayout } from "./_app";
 import { Layout } from "../components/common";
 
-const Test: NextPageWithLayout = () => {
+const Test = () => {
   return <></>;
 };
 Test.getLayout = Layout;

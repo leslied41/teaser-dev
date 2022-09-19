@@ -5,3 +5,6 @@ export { default as GlobalLayout } from "./GlobalLayout";
 export { default as GlobalProvider, useGlobalContext } from "./GlobalProvider";
 export { default as MenuButton } from "./MenuButton";
 export { default as LocaleSwitch } from "./LocaleSwitch";
+export { default as ArtistsNav } from "./ArtistsNav";
+export { default as Overlay } from "./overlay";
+export { default as SEO } from "./SEO";
