@@ -11,7 +11,7 @@ interface Props {
 }
 
 const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
-  const { mobile } = useBreakpoints();
+  const { isMobile } = useBreakpoints();
 
   const elRefs = useMemo(
     () =>
@@ -73,7 +73,7 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
         >
           <source
             type="video/mp4"
-            src={mobile ? item.mobileSrc : item.src}
+            src={isMobile ? item.mobileSrc : item.src}
           ></source>
         </video>
       ))}

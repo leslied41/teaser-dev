@@ -1,14 +1,20 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, useMemo, useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { angleToRadians } from "../../../utils/angle";
+import useBreakpoints from "../../../hooks/useBreakpoints";
 
 interface Props {
   order: number;
 }
+
 const Three: FC<Props> = ({ order }) => {
+  const orbitControlRef = useRef<OrbitControlsImpl>(null);
+  const { isMobile } = useBreakpoints();
+
   const textures_one = useLoader(TextureLoader, [
     "/models/test/front.jpeg",
     "/models/test/back.jpeg",
@@ -37,7 +43,10 @@ const Three: FC<Props> = ({ order }) => {
   return (
     <>
       <OrbitControls
+        ref={orbitControlRef}
         autoRotate
+        enableDamping={true}
+        rotateSpeed={isMobile ? -0.6 : -0.15} //reverse the rotate direction when dragging mouse
         minDistance={0}
         maxDistance={70}
         minPolarAngle={angleToRadians(70)}
