@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 import { LoadScriptProps } from "@react-google-maps/api/dist/index";
 import { Map } from "../components/Exhibition";
+import { SEO } from "../components/common";
 
 const libraries: LoadScriptProps["libraries"] = ["places"];
 
@@ -12,9 +13,12 @@ const Works = () => {
   });
   if (!isLoaded) return <div>Loading...</div>;
   return (
-    <div className="h-screen w-full">
-      <Map />
-    </div>
+    <>
+      <SEO title="map" />
+      <div className="h-screen w-full">
+        <Map />
+      </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { FC, Fragment } from "react";
 import Head from "next/head";
 import config from "./seo_meta.json";
 
@@ -10,6 +10,20 @@ interface OgImage {
   width?: string;
   height?: string;
   alt?: string;
+}
+interface Props {
+  title?: string;
+  description?: string;
+  robots?: string;
+  openGraph?: {
+    title?: string;
+    type?: string;
+    locale?: string;
+    description?: string;
+    site_name?: string;
+    url?: string;
+    images?: OgImage[];
+  };
 }
 
 const ogImage = ({ url, width, height, alt }: OgImage, index: number) => {
@@ -42,8 +56,17 @@ const ogImage = ({ url, width, height, alt }: OgImage, index: number) => {
     </Fragment>
   );
 };
+/**
+ * @see https://nextjs.org/docs/api-reference/next/head
+ *
+ * meta or any other elements need to be contained as direct children of the Head element,
+ * or wrapped into maximum one level of <React.Fragment> or arrays
+ * otherwise the tags won't be correctly picked up on client-side navigations.
+ *
+ * The `key` property makes the tag is only rendered once,
+ */
 
-const SEO = () => {
+const SEO: FC<Props> = ({ title, description, robots, openGraph }) => {
   return (
     <Head>
       <meta
@@ -51,31 +74,46 @@ const SEO = () => {
         name="viewport"
         content="width=device-width, initial-scale=1"
       />
-      <title key="title">{config.title}</title>
-      <meta key="description" name="description" content={config.description} />
+      <title key="title">
+        {title ? `${config.titleTemplate.replace(/%s/g, title)}` : config.title}
+      </title>
+      <meta
+        key="description"
+        name="description"
+        content={description ? description : config.description}
+      />
       {/* open graph */}
-      <meta key="og:type" property="og:type" content={config.openGraph.type} />
+      <meta
+        key="og:type"
+        property="og:type"
+        content={openGraph?.description ?? config.openGraph.type}
+      />
       <meta
         key="og:title"
         property="og:title"
-        content={config.openGraph.title}
+        content={openGraph?.title ?? config.openGraph.title}
       />
       <meta
         key="og:description"
         property="og:description"
-        content={config.openGraph.description}
+        content={openGraph?.description ?? config.openGraph.description}
       />
       <meta
         key="og:site_name"
         property="og:site_name"
-        content={config.openGraph.site_name}
+        content={openGraph?.site_name ?? config.openGraph.site_name}
       />
       <meta
         key="og:url"
         property="og:url"
-        content={config.openGraph.url}
+        content={openGraph?.url ?? config.openGraph.url}
       ></meta>
-      {ogImage(config.openGraph.images[0], 0)}
+      {openGraph?.locale && (
+        <meta key="og:locale" property="og:locale" content={openGraph.locale} />
+      )}
+      {openGraph?.images?.length
+        ? openGraph.images.map((img, index) => ogImage(img, index))
+        : ogImage(config.openGraph.images[0], 0)}
       {/* twitter */}
       {config.twitter.cardType && (
         <meta
@@ -98,6 +136,14 @@ const SEO = () => {
           content={config.twitter.handle}
         />
       )}
+      <meta key="robots" name="robots" content={robots ?? "index,follow"} />
+      <meta
+        key="googlebot"
+        name="googlebot"
+        content={robots ?? "index,follow"}
+      ></meta>
+      {/* the meta robots and googlebot is to tell crawlers follow, index or not follow, 
+      not index this page  */}
     </Head>
   );
 };
