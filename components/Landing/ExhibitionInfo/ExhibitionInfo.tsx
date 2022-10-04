@@ -1,5 +1,4 @@
 import React, { FC, memo } from "react";
-import s from "./ExhibitionInfo.module.css";
 import cn from "clsx";
 import { useRouter } from "next/router";
 import { sponsors, curators } from "./data";

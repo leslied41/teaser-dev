@@ -1,7 +1,7 @@
-import React, { FC, createRef, useMemo, useEffect, useCallback } from "react";
+import React, { FC, createRef, useMemo, useEffect } from "react";
+import useBreakpoints from "../../../hooks/useBreakpoints";
 import { data } from "../../../public/Artists/data";
 import cn from "clsx";
-import useBreakpoints from "../../../hooks/useBreakpoints";
 
 interface Props {
   index: number;

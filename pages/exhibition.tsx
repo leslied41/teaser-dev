@@ -7,8 +7,7 @@ import {
   AddressInfo,
 } from "../components/Exhibition";
 import { FloorPlan } from "../components/icons";
-import { GlobalLayout } from "../components/common";
-import { useGlobalContext } from "../components/common";
+import { GlobalLayout, useGlobalContext } from "../components/common";
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {

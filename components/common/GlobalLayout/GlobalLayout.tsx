@@ -1,7 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { NavBar } from "..";
-import { MenuButton } from "..";
-import s from "./GlobalLayout.module.css";
+import { NavBar, MenuButton } from "..";
 
 const GlobalLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (

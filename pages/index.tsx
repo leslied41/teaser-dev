@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import TitleAndSubtitle from "../components/Landing/TitleAndSubtitle";
-import ProgressBar from "../components/Landing/progressBar";
-import VideoBg from "../components/Landing/videoBg";
+import { TitleAndSubtitle, ProgressBar, VideoBg } from "../components/Landing";
 import { GlobalLayout, MainNav } from "../components/common";
 import { data } from "../public/Artists/data";
 import cn from "clsx";

@@ -1,7 +1,6 @@
 import React, { useMemo, useCallback, useRef } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { ArtistsNav } from "../../common";
-import { Overlay } from "../../common";
+import { ArtistsNav, Overlay } from "../../common";
 import { data } from "../../../public/Artists/data";
 
 const markersList = data.filter((p) => p.position !== undefined);

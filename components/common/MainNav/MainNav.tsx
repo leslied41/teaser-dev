@@ -6,7 +6,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import cn from "clsx";
 import s from "./MainNav.module.css";
 
-interface Props {
+interface MainNavProps {
   className?: string;
   embedIn: "landing" | "footer" | "navbar";
 }
@@ -17,7 +17,9 @@ const navList = [
   { en: "artists", cn: "藝術家" },
   { en: "exhibition", cn: "展覽" },
 ];
-const MainNav: FC<Props> = ({ className, embedIn }) => {
+Object.freeze(navList);
+
+const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
   const router = useRouter();
   const { setOpenNavbar } = useGlobalContext();
   const isEn = router.locale === "en";

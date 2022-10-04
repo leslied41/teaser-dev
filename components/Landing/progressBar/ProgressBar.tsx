@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import cn from "clsx";
 import s from "./ProgressBar.module.css";
+
 interface Props {
   className: string;
   index: number | null;
