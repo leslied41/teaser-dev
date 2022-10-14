@@ -1,5 +1,5 @@
 import React, { FC, createRef, useMemo, useEffect } from "react";
-import useBreakpoints from "../../../hooks/useBreakpoints";
+import { useBreakpoints } from "../../../hooks";
 import { data } from "../../../public/Artists/data";
 import cn from "clsx";
 

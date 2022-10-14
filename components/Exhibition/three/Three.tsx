@@ -5,7 +5,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { angleToRadians } from "../../../utils/angle";
-import useBreakpoints from "../../../hooks/useBreakpoints";
+import { useBreakpoints } from "../../../hooks";
 
 interface Props {
   order: number;

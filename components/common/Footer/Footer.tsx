@@ -10,11 +10,11 @@ const Footer = () => {
         </div>
         <div className="flex-1 flex justify-end">
           <div>
-            <p className="text-right text-sm text-title-color">
+            <p className="text-right text-sm text-main-color">
               Co-presented by
             </p>
-            <p className="text-right text-sm text-title-color">Jumu Tang &</p>
-            <p className="text-right text-sm text-title-color">
+            <p className="text-right text-sm text-main-color">Jumu Tang &</p>
+            <p className="text-right text-sm text-main-color">
               Hong Kong Arts Centre
             </p>
           </div>

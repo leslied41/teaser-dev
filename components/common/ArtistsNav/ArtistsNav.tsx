@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useRouter } from "next/router";
+import { useLocale } from "../../../hooks";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { data } from "../../../public/Artists/data";
 import cn from "clsx";
@@ -15,8 +15,7 @@ interface Props {
 const artistsList = data.filter((p) => p.title !== "here and there");
 
 const ArtistsNav: FC<Props> = ({ className, movePosition }) => {
-  const router = useRouter();
-  const isEn = router.locale === "en";
+  const isEn = useLocale();
   return (
     <div className={className}>
       <ul>
@@ -24,7 +23,7 @@ const ArtistsNav: FC<Props> = ({ className, movePosition }) => {
           <li
             className={cn(
               s.liParent,
-              "flex items-center text-lg text-title-color pl-2 py-1 uppercase cursor-pointer w-fit hover:bg-white"
+              "flex items-center text-lg text-main-color pl-2 py-1 uppercase cursor-pointer w-fit hover:bg-white"
             )}
             key={p.title}
             onClick={() => movePosition(p.position!)}

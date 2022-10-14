@@ -21,16 +21,10 @@ const LocaleSwitch: FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <button
-        onClick={changeToEN}
-        className="text-m text-title-color px-2 py-1"
-      >
+      <button onClick={changeToEN} className="text-m text-main-color px-2 py-1">
         EN
       </button>
-      <button
-        onClick={changeToCn}
-        className="text-m text-title-color px-2 py-1"
-      >
+      <button onClick={changeToCn} className="text-m text-main-color px-2 py-1">
         中
       </button>
     </div>

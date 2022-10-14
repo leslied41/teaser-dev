@@ -46,7 +46,7 @@ const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
     >
       <ul className="flex flex-col gap-3">
         {navList.map((l, i) => (
-          <li key={i} className="uppercase text-xl text-title-color ">
+          <li key={i} className="uppercase text-xl text-main-color ">
             <Link href={`/${l.en}`}>
               <a onClick={() => CloseNavbar(l.en)}>
                 <span
