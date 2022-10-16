@@ -1,6 +1,6 @@
-import React, { FC, memo } from "react";
-import { useRouter } from "next/router";
+import React, { FC, memo, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useGlobalContext } from "..";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import cn from "clsx";
@@ -8,47 +8,47 @@ import s from "./MainNav.module.css";
 
 interface MainNavProps {
   className?: string;
-  embedIn: "landing" | "footer" | "navbar";
+  embedIn?: "landing" | "navbar";
 }
 
 const navList = [
+  { en: "home", cn: "主頁" },
   { en: "about", cn: "關於" },
-  { en: "research", cn: "研究" },
-  { en: "artists", cn: "藝術家" },
+  { en: "archives", cn: "檔案" },
   { en: "exhibition", cn: "展覽" },
+  { en: "supports", cn: "鳴謝" },
 ];
 Object.freeze(navList);
 
 const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
+  const { setOpenNavbar, setLoading } = useGlobalContext();
   const router = useRouter();
-  const { setOpenNavbar } = useGlobalContext();
   const isEn = router.locale === "en";
 
+  useEffect(() => {
+    setOpenNavbar!(false);
+    setLoading!(false);
+  }, [router.pathname]);
+
   const CloseNavbar = (location: string) => {
-    if (
-      embedIn === "navbar" &&
-      setOpenNavbar &&
-      router.pathname === `/${location}`
-    )
+    if (embedIn === "navbar" && setOpenNavbar && location === router.pathname)
       setOpenNavbar(false);
+    else if (embedIn === "navbar") setLoading!(true);
   };
 
   return (
     <nav
       className={className}
-      aria-label={
-        embedIn === "navbar"
-          ? "primary"
-          : embedIn === "landing"
-          ? "landing"
-          : "footer"
-      }
+      aria-label={embedIn === "navbar" ? "primary" : "landing"}
     >
       <ul className="flex flex-col gap-3">
         {navList.map((l, i) => (
           <li key={i} className="uppercase text-xl text-main-color ">
-            <Link href={`/${l.en}`}>
-              <a onClick={() => CloseNavbar(l.en)}>
+            <Link href={`/${l.en === "home" ? "" : l.en}`}>
+              <a
+                onClick={() => CloseNavbar(`/${l.en === "home" ? "" : l.en}`)}
+                className="inline-block"
+              >
                 <span
                   className={cn(
                     s.parentSpan,

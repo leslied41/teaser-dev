@@ -9,3 +9,5 @@ export { default as ArtistsNav } from "./ArtistsNav";
 export { default as Overlay } from "./overlay";
 export { default as SEO } from "./SEO";
 export { default as CurrentLabel } from "./CurrentLabel";
+export { default as NormalPageLayout } from "./NormalPageLayout";
+export { default as ProgressLoader } from "./Progress";

@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { NavBar, MenuButton, CurrentLabel } from "..";
+import { NavBar, MenuButton, CurrentLabel, ProgressLoader } from "..";
 
 const GlobalLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -10,6 +10,7 @@ const GlobalLayout: FC<{ children: ReactNode }> = ({ children }) => {
         {children}
         <CurrentLabel />
       </main>
+      <ProgressLoader />
     </>
   );
 };

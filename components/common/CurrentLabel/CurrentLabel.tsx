@@ -37,9 +37,9 @@ const CurrentLabel = () => {
         { ["hidden"]: router.pathname === "/" }
       )}
     >
-      <p className="text-xl text-main-color uppercase">
+      <h1 className="text-xl text-main-color uppercase">
         {router.locale === "en" ? title : title_cn}
-      </p>
+      </h1>
     </div>
   );
 };
