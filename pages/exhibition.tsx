@@ -5,19 +5,32 @@ import {
   Three,
   OperateButtonsGroup,
   AddressInfo,
+  Details,
 } from "../components/Exhibition";
 import { FloorPlan } from "../components/icons";
-import { GlobalLayout, useGlobalContext } from "../components/common";
+import {
+  GlobalLayout,
+  useGlobalContext,
+  Button,
+  Overlay,
+} from "../components/common";
+import { useLocale } from "../hooks";
+import cn from "clsx";
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {
   const [numberOfExhibitions, setNumberOfExhibitions] = useState(0);
+  const [showDetails, setShowDetails] = useState(false);
   const { setOpenNavbar } = useGlobalContext();
+  const isEn = useLocale();
 
   useEffect(() => {
     if (setOpenNavbar) setOpenNavbar(false);
   }, []);
 
+  const toggleDetails = () => {
+    setShowDetails((prev) => !prev);
+  };
   const handleIncrease = useCallback(() => {
     if (numberOfExhibitions === 1) setNumberOfExhibitions(0);
     else setNumberOfExhibitions((prev) => prev + 1);
@@ -43,10 +56,35 @@ const Exhibition = () => {
         order={numberOfExhibitions}
       />
       <OperateButtonsGroup
+        showDetails={showDetails}
         handleDecrease={handleDecrease}
         handleIncrease={handleIncrease}
       />
       <AddressInfo className="absolute left-2 bottom-2" />
+      <Overlay
+        className={cn("absolute ", {
+          ["hidden"]: !showDetails,
+        })}
+      />
+      <Button
+        variant="primary"
+        className="absolute top-0 left-0"
+        onClick={toggleDetails}
+        showDetails={showDetails}
+      >
+        {isEn
+          ? showDetails
+            ? "hide details"
+            : "show details"
+          : showDetails
+          ? "隱藏資料"
+          : "顯示資料"}
+      </Button>
+      <Details
+        className={cn("absolute top-6 left-1/2 -translate-x-1/2", {
+          ["hidden"]: !showDetails,
+        })}
+      />
     </div>
   );
 };

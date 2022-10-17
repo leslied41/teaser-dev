@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import cn from "clsx";
 
 interface Props {
@@ -6,14 +6,7 @@ interface Props {
 }
 
 const Overlay: FC<Props> = ({ className }) => {
-  return (
-    <div
-      className={cn(
-        className,
-        "z-10 inset-0 bg-black opacity-50 pointer-events-none"
-      )}
-    ></div>
-  );
+  return <div className={cn(className, "inset-0 bg-black opacity-50")}></div>;
 };
 
 export default Overlay;

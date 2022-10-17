@@ -30,7 +30,7 @@ const Map = () => {
   }, []);
   return (
     <div className="w-full h-full relative">
-      <Overlay className="absolute" />
+      <Overlay className="absolute z-10" />
       <ArtistsNav
         className="absolute top-0 left-0 z-10"
         movePosition={movePosition}

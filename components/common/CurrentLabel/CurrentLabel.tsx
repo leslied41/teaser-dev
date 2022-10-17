@@ -14,6 +14,8 @@ const CurrentLabel = () => {
         return "exhibition";
       case "/supports":
         return "supports";
+      case "/sixlocations":
+        return "6 locations/6 artists";
     }
   }, [router.pathname]);
 
@@ -27,6 +29,8 @@ const CurrentLabel = () => {
         return "展覽";
       case "/supports":
         return "鳴謝";
+      case "/sixlocations":
+        return "六處地方/六位藝術家";
     }
   }, [router.pathname]);
 
