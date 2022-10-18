@@ -15,13 +15,13 @@ const PlayButtonIcon = () => {
         width="97"
         height="97"
         stroke="white"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <path
         d="M39.9615 32.6126L70.0769 49.9998L39.9615 67.3869L39.9615 32.6126Z"
         fill="white"
         stroke="white"
-        stroke-width="3"
+        strokeWidth="3"
       />
     </svg>
   );

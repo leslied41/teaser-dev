@@ -1,4 +1,4 @@
-import React, { FC, createRef, useMemo, useEffect } from "react";
+import React, { FC, createRef, useMemo, useEffect, useCallback } from "react";
 import { useBreakpoints } from "../../../hooks";
 import { data } from "../../../public/Artists/data";
 import cn from "clsx";
@@ -21,15 +21,28 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
     []
   );
 
-  const operate = (index: number) => {
-    elRefs.forEach((e, i) => {
-      if (i === index) e.current?.play();
-      if (i !== index) {
-        e.current?.pause();
-        e.current!.currentTime = 0;
-      }
-    });
-  };
+  const operate = useCallback(
+    (index: number) => {
+      elRefs.forEach((e, i) => {
+        if (i === index) e.current?.play();
+        if (i !== index) {
+          e.current?.pause();
+          e.current!.currentTime = 0;
+        }
+      });
+    },
+    [index]
+  );
+
+  // const operate = (index: number) => {
+  //   elRefs.forEach((e, i) => {
+  //     if (i === index) e.current?.play();
+  //     if (i !== index) {
+  //       e.current?.pause();
+  //       e.current!.currentTime = 0;
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     data.forEach((item, i) => {

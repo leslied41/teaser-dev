@@ -15,13 +15,13 @@ const GoButtonIcon = () => {
         width="97"
         height="97"
         stroke="white"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <path
         d="M57.9903 41.8372L72.9614 50.4808L57.9903 59.1244L57.9903 41.8372Z"
         fill="white"
         stroke="white"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <line
         x1="23.0771"
@@ -29,7 +29,7 @@ const GoButtonIcon = () => {
         x2="58.6541"
         y2="49.4614"
         stroke="white"
-        stroke-width="3"
+        strokeWidth="3"
       />
     </svg>
   );

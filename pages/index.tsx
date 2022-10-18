@@ -67,12 +67,9 @@ const Home = () => {
       }
     }
   };
-  const updateIndexRef = useCallback(
-    (index: number) => {
-      indexRef.current = index;
-    },
-    [update]
-  );
+  const updateIndexRef = useCallback((index: number) => {
+    indexRef.current = index;
+  }, []);
 
   useEffect(() => {
     const debounceFn = debounce(wheel, 35);

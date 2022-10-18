@@ -5,7 +5,6 @@ import cn from "clsx";
 const CurrentLabel = () => {
   const router = useRouter();
 
-  console.log((router.query.slug as string).toLowerCase());
   let title = useMemo(() => {
     if (!router.query.slug) {
       switch (router.pathname) {
@@ -36,7 +35,7 @@ const CurrentLabel = () => {
           return "wong lai ching";
       }
     }
-  }, [router.pathname]);
+  }, [router.pathname, router.query.slug]);
 
   let title_cn = useMemo(() => {
     if (!router.query.slug) {
@@ -68,7 +67,7 @@ const CurrentLabel = () => {
           return "黃麗貞";
       }
     }
-  }, [router.pathname]);
+  }, [router.pathname, router.query.slug]);
 
   return (
     <div
