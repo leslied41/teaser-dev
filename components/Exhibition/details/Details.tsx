@@ -13,7 +13,7 @@ const Details: FC<DetailsProps> = ({ className }) => {
   const isEn = useLocale();
   const { intro, exhibition, artists, curator } = data;
   return (
-    <div className={cn(className, "max-w-[600px] pb-20")}>
+    <div className={cn(className, "max-w-[600px] pb-20 ")}>
       <div className="flex flex-col gap-y-5">
         <section aria-label="details introduction">
           <p className="text-m">{isEn ? intro.en : intro.cn}</p>
