@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 import { LoadScriptProps } from "@react-google-maps/api/dist/index";
-import { Map } from "../components/Exhibition";
+import { Map } from "../components/Artist";
 import { SEO } from "../components/common";
 
 const libraries: LoadScriptProps["libraries"] = ["places"];

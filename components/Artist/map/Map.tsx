@@ -29,12 +29,11 @@ const Map = () => {
     mapRef.current?.panTo(postion);
   }, []);
   return (
-    <div className="w-full h-full relative">
-      <Overlay className="absolute z-10" />
-      <ArtistsNav
+    <section className="w-full h-full relative" aria-label="google map">
+      {/* <ArtistsNav
         className="absolute top-0 left-0 z-10"
         movePosition={movePosition}
-      />
+      /> */}
       <GoogleMap
         zoom={15}
         center={center}
@@ -46,7 +45,8 @@ const Map = () => {
           <Marker position={m.position!} key={i} />
         ))}
       </GoogleMap>
-    </div>
+      <Overlay className="absolute" />
+    </section>
   );
 };
 

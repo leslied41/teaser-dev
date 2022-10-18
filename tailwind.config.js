@@ -24,6 +24,7 @@ module.exports = {
       colors: {
         "main-color": "var(--main-color)",
         "secondary-color": "var( --secondary-color)",
+        "third-color": "var(--third-color)",
       },
     },
   },

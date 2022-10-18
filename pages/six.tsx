@@ -6,7 +6,7 @@ import { useLocale } from "../hooks";
 import { data } from "../public/pagesData/sixlocations";
 import cn from "clsx";
 
-const SixLocations = () => {
+const SixLocationsArtists = () => {
   const isEn = useLocale();
   return (
     <div>
@@ -17,7 +17,7 @@ const SixLocations = () => {
               key={`6locations-${e.en}`}
               className="px-2 py-6 border-y-[1px] border-main-color"
             >
-              <Link href={`/${e.slug}`}>
+              <Link href={`/six/${e.slug}`}>
                 <a
                   className={cn(
                     "flex justify-between text-xl text-main-color gap-x-[100px]",
@@ -38,5 +38,5 @@ const SixLocations = () => {
   );
 };
 
-SixLocations.Layout = NormalPageLayout;
-export default SixLocations;
+SixLocationsArtists.Layout = NormalPageLayout;
+export default SixLocationsArtists;

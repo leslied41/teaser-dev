@@ -12,3 +12,4 @@ export { default as CurrentLabel } from "./CurrentLabel";
 export { default as NormalPageLayout } from "./NormalPageLayout";
 export { default as ProgressLoader } from "./Progress";
 export { default as Button } from "./button";
+export { default as MixedNavList } from "./mixedNavList";
