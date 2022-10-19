@@ -45,7 +45,7 @@ const Map = () => {
           <Marker position={m.position!} key={i} />
         ))}
       </GoogleMap>
-      <Overlay className="absolute" />
+      <Overlay className="absolute pointer-events-none" />
     </section>
   );
 };
