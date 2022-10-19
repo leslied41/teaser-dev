@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, useRef } from "react";
+import React, { useMemo, useCallback, useRef, memo } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { ArtistsNav, Overlay } from "../../common";
 import { data } from "../../../public/Artists/data";
@@ -50,4 +50,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default memo(Map);

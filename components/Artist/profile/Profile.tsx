@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useLocale } from "../../../hooks";
 import cn from "clsx";
 
@@ -33,4 +33,4 @@ const Profile = ({ className }: ProfileProps) => {
   );
 };
 
-export default Profile;
+export default memo(Profile);

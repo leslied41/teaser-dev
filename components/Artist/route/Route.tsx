@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useLocale } from "../../../hooks";
 import { OrderIcon } from "../../icons";
 import cn from "clsx";
@@ -53,4 +53,4 @@ const Route = (props: Props) => {
   );
 };
 
-export default Route;
+export default memo(Route);

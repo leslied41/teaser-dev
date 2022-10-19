@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import Link from "next/link";
 import { useLocale } from "../../../hooks";
 import { PdfIcon, NavArrowIcon, DownloadIcon } from "../../icons";
@@ -107,4 +107,4 @@ const MixNavList: FC<NavListProps> = ({
   );
 };
 
-export default MixNavList;
+export default memo(MixNavList);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { MixedNavList } from "../../common";
 import cn from "clsx";
 
@@ -45,4 +45,4 @@ const NavList = ({ className }: NavListProps) => {
   );
 };
 
-export default NavList;
+export default memo(NavList);

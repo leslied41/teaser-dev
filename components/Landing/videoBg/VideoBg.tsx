@@ -34,16 +34,6 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
     [index]
   );
 
-  // const operate = (index: number) => {
-  //   elRefs.forEach((e, i) => {
-  //     if (i === index) e.current?.play();
-  //     if (i !== index) {
-  //       e.current?.pause();
-  //       e.current!.currentTime = 0;
-  //     }
-  //   });
-  // };
-
   useEffect(() => {
     data.forEach((item, i) => {
       if (i === index) operate(index);

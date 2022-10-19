@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import { useLocale } from "../../../hooks";
 import { TextCard } from "../../Supports";
 import DetailList from "../detailList";
@@ -75,4 +75,4 @@ const Details: FC<DetailsProps> = ({ className }) => {
   );
 };
 
-export default Details;
+export default memo(Details);
