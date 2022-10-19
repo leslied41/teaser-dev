@@ -65,3 +65,19 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* slider */
+.splide__arrows.splide__arrows--ltr {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  transform: translateY(-50%);
+}
+
+.splide_pagination.splide_pagination--ltr {
+  display: none;
+}

@@ -5,3 +5,6 @@ export { default as Route } from "./route";
 export { default as NavList } from "./navList";
 export { default as Profile } from "./profile";
 export { default as VenueGraph } from "./venue";
+export { default as Slider } from "./slider";
+export { default as Gallery } from "./gallery";
+export { default as ArtworkInfo } from "./artworkInfo";

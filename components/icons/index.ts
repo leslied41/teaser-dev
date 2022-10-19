@@ -19,3 +19,4 @@ export { default as NavArrowIcon } from "./navArrowIcon";
 export { default as OrderIcon } from "./orderIcon";
 export { default as VenueGraphIcon } from "./venueIcon";
 export { default as DownloadIcon } from "./downloadIcon";
+export { default as CloseIcon } from "./CloseIcon";
