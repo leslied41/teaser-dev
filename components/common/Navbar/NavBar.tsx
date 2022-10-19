@@ -1,6 +1,6 @@
 import React from "react";
 import { MainNav } from "..";
-import { LocaleSwitch } from "..";
+import { LocaleSwitch, SocialMedia } from "..";
 import { useGlobalContext } from "..";
 import cn from "clsx";
 
@@ -17,7 +17,10 @@ const NavBar = () => {
       )}
     >
       <MainNav embedIn="navbar" />
-      <LocaleSwitch className="absolute left-0 bottom-0" />
+      <div className="absolute left-0 bottom-0 flex items-center">
+        <LocaleSwitch />
+        <SocialMedia />
+      </div>
     </div>
   );
 };

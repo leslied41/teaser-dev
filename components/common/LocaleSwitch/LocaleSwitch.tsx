@@ -1,9 +1,8 @@
 import React, { FC, memo } from "react";
 import { useRouter } from "next/router";
-import cn from "clsx";
 
 interface Props {
-  className: string;
+  className?: string;
 }
 
 const LocaleSwitch: FC<Props> = ({ className }) => {
@@ -20,14 +19,14 @@ const LocaleSwitch: FC<Props> = ({ className }) => {
   };
 
   return (
-    <div className={className}>
-      <button onClick={changeToEN} className="text-m text-main-color px-2 py-1">
-        EN
-      </button>
+    <section className={className} aria-label="language switch">
       <button onClick={changeToCn} className="text-m text-main-color px-2 py-1">
         中
       </button>
-    </div>
+      <button onClick={changeToEN} className="text-m text-main-color px-2 py-1">
+        EN
+      </button>
+    </section>
   );
 };
 
