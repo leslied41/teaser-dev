@@ -1,4 +1,3 @@
-import React from "react";
 import { NormalPageLayout } from "../components/common";
 import { Workflow } from "../components/about";
 import { useLocale } from "../hooks";
@@ -6,6 +5,7 @@ import cn from "clsx";
 
 const About = () => {
   const isEn = useLocale();
+
   return (
     <section>
       <h1 className="text-lg uppercase text-main-color">

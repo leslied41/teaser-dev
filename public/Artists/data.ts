@@ -76,18 +76,22 @@ export const positionList = {
       name: "ap lai chau",
       name_cn: "鴨脷洲",
       position: { lat: 22.2419, lng: 114.1529 },
+      middlePointOne: { lat: 22.194699, lng: 114.168573 },
+      middlePointTwo: { lat: 22.183785, lng: 114.228979 },
     },
   ],
   group_one: [
     {
       name: "peng chau",
       name_cn: "坪洲",
-      position: { lat: 22.289444, lng: 113.975664 },
+      position: { lat: 22.2831, lng: 114.0414 },
+      middlePoint: { lat: 22.320395, lng: 114.076623 },
     },
     {
       name: "ma wan",
       name_cn: "馬灣",
       position: { lat: 22.3501, lng: 114.0592 },
+      middlePoint: { lat: 22.345439, lng: 114.022682 },
     },
     {
       name: "the brothers",

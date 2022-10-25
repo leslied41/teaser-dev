@@ -37,10 +37,18 @@ const Map = () => {
   useEffect(() => {
     const group_one = [];
     for (let i = 0; i < positionList.group_one.length - 1; i++) {
-      const path = [
-        positionList.group_one[i].position,
-        positionList.group_one[i + 1].position,
-      ];
+      let path;
+      if (positionList.group_one[i].middlePoint)
+        path = [
+          positionList.group_one[i].position,
+          positionList.group_one[i].middlePoint,
+          positionList.group_one[i + 1].position,
+        ];
+      else
+        path = [
+          positionList.group_one[i].position,
+          positionList.group_one[i + 1].position,
+        ];
       group_one.push(path);
     }
     const group_two = [];
@@ -57,6 +65,8 @@ const Map = () => {
     ];
     const connectionRight = [
       positionList.startting[0].position,
+      positionList.startting[0].middlePointOne,
+      positionList.startting[0].middlePointTwo,
       positionList.group_two[0].position,
     ];
     setPaths([...group_one, connectionLeft, ...group_two, connectionRight]);
