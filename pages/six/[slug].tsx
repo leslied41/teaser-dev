@@ -12,7 +12,7 @@ import {
 const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
   return (
-    <div className="bg-white relative">
+    <div className="bg-[#EEEEEE] relative">
       <Hero setShowArtWork={setShowArtWork} />
       <MapComponent />
       <NavList />

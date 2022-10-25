@@ -97,7 +97,16 @@ const MixNavList: FC<NavListProps> = ({
               >
                 <Link href={l.link!}>
                   <a href={l.link} className="flex justify-between">
-                    <span>{isEn ? l.en : l.cn}</span>
+                    <div className="flex flex-col">
+                      <span>
+                        {isEn
+                          ? `${l.en.split("/")[0]}/`
+                          : `${l.cn.split("/")[0]}/`}
+                      </span>
+                      <span>
+                        {isEn ? l.en.split("/")[1] : l.cn.split("/")[1]}
+                      </span>
+                    </div>
                     <NavArrowIcon className="shrink-0" />
                   </a>
                 </Link>
