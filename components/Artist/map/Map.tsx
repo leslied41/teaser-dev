@@ -150,7 +150,7 @@ const Map = () => {
                 anchor: new google.maps.Point(10, 10),
               }}
               label={{
-                text: `${m.name}`,
+                text: isEn ? m.name : m.name_cn,
                 color: "#fff",
                 className: s.label_2,
               }}
@@ -168,7 +168,7 @@ const Map = () => {
                 anchor: new google.maps.Point(10, 10),
               }}
               label={{
-                text: `${m.name}`,
+                text: isEn ? m.name : m.name_cn,
                 color: "#fff",
                 className: s.label_1,
               }}
@@ -186,7 +186,7 @@ const Map = () => {
                 anchor: new google.maps.Point(10, 10),
               }}
               label={{
-                text: `${m.name}`,
+                text: isEn ? m.name : m.name_cn,
                 color: "#000",
                 className: s.label_2,
               }}

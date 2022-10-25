@@ -1,6 +1,6 @@
 .label_1 {
-  @apply bg-black capitalize;
+  @apply bg-black capitalize p-[2px];
 }
 .label_2 {
-  @apply bg-[#C9AE86] capitalize;
+  @apply bg-[#C9AE86] capitalize p-[2px];
 }
