@@ -69,3 +69,67 @@ export const data = [
     position: { lat: 25, lng: -80 },
   },
 ];
+
+export const positionList = {
+  startting: [
+    {
+      name: "ap lai chau",
+      name_cn: "鴨脷洲",
+      position: { lat: 22.2419, lng: 114.1529 },
+    },
+  ],
+  group_one: [
+    {
+      name: "peng chau",
+      name_cn: "坪洲",
+      position: { lat: 22.289444, lng: 113.975664 },
+    },
+    {
+      name: "ma wan",
+      name_cn: "馬灣",
+      position: { lat: 22.3501, lng: 114.0592 },
+    },
+    {
+      name: "the brothers",
+      name_cn: "大小磨刀",
+      position: { lat: 22.3319, lng: 113.9753 },
+    },
+    {
+      name: "sha chau",
+      name_cn: "沙洲",
+      position: { lat: 22.3454, lng: 113.8901 },
+    },
+  ],
+  group_two: [
+    {
+      name: "kau pei chau",
+      name_cn: "狗脾洲",
+      position: { lat: 22.2059, lng: 114.2595 },
+    },
+    {
+      name: "po toi island",
+      name_cn: "蒲台島",
+      position: { lat: 22.1692, lng: 114.2599 },
+    },
+    {
+      name: "tung lung chao",
+      name_cn: "東龍洲",
+      position: { lat: 22.2482, lng: 114.2896 },
+    },
+    {
+      name: "ninepin group",
+      name_cn: "果洲群島",
+      position: { lat: 22.2618, lng: 114.3527 },
+    },
+    {
+      name: "ung kong islands",
+      name_cn: "甕缸群島",
+      position: { lat: 22.3208, lng: 114.3505 },
+    },
+    {
+      name: "kau sai",
+      name_cn: "窰西",
+      position: { lat: 22.3615, lng: 114.3133 },
+    },
+  ],
+};

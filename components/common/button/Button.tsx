@@ -11,15 +11,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   Component?: string | JSXElementConstructor<any>;
   href?: string;
   className?: string;
-  variant: "primary" | "link";
-  showDetails: boolean;
+  variant: "primary" | "link" | "secondary";
+  showDetails?: boolean;
 }
 
 interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   Component?: string | JSXElementConstructor<any>;
   href?: string;
   className?: string;
-  variant: "primary" | "link";
+  variant: "primary" | "link" | "secondary";
   showDetails?: boolean;
 }
 
@@ -31,6 +31,7 @@ const Button: FC<ComponentProps> = ({
   className,
   variant,
   showDetails,
+  href,
   ...rest
 }) => {
   const isEn = useLocale();
@@ -39,13 +40,15 @@ const Button: FC<ComponentProps> = ({
     {
       ["text-main-color py-1 border-main-color"]: variant === "primary",
       ["inline-block  py-[6px]  border-white"]: variant === "link",
+      ["inline-block  py-[6px] px-2 border-main-color cursor-pointer h-fit"]:
+        variant === "secondary",
       ["border-none"]: variant === "primary" && !showDetails,
       ["text-lg-1"]: !isEn,
     },
     className
   );
   return (
-    <Component {...rest} className={ClassName}>
+    <Component {...rest} className={ClassName} href={href}>
       {children}
     </Component>
   );

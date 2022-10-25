@@ -9,7 +9,12 @@ const Archives = () => {
   return (
     <>
       <section aria-label="introduction">
-        <p className="text-m-1">{isEn ? introduction.en : introduction.cn}</p>
+        <h1 className="text-lg uppercase text-main-color">
+          {isEn ? "archives" : "檔案"}
+        </h1>
+        <p className="text-m-1 mt-20">
+          {isEn ? introduction.en : introduction.cn}
+        </p>
       </section>
       <div>
         {items.map((item) => (
@@ -17,6 +22,8 @@ const Archives = () => {
             <ArchiveCard
               title={item.title}
               title_cn={item.title_cn}
+              subtitle={item.subtitle}
+              subtitle_cn={item.subtitle_cn}
               src={item.src}
             />
           </Fragment>

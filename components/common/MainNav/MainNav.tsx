@@ -43,30 +43,34 @@ const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
     >
       <ul className="flex flex-col gap-3">
         {navList.map((l, i) => (
-          <li key={i} className="uppercase text-xl text-main-color ">
+          <li
+            key={i}
+            className={cn("uppercase text-lg text-main-color", {
+              ["!text-xl"]: [2, 3].includes(i),
+            })}
+          >
             <Link href={`/${l.en === "home" ? "" : l.en}`}>
               <a
                 onClick={() => CloseNavbar(`/${l.en === "home" ? "" : l.en}`)}
                 className="inline-block"
               >
-                <span
+                <div
                   className={cn(
                     s.parentSpan,
-                    "flex items-center py-[6px] px-2 w-fit",
+                    "flex items-center py-[6px] px-2 w-fit h-fit",
                     {
                       ["hover:bg-white"]: embedIn === "landing" || "navbar",
                     }
                   )}
                 >
-                  {(embedIn === "landing" || "navbar") && (
-                    <span className="hidden">
-                      <ArrowRightAltIcon fontSize="large" />
-                    </span>
-                  )}
+                  {/* <span className="hidden">
+                    <ArrowRightAltIcon fontSize="medium" />
+                  </span> */}
+
                   <span className="cursor-pointer flex items-center ">
                     {isEn ? l.en : l.cn}
                   </span>
-                </span>
+                </div>
               </a>
             </Link>
           </li>

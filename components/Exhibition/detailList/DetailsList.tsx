@@ -1,12 +1,12 @@
 import { MixedNavList } from "../../common";
 
 const list = [
-  { en: "preface", cn: "前言", pdf: "" },
-  { en: "forward", cn: "序", pdf: "" },
-  { en: "curatorial statement", cn: "策展論述", pdf: "" },
+  { en: "preface", cn: "前言", download: "" },
+  { en: "forward", cn: "序", download: "" },
+  { en: "curatorial statement", cn: "策展論述", download: "" },
   { en: "6 locations/6 artists", cn: "六處地方/六位藝術家", link: "/six" },
-  { en: "catalogue", cn: "畫冊", pdf: "" },
-  { en: "activities", cn: "活動", pdf: "" },
+  { en: "catalogue", cn: "畫冊", download: "" },
+  { en: "activities", cn: "活動", download: "" },
 ];
 Object.freeze(list);
 interface ListProps {
@@ -18,7 +18,7 @@ const DetailsList = ({ className }: ListProps) => {
     <MixedNavList
       list={list}
       className={className}
-      pdfClassName="text-gl-1"
+      downloadClassName="text-m-1"
       linkClassName="text-xl"
       ariaLabel="exhibition details navigation"
     />

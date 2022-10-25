@@ -42,31 +42,40 @@ const Exhibition = () => {
   }, [numberOfExhibitions]);
 
   return (
-    <div className="h-screen relative">
-      <Canvas className={s.canvas}>
-        {/* Canvas is responsive to fit the parent node, so you can control how big it is 
+    <div>
+      <div className="flex  justify-center pt-[337px] pb-[100px]">
+        <div className="max-w-[600px]">
+          <h1 className="text-lg uppercase text-main-color">
+            {isEn ? "exhibition" : "展覽"}
+          </h1>
+          <Details className="mt-20" />
+        </div>
+      </div>
+      <div className="h-screen relative">
+        <Canvas className={s.canvas}>
+          {/* Canvas is responsive to fit the parent node, so you can control how big it is 
         by changing the parents width and height, in this case #canvas-container.*/}
-        <Suspense fallback={null}>
-          <Three order={numberOfExhibitions} />
-        </Suspense>
-      </Canvas>
+          <Suspense fallback={null}>
+            <Three order={numberOfExhibitions} />
+          </Suspense>
+        </Canvas>
 
-      <FloorPlan
+        {/* <FloorPlan
         className="absolute bottom-6 right-6"
         order={numberOfExhibitions}
-      />
-      <OperateButtonsGroup
-        showDetails={showDetails}
-        handleDecrease={handleDecrease}
-        handleIncrease={handleIncrease}
-      />
-      <AddressInfo className="absolute left-2 bottom-2" />
-      <Overlay
-        className={cn("absolute ", {
-          ["hidden"]: !showDetails,
-        })}
-      />
-      <Button
+      /> */}
+        <OperateButtonsGroup
+          showDetails={showDetails}
+          handleDecrease={handleDecrease}
+          handleIncrease={handleIncrease}
+        />
+        {/* <AddressInfo className="absolute left-2 bottom-2" /> */}
+        {/* <Overlay
+          className={cn("absolute ", {
+            ["hidden"]: showDetails,
+          })}
+        /> */}
+        {/* <Button
         variant="primary"
         className="absolute top-0 left-0"
         onClick={toggleDetails}
@@ -79,12 +88,13 @@ const Exhibition = () => {
           : showDetails
           ? "隱藏資料"
           : "顯示資料"}
-      </Button>
-      <Details
+      </Button> */}
+        {/* <Details
         className={cn("absolute top-6 left-1/2 -translate-x-1/2", {
           ["hidden"]: !showDetails,
         })}
-      />
+      /> */}
+      </div>
     </div>
   );
 };

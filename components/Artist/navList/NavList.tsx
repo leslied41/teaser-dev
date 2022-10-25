@@ -14,9 +14,18 @@ const list = [
     download: "/",
   },
   {
-    en: "music interaction",
-    cn: "音韻迴響",
-    player: true,
+    en: `'cumulus'`,
+    cn: `<積雲>`,
+    title: `musical interpretation of 'timbuktu'`,
+    title_cn: `「 山旮旯 」樂韻迴響 `,
+    info: "Composed by Priscila Chu",
+    info_cn: "朱曉芳作曲",
+    audio: "",
+  },
+  {
+    en: "artist's bio",
+    cn: "藝術家簡歷",
+    download: "/",
   },
 ];
 
@@ -30,16 +39,17 @@ const NavList = ({ className }: NavListProps) => {
   return (
     <div
       className={cn(
-        "flex justify-center items-center bg-black h-[580px]",
+        "flex justify-center items-center mt-[127px]  py-20 h-fit",
         className
       )}
     >
       <MixedNavList
         ariaLabel="artist page navigation"
         className="w-[600px]"
-        pdfClassName="text-xl"
-        linkClassName="text-xl"
+        downloadClassName="text-m-1"
+        playClassName="text-m-1"
         list={list}
+        gap
       />
     </div>
   );

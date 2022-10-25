@@ -9,7 +9,10 @@ const Supports = () => {
   return (
     <div className="flex flex-col gap-y-20">
       <section aria-label="introduction">
-        <p className="text-m-1">
+        <h1 className="text-lg uppercase text-main-color">
+          {isEn ? "acknowledgement" : "鳴謝"}
+        </h1>
+        <p className="text-m-1 mt-20">
           {isEn ? supportsData.introduction.en : supportsData.introduction.cn}
         </p>
       </section>

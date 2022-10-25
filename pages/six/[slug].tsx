@@ -14,10 +14,10 @@ const Artist = () => {
   return (
     <div className="bg-white relative">
       <Hero setShowArtWork={setShowArtWork} />
-      <MapComponent className="mt-[130px]" />
+      <MapComponent />
       <NavList />
-      <Profile className="mt-20" />
-      <VenueGraph className="mt-20 pb-[100px]" />
+      {/* <Profile className="mt-20" /> */}
+      <VenueGraph className="mt-[250px] pb-[100px]" />
       <Gallery showArtWork={showArtWork} setShowArtWork={setShowArtWork} />
     </div>
   );

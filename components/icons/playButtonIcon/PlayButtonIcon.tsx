@@ -1,26 +1,22 @@
 import React from "react";
+interface Props {
+  className: string;
+}
 
-const PlayButtonIcon = () => {
+const PlayButtonIcon = ({ className }: Props) => {
   return (
     <svg
-      width="100"
-      height="100"
-      viewBox="0 0 100 100"
+      className={className}
+      width="30"
+      height="36"
+      viewBox="0 0 30 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
-        x="1.5"
-        y="1.5"
-        width="97"
-        height="97"
-        stroke="white"
-        strokeWidth="3"
-      />
       <path
-        d="M39.9615 32.6126L70.0769 49.9998L39.9615 67.3869L39.9615 32.6126Z"
-        fill="white"
-        stroke="white"
+        d="M1.5 3.27757L27 18L1.5 32.7224L1.5 3.27757Z"
+        fill="#C89C6C"
+        stroke="#C89C6C"
         strokeWidth="3"
       />
     </svg>

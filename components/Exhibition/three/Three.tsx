@@ -51,6 +51,7 @@ const Three: FC<Props> = ({ order }) => {
         maxDistance={70}
         minPolarAngle={angleToRadians(70)}
         maxPolarAngle={angleToRadians(110)}
+        enableZoom={false}
       />
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
 

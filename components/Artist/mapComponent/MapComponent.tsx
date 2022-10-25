@@ -6,7 +6,7 @@ import { ProgressLoader } from "../../common";
 import cn from "clsx";
 
 interface Props {
-  className: string;
+  className?: string;
 }
 const libraries: LoadScriptProps["libraries"] = ["places"];
 
@@ -28,7 +28,7 @@ const MapComponent = ({ className }: Props) => {
         <div className={cn("h-[660px] w-full", className)}>
           <Map />
         </div>
-        <Route />
+        {/* <Route /> */}
       </>
     );
 };

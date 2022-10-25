@@ -1,57 +1,89 @@
-import React, { FC, memo } from "react";
+import React, { FC, memo, useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { useLocale } from "../../../hooks";
-import { PdfIcon, NavArrowIcon, DownloadIcon } from "../../icons";
+import { Button } from "..";
+import { NavArrowIcon, PlayButtonIcon, PauseIcon } from "../../icons";
 import cn from "clsx";
 
 type item = {
   en: string;
   cn: string;
-  pdf?: string;
   link?: string;
-  player?: boolean;
+  audio?: string;
   download?: string;
+  contact?: string;
+  title?: string;
+  title_cn?: string;
+  info?: string;
+  info_cn?: string;
 };
 
 interface NavListProps {
   list: item[];
   className: string;
-  pdfClassName: string;
-  linkClassName: string;
+  downloadClassName: string;
+  linkClassName?: string;
+  playClassName?: string;
   ariaLabel?: string;
+  gap?: boolean;
 }
 
 const MixNavList: FC<NavListProps> = ({
   list,
   className,
-  pdfClassName,
+  downloadClassName,
   linkClassName,
+  playClassName,
   ariaLabel,
+  gap = false,
 }) => {
   const isEn = useLocale();
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  useEffect(() => {
+    if (audioRef.current === null) return;
+    audioRef.current.addEventListener("ended", () => setAudioPlaying(false));
+  }, []);
+
+  const operateAudio = () => {
+    if (audioRef.current === null) return;
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setAudioPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setAudioPlaying(false);
+    }
+  };
 
   return (
     <nav aria-label={ariaLabel} className={className}>
-      <ul>
+      <ul
+        className={cn("flex flex-col", {
+          ["gap-y-20"]: gap,
+        })}
+      >
         {list.map((l) => {
-          if (l.hasOwnProperty("pdf"))
+          if (l.hasOwnProperty("download"))
             return (
               <li
                 key={l.en}
                 className={cn(
                   "text-main-color uppercase px-2 py-6 border-y-[1px] border-main-color",
-                  pdfClassName
+                  downloadClassName
                 )}
               >
-                <a
-                  href={l.pdf}
-                  className="flex justify-between"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <div className="flex justify-between items-center">
                   <span>{isEn ? l.en : l.cn}</span>
-                  <PdfIcon className="shrink-0" />
-                </a>
+                  <Button
+                    variant="secondary"
+                    Component="a"
+                    href={l.download}
+                    download
+                  >
+                    {isEn ? "download" : "下載"}
+                  </Button>
+                </div>
               </li>
             );
           else if (l.hasOwnProperty("link"))
@@ -71,34 +103,57 @@ const MixNavList: FC<NavListProps> = ({
                 </Link>
               </li>
             );
-          else if (l.hasOwnProperty("download"))
+          else if (l.hasOwnProperty("contact"))
             return (
               <li
                 key={l.en}
                 className={cn(
                   "text-main-color uppercase px-2 py-6 border-y-[1px] border-main-color",
-                  linkClassName
+                  downloadClassName
                 )}
               >
-                <a href={l.download} className="flex justify-between">
+                <div className="flex justify-between">
                   <span>{isEn ? l.en : l.cn}</span>
-                  <DownloadIcon className="shrink-0" />
-                </a>
+                  <Button variant="secondary" Component="a" href={l.contact}>
+                    {isEn ? "contact us" : "聯絡我們"}
+                  </Button>
+                </div>
               </li>
             );
-          else if (l.hasOwnProperty("player"))
+          else if (l.hasOwnProperty("audio"))
             return (
               <li
                 key={l.en}
                 className={cn(
                   "text-main-color uppercase px-2 py-6 border-y-[1px] border-main-color",
-                  linkClassName
+                  playClassName
                 )}
               >
-                <button className="flex justify-between w-full uppercase">
-                  <span className="text-start">{isEn ? l.en : l.cn}</span>
-                  <NavArrowIcon className="shrink-0" />
-                </button>
+                <audio ref={audioRef}>
+                  <source src="/audio/audio.mp3" type="audio/mpeg" />
+                </audio>
+                <div className="flex justify-between items-center w-full uppercase">
+                  <div className="flex flex-col">
+                    <span className="text-start">{isEn ? l.en : l.cn}</span>
+                    <span className="text-start">
+                      {isEn ? l.title : l.title_cn}
+                    </span>
+                    <span className="text-start text-sm normal-case">
+                      {isEn ? l.info : l.info_cn}
+                    </span>
+                  </div>
+
+                  <button
+                    aria-label={audioPlaying ? "pause" : "play"}
+                    onClick={operateAudio}
+                  >
+                    {audioPlaying ? (
+                      <PauseIcon className="shrink-0 " />
+                    ) : (
+                      <PlayButtonIcon className="shrink-0 " />
+                    )}
+                  </button>
+                </div>
               </li>
             );
         })}

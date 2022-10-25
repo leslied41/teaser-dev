@@ -1,13 +1,17 @@
 import React from "react";
 import { NormalPageLayout } from "../components/common";
+import { Workflow } from "../components/about";
 import { useLocale } from "../hooks";
 import cn from "clsx";
 
 const About = () => {
   const isEn = useLocale();
   return (
-    <>
-      <section aria-label="introduction">
+    <section>
+      <h1 className="text-lg uppercase text-main-color">
+        {isEn ? "about this project" : "計畫概述"}
+      </h1>
+      <section aria-label="introduction" className="mt-20">
         <p className="text-m-1">
           {isEn
             ? `HERE & THERE is a project originated from a research project titled
@@ -26,55 +30,7 @@ const About = () => {
         </p>
       </section>
       <section aria-label="workflow">
-        <div className="mt-20">
-          <div className="flex gap-x-6 ">
-            <div className="border-r-[1px] border-main-color">
-              <div className="flex items-center justify-center bg-main-color w-16 h-10 text-m-1">
-                2018
-              </div>
-            </div>
-            <div className="flex-1 pb-[100px]">
-              <p className="text-xl text-main-color uppercase">
-                {isEn ? "research" : "研究"}{" "}
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-x-6 ">
-            <div className="border-r-[1px] border-main-color ">
-              <div className="flex items-center justify-center bg-main-color w-16 h-10 text-m-1">
-                2021
-              </div>
-            </div>
-            <div className="flex-1 flex flex-col gap-y-4 pb-[100px]">
-              <p className="text-lg uppercase">{isEn ? "archives" : "檔案"} </p>
-              <p className="text-xl text-main-color uppercase">
-                {isEn ? "art production" : "創作"}
-              </p>
-              <p className="text-lg uppercase">
-                {isEn ? "6 locations" : "六處地方"}
-              </p>
-              <p className="text-lg uppercase">
-                {isEn ? "6 artists" : "六位藝術家"}
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-x-6">
-            <div className="border-r-[1px] border-main-color">
-              <div className="flex items-center justify-center bg-main-color w-16 h-10 text-m-1">
-                2022
-              </div>
-            </div>
-            <div className="flex-1 flex flex-col gap-y-4">
-              <p className="text-xl text-main-color uppercase">
-                {isEn ? "exhibition" : "展覽"}
-              </p>
-              <p className="text-lg uppercase">{isEn ? "catalogue" : "畫冊"}</p>
-              <p className="text-lg uppercase">
-                {isEn ? "activities" : "活動"}
-              </p>
-            </div>
-          </div>
-        </div>
+        <Workflow />
       </section>
       <section className="mt-20" aria-label="contact">
         <p className="text-m-1">
@@ -140,7 +96,7 @@ const About = () => {
           </div>
         </section>
       </footer>
-    </>
+    </section>
   );
 };
 About.Layout = NormalPageLayout;

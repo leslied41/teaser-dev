@@ -5,30 +5,33 @@ export const introduction = {
 
 export const items = [
   {
-    title: "Local Landscape shown in Photos & Postcards",
-    title_cn: "本地風景圖片與明信片",
+    title: "Local Landscape",
+    title_cn: "本地風景",
+    subtitle: "shown in Photos & Postcards",
+    subtitle_cn: "圖片與明信片",
     src: "",
   },
   {
-    title: `Travel Biweekly 
-  [旅行雙週刊], 
-  Wah Kiu Yat Po 
-  [華僑日報] [vol. 1-411]`,
-    title_cn: `《華僑日報》
-    《旅行雙週刊》
-    [1-411期]`,
+    title: `Travel Biweekly`,
+    title_cn: `《旅行雙週刊》`,
+    subtitle: `Wah Kiu Yat Po 
+    [華僑日報] [vol. 1-411]`,
+    subtitle_cn: `
+    [1-411期， 載於《華僑日報》]`,
     src: "",
   },
   {
-    title:
-      "Textual Database of Hong Kong Landscapes: Hong Kong Island & Outlying Islands",
-    title_cn: "香港風景文字資料庫：香港及離島",
+    title: "Textual Database of Hong Kong Landscapes",
+    title_cn: "香港風景文字資料庫",
+    subtitle: "Hong Kong Island & Outlying Islands",
+    subtitle_cn: "香港及離島",
     src: "",
   },
   {
-    title:
-      "Textual Database of Hong Kong Landscapes: New Territeries & Kowloon",
-    title_cn: "香港風景文字資料庫：新界及九龍",
+    title: "Textual Database of Hong Kong Landscapes ii",
+    title_cn: "香港風景文字資料庫",
+    subtitle: "New Territeries & Kowloon",
+    subtitle_cn: "新界及九龍",
     src: "",
   },
 ];
