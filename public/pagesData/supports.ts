@@ -19,14 +19,17 @@ export const supportsData: SupportsData = {
   },
   research: {
     en: {
-      "research team": ["Ting Wing Yan, Vivian", "Chan Pui, Pedith "],
-      "Research Archive Development": ["Ting Wing Yan, Vivian"],
-      sponsor: ["Research Grants Council "],
+      "research team [research]": [
+        "Ting Wing Yan, Vivian",
+        "Chan Pui, Pedith ",
+      ],
+      "Research Archive Development [research]": ["Ting Wing Yan, Vivian"],
+      "sponsor [research]": ["Research Grants Council "],
     },
     cn: {
-      研究團隊: ["丁穎茵", "陳蓓"],
-      研究檔案: ["丁穎茵"],
-      贊助: ["研究資助局"],
+      "研究團隊 [研究]": ["丁穎茵", "陳蓓"],
+      "研究檔案 [研究]": ["丁穎茵"],
+      "贊助 [研究]": ["研究資助局"],
     },
   },
   exhibition: {
@@ -38,6 +41,7 @@ export const supportsData: SupportsData = {
         "Wong Chun Hei, Stephen",
         "Wong Lai Ching, Fiona",
       ],
+      curator: ["Ting Wing Yan, Vivian"],
       sponsors: [
         "Val Chow",
         "Mike S K Lui",
@@ -105,16 +109,20 @@ export const supportsData: SupportsData = {
 
   project: {
     en: {
-      "Legal Consultant": ["Val Chow"],
-      "Project Coordinator": ["Shum Kwan Yi, Sim"],
-      "Design Production": ["Studio MARY"],
-      "Website Development": ["Funkie Loopie"],
+      "Legal Consultant [project]": ["Val Chow"],
+      "Project Coordinator [project]": ["Shum Kwan Yi, Sim"],
+      "Guided_Tour [exhibition activities]": ["HO HO GO Experience"],
+      "Design Production [project & exhibition]": ["Studio MARY"],
+      "Website Development [project]": ["Funkie Loopie"],
+      "Videography [exhibition]": ["Moon Cheung"],
     },
     cn: {
-      法律顧問: ["周翩洋大律師"],
-      項目統籌: ["沈君怡"],
-      "設計 & 製作": ["Studio MARY"],
-      網頁設計: ["Funkie Loopie"],
+      "法律顧問 [計畫]": ["周翩洋大律師"],
+      "項目統籌 [計畫]": ["沈君怡"],
+      "導賞團策劃 [展覽活動]": ["好好過～生活導賞"],
+      "設計 & 製作 [計畫及展覽]": ["Studio MARY"],
+      "網頁設計 [計畫]": ["Funkie Loopie"],
+      "錄像 [展覽]": ["張景亮"],
     },
   },
 };

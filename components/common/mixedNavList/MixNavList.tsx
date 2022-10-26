@@ -80,6 +80,7 @@ const MixNavList: FC<NavListProps> = ({
                     Component="a"
                     href={l.download}
                     download
+                    className="!text-sm"
                   >
                     {isEn ? "download" : "下載"}
                   </Button>
@@ -123,7 +124,12 @@ const MixNavList: FC<NavListProps> = ({
               >
                 <div className="flex justify-between">
                   <span>{isEn ? l.en : l.cn}</span>
-                  <Button variant="secondary" Component="a" href={l.contact}>
+                  <Button
+                    variant="secondary"
+                    Component="a"
+                    href={l.contact}
+                    className="!text-sm"
+                  >
                     {isEn ? "contact us" : "聯絡我們"}
                   </Button>
                 </div>

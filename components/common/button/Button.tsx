@@ -36,7 +36,7 @@ const Button: FC<ComponentProps> = ({
 }) => {
   const isEn = useLocale();
   const ClassName = cn(
-    "uppercase px-2 bg-transparent border-[1px] text-lg",
+    "uppercase px-2 bg-transparent border-[1px] text-lg hover:opacity-70",
     {
       ["text-main-color py-1 border-main-color"]: variant === "primary",
       ["inline-block  py-[6px]  border-white"]: variant === "link",

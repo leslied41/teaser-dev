@@ -1,13 +1,17 @@
 import React, { FC, JSXElementConstructor } from "react";
+import Link from "next/link";
 import cn from "clsx";
+
+type Artist = { name: string; src: string };
 
 interface CardProps {
   title?: string;
   subtitle?: string;
-  data: string[];
+  data: string[] | Artist[];
   Heading?: string | JSXElementConstructor<any>;
   headingClassName?: string;
   bodyClassName?: string;
+  link?: boolean;
 }
 
 const TextCard: FC<CardProps> = ({
@@ -17,6 +21,7 @@ const TextCard: FC<CardProps> = ({
   Heading = "h3",
   headingClassName,
   bodyClassName,
+  link = false,
 }) => {
   return (
     <section>
@@ -29,9 +34,19 @@ const TextCard: FC<CardProps> = ({
       )}
       {subtitle && <p>{subtitle}</p>}
       <ul className={bodyClassName}>
-        {data.map((e) => (
-          <li key={`${title}-${e}`}>{e}</li>
-        ))}
+        {data.map((e: Artist | string) =>
+          link ? (
+            <li key={`${title}-${e}`}>
+              <Link href={typeof e !== "string" ? e.src : ""}>
+                <a className="hover:opacity-70">
+                  {typeof e !== "string" ? e.name : ""}{" "}
+                </a>
+              </Link>
+            </li>
+          ) : (
+            <li key={`${title}-${e}`}>{typeof e == "string" && e}</li>
+          )
+        )}
       </ul>
     </section>
   );

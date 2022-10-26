@@ -34,10 +34,12 @@ const About = () => {
       </section>
       <section className="mt-20" aria-label="contact">
         <p className="text-m-1">
-          {isEn
-            ? `For further information, please feel free to contact
+          <a href="mailto:hereandthere102022@gmail.com">
+            {isEn
+              ? `For further information, please feel free to contact
             hereandthere102022@gmail.com`
-            : "如有查詢，請電郵至：hereandthere102022@gmail.com "}
+              : "如有查詢，請電郵至：hereandthere102022@gmail.com "}
+          </a>
         </p>
       </section>
       <footer className="mt-20 text-sm">

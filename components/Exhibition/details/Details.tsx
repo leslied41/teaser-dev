@@ -61,6 +61,7 @@ const Details: FC<DetailsProps> = ({ className }) => {
           Heading="h2"
           headingClassName="text-m"
           bodyClassName="text-lg uppercase"
+          link
         />
         <TextCard
           title={isEn ? "curator" : "策展人"}

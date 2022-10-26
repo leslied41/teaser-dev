@@ -5,7 +5,11 @@ const list = [
   { en: "forward", cn: "序", download: "" },
   { en: "curatorial statement", cn: "策展論述", download: "" },
   { en: "6 locations/6 artists", cn: "六處地方/六位藝術家", link: "/six" },
-  { en: "catalogue", cn: "畫冊", download: "" },
+  {
+    en: "catalogue",
+    cn: "畫冊",
+    contact: "mailto:hereandthere102022@gmail.com",
+  },
   { en: "activities", cn: "活動", download: "" },
 ];
 Object.freeze(list);

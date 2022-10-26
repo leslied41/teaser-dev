@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { useLocale } from "../../../hooks";
-import { TextCard, ImageCard } from "..";
+import { TextCard, ImageCard, Research, Project } from "..";
 import { supportsData } from "../../../public/pagesData/supports";
 
 const Exhibition = () => {
   const isEn = useLocale();
   return (
-    <section className="flex flex-col gap-y-10">
-      <h2 className="uppercase text-xl text-main-color">
+    <section className="flex flex-col gap-y-10 ">
+      <h2 className="uppercase text-xl text-main-color absolute top-[-9999px] left-[-9999px]">
         {isEn ? "exhibiton" : "展覽"}
       </h2>
 
@@ -17,21 +17,26 @@ const Exhibition = () => {
             ? supportsData.exhibition.en.participant_artists
             : supportsData.exhibition.cn.participant_artists
         }
-        title={isEn ? "participant artists" : "參展藝術家"}
+        title={
+          isEn ? "5 participant artists [exhibition]" : `五位參展藝術家 [展覽]`
+        }
       />
       <TextCard
         data={
           isEn
-            ? supportsData.exhibition.en.participant_artists
-            : supportsData.exhibition.cn.participant_artists
+            ? supportsData.exhibition.en.curator
+            : supportsData.exhibition.cn.curator
         }
-        title={isEn ? "curator" : "策展人"}
+        title={isEn ? `curator [exhibition]` : `策展人 [展覽]`}
       />
+      <Research />
       <ImageCard
         images={[
           { src: "/images/supports/1.png", alt: "Hongkong artist center" },
         ]}
-        title={isEn ? "one of the co-presenter" : "呈現機構之一"}
+        title={
+          isEn ? "one of the co-presenter [exhibition]" : "呈現機構之一 [展覽]"
+        }
       />
       <ImageCard
         className="max-w-[450px]"
@@ -49,7 +54,7 @@ const Exhibition = () => {
             alt: "hkbu and academy of visual arts",
           },
         ]}
-        title={isEn ? "supporters" : "支持機構"}
+        title={isEn ? "supporters [exhibition]" : "支持機構 [展覽]"}
       />
       <ImageCard
         images={[
@@ -70,7 +75,7 @@ const Exhibition = () => {
             alt: "hkbu and academy of visual arts",
           },
         ]}
-        title={isEn ? "sponsors" : "贊助"}
+        title={isEn ? "sponsors [exhibition]" : "贊助 [展覽]"}
       />
       <TextCard
         data={
@@ -80,7 +85,9 @@ const Exhibition = () => {
         }
       />
       <TextCard
-        title={isEn ? "catalogue editor" : "畫冊編輯"}
+        title={
+          isEn ? "catalogue editor [exhibition catalogue]" : "編輯 [展覽畫冊]"
+        }
         data={
           isEn
             ? supportsData.exhibition.en.Catalogue_Editor
@@ -88,48 +95,11 @@ const Exhibition = () => {
         }
       />
       <TextCard
-        title={isEn ? "catalogue copy editor" : "畫冊文字編輯"}
-        data={
+        title={
           isEn
-            ? supportsData.exhibition.en.Catalogue_Copy_Editor
-            : supportsData.exhibition.cn.Catalogue_Copy_Editor
+            ? "seminar speaker [exhibition activities]"
+            : "講座主講 [展覽活動]"
         }
-      />
-      <TextCard
-        title={isEn ? "catalogue texts translation" : "畫冊文章翻译"}
-        data={
-          isEn
-            ? supportsData.exhibition.en.Catalogue_Texts_Translation
-            : supportsData.exhibition.cn.Catalogue_Texts_Translation
-        }
-      />
-      <TextCard
-        title={isEn ? "music composing" : "作曲"}
-        subtitle={isEn ? "in response to exhibits" : "回應展品"}
-        data={
-          isEn
-            ? supportsData.exhibition.en.Music_Composing
-            : supportsData.exhibition.cn.Music_Composing
-        }
-      />
-      <TextCard
-        title={isEn ? "photography" : "攝影"}
-        data={
-          isEn
-            ? supportsData.exhibition.en.Photography
-            : supportsData.exhibition.cn.Photography
-        }
-      />
-      <TextCard
-        title={isEn ? "social media management" : "社交媒體管理"}
-        data={
-          isEn
-            ? supportsData.exhibition.en.Social_Media_Management
-            : supportsData.exhibition.cn.Social_Media_Management
-        }
-      />
-      <TextCard
-        title={isEn ? "seminar speaker" : "講座主講"}
         data={
           isEn
             ? supportsData.exhibition.en.Seminar_Speaker
@@ -137,6 +107,59 @@ const Exhibition = () => {
         }
       />
       <TextCard
+        title={
+          isEn
+            ? "catalogue copy editor [exhibition catalogue]"
+            : "文字編輯 [展覽畫冊]"
+        }
+        data={
+          isEn
+            ? supportsData.exhibition.en.Catalogue_Copy_Editor
+            : supportsData.exhibition.cn.Catalogue_Copy_Editor
+        }
+      />
+      <TextCard
+        title={
+          isEn
+            ? "catalogue texts translation [exhibition catalogue]"
+            : "文章翻译 [展覽畫冊]"
+        }
+        data={
+          isEn
+            ? supportsData.exhibition.en.Catalogue_Texts_Translation
+            : supportsData.exhibition.cn.Catalogue_Texts_Translation
+        }
+      />
+      <TextCard
+        title={
+          isEn ? "music composing [in response to exhibits]" : "作曲 [回應展品]"
+        }
+        data={
+          isEn
+            ? supportsData.exhibition.en.Music_Composing
+            : supportsData.exhibition.cn.Music_Composing
+        }
+      />
+      <TextCard
+        title={isEn ? "photography [exhibitis]" : "攝影 [展品]"}
+        data={
+          isEn
+            ? supportsData.exhibition.en.Photography
+            : supportsData.exhibition.cn.Photography
+        }
+      />
+      <TextCard
+        title={
+          isEn ? "social media management [exhibition]" : "社交媒體管理 [展覽]"
+        }
+        data={
+          isEn
+            ? supportsData.exhibition.en.Social_Media_Management
+            : supportsData.exhibition.cn.Social_Media_Management
+        }
+      />
+
+      {/* <TextCard
         title={isEn ? "guided tour" : "導賞團策劃"}
         data={
           isEn
@@ -151,7 +174,8 @@ const Exhibition = () => {
             ? supportsData.exhibition.en.Videography
             : supportsData.exhibition.cn.Videography
         }
-      />
+      /> */}
+      <Project />
     </section>
   );
 };

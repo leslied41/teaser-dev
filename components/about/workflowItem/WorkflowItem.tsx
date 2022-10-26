@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useLocale } from "../../../hooks";
+import Link from "next/link";
 import cn from "clsx";
 
 interface Props {
@@ -7,9 +8,18 @@ interface Props {
   title: string;
   content?: string;
   last?: boolean;
+  src?: string;
+  outsideLink?: string;
 }
 
-const WorkflowItem: FC<Props> = ({ year, title, content, last = false }) => {
+const WorkflowItem: FC<Props> = ({
+  year,
+  title,
+  content,
+  last = false,
+  src,
+  outsideLink,
+}) => {
   const isEn = useLocale();
   return (
     <div className="flex gap-x-6 ">
@@ -23,8 +33,29 @@ const WorkflowItem: FC<Props> = ({ year, title, content, last = false }) => {
         </div>
       </div>
       <div className={"flex-1 pb-[100px]"}>
-        <p className="text-xl text-main-color uppercase">{title}</p>
-        <p className="text-m-1 mt-4">{content}</p>
+        {outsideLink ? (
+          <a
+            className={"hover:opacity-70"}
+            href={outsideLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p className="text-xl text-main-color uppercase">{title}</p>
+            <p className="text-m-1 mt-4">{content}</p>
+          </a>
+        ) : src ? (
+          <Link href={`/${src}`}>
+            <a className={cn({ ["hover:opacity-70"]: src })}>
+              <p className="text-xl text-main-color uppercase">{title}</p>
+              <p className="text-m-1 mt-4">{content}</p>
+            </a>
+          </Link>
+        ) : (
+          <>
+            <p className="text-xl text-main-color uppercase">{title}</p>
+            <p className="text-m-1 mt-4">{content}</p>
+          </>
+        )}
       </div>
     </div>
   );

@@ -31,14 +31,21 @@ export const data = {
     },
   },
   artists: {
-    cn: ["何遠良", "管偉邦", "林東鵬", "梁嘉賢", "黃進曦", "黃麗貞"],
+    cn: [
+      { name: "何遠良", src: "six/HoYuenLeung" },
+      { name: "管偉邦", src: "six/KoonWaiBong" },
+      { name: "林東鵬", src: "six/LamTungPang" },
+      { name: "梁嘉賢", src: "six/LeungKaYin" },
+      { name: "黃進曦", src: "six/Wong Chun Hei" },
+      { name: "黃麗貞", src: "Wong Lai Ching" },
+    ],
     en: [
-      "Ho Yuen Leung",
-      "Koon Wai Bong",
-      "Lam Tung Pang",
-      "Leung Ka Yin, Joey",
-      "Wong Chun Hei, Stephen",
-      " Wong Lai Ching, Fiona",
+      { name: "Ho Yuen Leung", src: "six/HoYuenLeung" },
+      { name: "Koon Wai Bong", src: "six/KoonWaiBong" },
+      { name: "Lam Tung Pang", src: "six/LamTungPang" },
+      { name: "Leung Ka Yin, Joey", src: "six/LeungKaYin" },
+      { name: "Wong Chun Hei, Stephen", src: "six/Wong Chun Hei" },
+      { name: "Wong Lai Ching, Fiona", src: "Wong Lai Ching" },
     ],
   },
   curator: {

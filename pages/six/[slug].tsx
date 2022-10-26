@@ -3,6 +3,7 @@ import { GlobalLayout } from "../../components/common";
 import {
   Hero,
   MapComponent,
+  MapStatic,
   NavList,
   Profile,
   VenueGraph,
@@ -14,7 +15,8 @@ const Artist = () => {
   return (
     <div className="bg-[#EEEEEE] relative">
       <Hero setShowArtWork={setShowArtWork} />
-      <MapComponent />
+      <MapStatic />
+      {/* <MapComponent /> */}
       <NavList />
       {/* <Profile className="mt-20" /> */}
       <VenueGraph className="mt-[250px] pb-[100px]" />

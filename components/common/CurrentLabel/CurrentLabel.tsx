@@ -17,8 +17,8 @@ const CurrentLabel = () => {
         case "/exhibition":
           return "exhibition";
           break;
-        case "/supports":
-          return "supports";
+        case "/acknowledgment":
+          return "acknowledgment";
           break;
         case "/six":
           return "6 locations/6 artists";
@@ -78,7 +78,7 @@ const CurrentLabel = () => {
         case "/exhibition":
           return "展覽";
           break;
-        case "/supports":
+        case "/acknowledgment":
           return "鳴謝";
           break;
         case "/six":

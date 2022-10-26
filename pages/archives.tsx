@@ -6,6 +6,7 @@ import { introduction, items } from "../public/pagesData/archives";
 
 const Archives = () => {
   const isEn = useLocale();
+
   return (
     <>
       <section aria-label="introduction">
@@ -25,6 +26,8 @@ const Archives = () => {
               subtitle={item.subtitle}
               subtitle_cn={item.subtitle_cn}
               src={item.src}
+              variant={item.src ? "a" : "button"}
+              download={item.download}
             />
           </Fragment>
         ))}

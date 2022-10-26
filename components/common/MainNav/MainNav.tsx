@@ -16,7 +16,7 @@ const navList = [
   { en: "about", cn: "關於" },
   { en: "archives", cn: "檔案" },
   { en: "exhibition", cn: "展覽" },
-  { en: "supports", cn: "鳴謝" },
+  { en: "acknowledgment ", cn: "鳴謝" },
 ];
 Object.freeze(navList);
 

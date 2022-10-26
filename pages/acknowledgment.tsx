@@ -1,10 +1,10 @@
 import React from "react";
 import { NormalPageLayout } from "../components/common";
-import { Research, Exhibition, Project } from "../components/Supports";
+import { Exhibition } from "../components/Supports";
 import { useLocale } from "../hooks";
 import { supportsData } from "../public/pagesData/supports";
 
-const Supports = () => {
+const Acknowledgment = () => {
   const isEn = useLocale();
   return (
     <div className="flex flex-col gap-y-20">
@@ -16,12 +16,10 @@ const Supports = () => {
           {isEn ? supportsData.introduction.en : supportsData.introduction.cn}
         </p>
       </section>
-      <Research />
       <Exhibition />
-      <Project />
     </div>
   );
 };
 
-Supports.Layout = NormalPageLayout;
-export default Supports;
+Acknowledgment.Layout = NormalPageLayout;
+export default Acknowledgment;

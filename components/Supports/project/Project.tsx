@@ -7,7 +7,7 @@ const Project = () => {
   const isEn = useLocale();
   return (
     <section className="flex flex-col gap-y-10">
-      <h2 className="uppercase text-xl text-main-color">
+      <h2 className="uppercase text-xl text-main-color absolute left-[-9999px] top-[-9999px]">
         {isEn ? "project" : "策劃"}
       </h2>
       {Object.keys(

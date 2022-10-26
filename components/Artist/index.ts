@@ -8,3 +8,4 @@ export { default as VenueGraph } from "./venue";
 export { default as Slider } from "./slider";
 export { default as Gallery } from "./gallery";
 export { default as ArtworkInfo } from "./artworkInfo";
+export { default as MapStatic } from "./mapStatic";
