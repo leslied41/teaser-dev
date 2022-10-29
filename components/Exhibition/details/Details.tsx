@@ -41,7 +41,7 @@ const Details: FC<DetailsProps> = ({ className }) => {
                 <p>{exhibition.supports.en[0]}</p>
               </div>
               <div>
-                <p className="text-main-color uppercase">supported by</p>
+                <p className="text-main-color uppercase mt-5">supported by</p>
                 <p>{exhibition.supports.en[1]}</p>
                 <p>{exhibition.supports.en[2]}</p>
                 <p className="mt-5">{exhibition.supports.en[3]}</p>

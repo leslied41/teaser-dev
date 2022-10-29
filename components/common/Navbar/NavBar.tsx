@@ -17,7 +17,7 @@ const NavBar = () => {
       )}
     >
       <MainNav embedIn="navbar" />
-      <div className="absolute left-0 bottom-0 flex items-center">
+      <div className="absolute left-0 bottom-0  items-center flex gap-x-2">
         <LocaleSwitch />
         <SocialMedia />
       </div>

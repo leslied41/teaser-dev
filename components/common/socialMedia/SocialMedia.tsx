@@ -7,7 +7,7 @@ interface SocialMediaProps {
 const SocialMedia: FC<SocialMediaProps> = ({ className }) => {
   return (
     <section aria-label="social media group">
-      <ul className="flex gap-x-2">
+      <ul className="flex gap-x-4">
         <li className="text-m text-main-color uppercase">
           <a
             href="https://www.facebook.com/hereandthere.hk"

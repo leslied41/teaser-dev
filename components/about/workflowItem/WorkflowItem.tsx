@@ -10,6 +10,7 @@ interface Props {
   last?: boolean;
   src?: string;
   outsideLink?: string;
+  contentClassName?: string;
 }
 
 const WorkflowItem: FC<Props> = ({
@@ -19,6 +20,7 @@ const WorkflowItem: FC<Props> = ({
   last = false,
   src,
   outsideLink,
+  contentClassName,
 }) => {
   const isEn = useLocale();
   return (
@@ -41,19 +43,43 @@ const WorkflowItem: FC<Props> = ({
             rel="noopener noreferrer"
           >
             <p className="text-xl text-main-color uppercase">{title}</p>
-            <p className="text-m-1 mt-4">{content}</p>
+            <p
+              className={cn(
+                "mt-4",
+                { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                contentClassName
+              )}
+            >
+              {content}
+            </p>
           </a>
         ) : src ? (
           <Link href={`/${src}`}>
             <a className={cn({ ["hover:opacity-70"]: src })}>
               <p className="text-xl text-main-color uppercase">{title}</p>
-              <p className="text-m-1 mt-4">{content}</p>
+              <p
+                className={cn(
+                  "mt-4",
+                  { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                  contentClassName
+                )}
+              >
+                {content}
+              </p>
             </a>
           </Link>
         ) : (
           <>
             <p className="text-xl text-main-color uppercase">{title}</p>
-            <p className="text-m-1 mt-4">{content}</p>
+            <p
+              className={cn(
+                "mt-4",
+                { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                contentClassName
+              )}
+            >
+              {content}
+            </p>
           </>
         )}
       </div>

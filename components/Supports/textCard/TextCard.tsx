@@ -36,7 +36,11 @@ const TextCard: FC<CardProps> = ({
       <ul className={bodyClassName}>
         {data.map((e: Artist | string) =>
           link ? (
-            <li key={`${title}-${e}`}>
+            <li
+              key={
+                typeof e !== "string" ? `${title}-${e.src}` : `${title}-${e}`
+              }
+            >
               <Link href={typeof e !== "string" ? e.src : ""}>
                 <a className="hover:opacity-70">
                   {typeof e !== "string" ? e.name : ""}{" "}

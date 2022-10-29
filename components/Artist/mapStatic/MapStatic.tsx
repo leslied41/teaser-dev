@@ -10,7 +10,7 @@ interface Props {
 const MapStatic = ({ className }: Props) => {
   const isEn = useLocale();
   return (
-    <div className="w-full h-[657px] relative">
+    <div className="w-full h-screen relative">
       <Image
         src={mapImage}
         layout="fill"

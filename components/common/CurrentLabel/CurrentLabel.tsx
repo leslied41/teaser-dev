@@ -1,143 +1,188 @@
 import React, { useMemo, memo } from "react";
 import { useRouter } from "next/router";
+import { useLocale } from "../../../hooks";
 import cn from "clsx";
 
 const CurrentLabel = () => {
   const router = useRouter();
+  const isEn = useLocale();
 
-  let title = useMemo(() => {
+  let item = useMemo(() => {
     if (!router.query.slug) {
       switch (router.pathname) {
         case "/about":
-          return "about";
+          return { title: "about" };
           break;
         case "/archives":
-          return "archives";
+          return { title: "archives" };
           break;
         case "/exhibition":
-          return "exhibition";
+          return { title: "exhibition" };
           break;
-        case "/acknowledgment":
-          return "acknowledgment";
+        case "/acknowledgments":
+          return { title: "acknowledgments" };
           break;
         case "/six":
-          return "6 locations/6 artists";
+          return { title: "6 locations/6 artists" };
           break;
       }
     } else {
       switch ((router.query.slug as string).toLowerCase()) {
         case "hoyuenleung":
-          return "ho yuen leunG";
+          return { title: "ho yuen leunG", location: "yuen long" };
           break;
         case "koonwaibong":
-          return "koon wai bong";
+          return { title: "koon wai bong", location: "outlying island" };
           break;
         case "lamtungpang":
-          return "lam tung pang";
+          return {
+            title: "lam tung pang",
+            location: "North Coast of Hong Kong Island",
+          };
           break;
         case "leungkayin":
-          return "leung ka yin";
+          return { title: "leung ka yin", location: "the peak" };
           break;
         case "wongchunhei":
-          return "wong chun hei";
+          return {
+            title: "wong chun hei",
+            location: "kowloon mountain ranges",
+          };
           break;
         case "wonglaiching":
-          return "wong lai ching";
+          return { title: "wong lai ching", location: "pok fu lam" };
           break;
         case "kowloonmountainranges":
-          return "kow loon mountain ranges";
+          return {
+            title: "wong chun hei",
+            location: "kowloon mountain ranges",
+          };
           break;
         case "thepeak":
-          return "the peak";
+          return { title: "leung ka yin", location: "the peak" };
           break;
         case "northcoastofhongkongisland":
-          return "North Coast of hongkong island";
+          return {
+            title: "lam tung pang",
+            location: "North Coast of Hong Kong Island",
+          };
           break;
         case "pokfulam":
-          return "POKFULAM";
+          return { title: "wong lai ching", location: "POKFULAM" };
+
           break;
         case "outlyingislands":
-          return "OUTLYING ISLANDS";
+          return { title: "koon wai bong", location: "OUTLYING ISLANDS" };
+
           break;
         case "yuenlong":
-          return "YUENLONG";
+          return { title: "ho yuen leunG", location: "YUENLONG" };
+
           break;
       }
     }
   }, [router.pathname, router.query.slug]);
 
-  let title_cn = useMemo(() => {
+  let item_cn = useMemo(() => {
     if (!router.query.slug) {
       switch (router.pathname) {
         case "/about":
-          return "概述";
+          return { title: "概述" };
           break;
         case "/archives":
-          return "檔案";
+          return { title: "檔案" };
           break;
         case "/exhibition":
-          return "展覽";
+          return { title: "展覽" };
           break;
-        case "/acknowledgment":
-          return "鳴謝";
+        case "/acknowledgments":
+          return { title: "鳴謝" };
           break;
         case "/six":
-          return "六處地方/六位藝術家";
+          return { title: "六處地方/六位藝術家" };
           break;
       }
     } else {
       switch ((router.query.slug as string).toLowerCase()) {
         case "hoyuenleung":
-          return "何遠良";
+          return { title: "何遠良", location: "元朗" };
           break;
         case "koonwaibong":
-          return "管偉邦";
+          return { title: "管偉邦", location: "離島" };
           break;
         case "lamtungpang":
-          return "林東鵬";
+          return { title: "林東鵬", location: "港島北" };
           break;
         case "leungkayin":
-          return "梁嘉賢";
+          return { title: "梁嘉賢", location: '"山頂' };
           break;
         case "wongchunhei":
-          return "黃進曦";
+          return { title: "黃進曦", location: "九龍群山" };
           break;
         case "wonglaiching":
-          return "黃麗貞";
+          return { title: "黃麗貞", location: "薄扶林" };
           break;
         case "kowloonmountainranges":
-          return "九龍群山";
+          return { title: "黃進曦", location: "九龍群山" };
           break;
         case "thepeak":
-          return "山頂";
+          return { title: "梁嘉賢", location: '"山頂' };
           break;
         case "northcoastofhongkongisland":
-          return "港島北";
+          return { title: "林東鵬", location: "港島北" };
           break;
         case "pokfulam":
-          return "薄扶林";
+          return { title: "黃麗貞", location: "薄扶林" };
           break;
         case "outlyingislands":
-          return "離島";
+          return { title: "管偉邦", location: "離島" };
           break;
         case "yuenlong":
-          return "元朗";
+          return { title: "何遠良", location: "元朗" };
           break;
       }
     }
   }, [router.pathname, router.query.slug]);
 
   return (
-    <div
-      className={cn(
-        "flex items-center justify-center fixed left-0 bottom-0 px-2 pt-1 pb-1 bg-white ",
-        { ["hidden"]: router.pathname === "/" }
+    <>
+      {router.query.slug ? (
+        <div
+          className={cn(
+            "flex flex-row items-end justify-center fixed left-0 bottom-0   ",
+            {
+              ["hidden"]: router.pathname === "/",
+              ["flex-col !items-start"]: isEn,
+            }
+          )}
+        >
+          <p className="text-xl text-main-color uppercase bg-white px-2 pt-1 pb-1">
+            {isEn ? item?.location : item_cn?.location}
+          </p>
+          <p
+            className={cn(
+              "text-lg-1 text-main-color uppercase h-fit bg-white px-2 pt-1 pb-1",
+              {
+                ["text-lg"]: isEn,
+              }
+            )}
+          >
+            {isEn ? `—${item?.title} ` : `—${item_cn?.title}`}
+          </p>
+        </div>
+      ) : (
+        <div
+          className={cn(
+            "flex flex-col items-center justify-center fixed left-0 bottom-0 px-2 pt-1 pb-1 bg-white ",
+            { ["hidden"]: router.pathname === "/" }
+          )}
+        >
+          <p className="text-xl text-main-color uppercase">
+            {isEn ? item?.title : item_cn?.title}
+          </p>
+        </div>
       )}
-    >
-      <p className="text-xl text-main-color uppercase">
-        {router.locale === "en" ? title : title_cn}
-      </p>
-    </div>
+    </>
   );
 };
 

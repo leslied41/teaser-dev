@@ -39,11 +39,10 @@ const Button: FC<ComponentProps> = ({
     "uppercase px-2 bg-transparent border-[1px] text-lg hover:opacity-70",
     {
       ["text-main-color py-1 border-main-color"]: variant === "primary",
-      ["inline-block  py-[6px]  border-white"]: variant === "link",
+      ["inline-block  py-[6px]  border-white text-sm"]: variant === "link",
       ["inline-block  py-[6px] px-2 border-main-color cursor-pointer h-fit"]:
         variant === "secondary",
       ["border-none"]: variant === "primary" && !showDetails,
-      ["text-lg-1"]: !isEn,
     },
     className
   );

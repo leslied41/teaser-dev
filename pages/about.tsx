@@ -12,9 +12,9 @@ const About = () => {
         {isEn ? "about this project" : "計畫概述"}
       </h1>
       <section aria-label="introduction" className="mt-20">
-        <p className="text-m-1">
+        <p className={cn("text-m-1", { ["tracking-wide"]: !isEn })}>
           {isEn
-            ? `HERE & THERE is a project originated from a research project titled
+            ? `HERE & THERE is an exhibition project originated from a research project titled
  ‘An Exploration of Landscape Aesthetic, Hong Kong Scenic Sites and
  Cultural Imagination’ [Project number: 12606618; Project PI: Dr Koon
  Wai Bong], which is funded by General Research Fund (GRF) of
@@ -46,7 +46,7 @@ const About = () => {
         <section
           aria-label="english version"
           className={cn("hidden", {
-            ["!flex flex-col gap-y-10"]: isEn,
+            ["!flex flex-col"]: isEn,
           })}
         >
           <div>

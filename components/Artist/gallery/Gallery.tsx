@@ -23,7 +23,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork }) => {
         ["!block fixed inset-0 bg-black z-40 "]: showArtWork,
       })}
     >
-      <div className="flex relative h-screen ">
+      <div className="flex flex-col md:flex-row relative h-screen ">
         <button
           onClick={closeGallery}
           className="absolute right-0 top-0"
@@ -31,7 +31,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork }) => {
         >
           <CloseIcon />
         </button>
-        <div className="w-[300px]">
+        <div className="w-[280px]">
           <ArtworkInfo
             className="mt-6 ml-4"
             currentIndex={currentIndex}

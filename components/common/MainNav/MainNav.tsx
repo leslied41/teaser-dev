@@ -13,10 +13,10 @@ interface MainNavProps {
 
 const navList = [
   { en: "home", cn: "主頁" },
-  { en: "about", cn: "關於" },
+  { en: "about", cn: "關於我們" },
   { en: "archives", cn: "檔案" },
   { en: "exhibition", cn: "展覽" },
-  { en: "acknowledgment ", cn: "鳴謝" },
+  { en: "acknowledgments ", cn: "鳴謝" },
 ];
 Object.freeze(navList);
 
@@ -45,7 +45,7 @@ const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
         {navList.map((l, i) => (
           <li
             key={i}
-            className={cn("uppercase text-lg text-main-color", {
+            className={cn("uppercase text-m-1 text-main-color", {
               ["!text-xl"]: [2, 3].includes(i),
             })}
           >
@@ -68,7 +68,7 @@ const MainNav: FC<MainNavProps> = ({ className, embedIn }) => {
                   </span> */}
 
                   <span className="cursor-pointer flex items-center ">
-                    {isEn ? l.en : l.cn}
+                    {isEn ? (l.en === "about" ? "about us" : l.en) : l.cn}
                   </span>
                 </div>
               </a>

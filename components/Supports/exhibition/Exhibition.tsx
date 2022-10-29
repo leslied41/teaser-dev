@@ -31,6 +31,7 @@ const Exhibition = () => {
       />
       <Research />
       <ImageCard
+        firstClassname="col-span-2"
         images={[
           { src: "/images/supports/1.png", alt: "Hongkong artist center" },
         ]}
@@ -39,7 +40,9 @@ const Exhibition = () => {
         }
       />
       <ImageCard
-        className="max-w-[450px]"
+        className="max-w-[350px]"
+        firstClassname="col-span-2"
+        otherClassName="col-span-1"
         images={[
           {
             src: "/images/supports/2.png",
@@ -57,6 +60,9 @@ const Exhibition = () => {
         title={isEn ? "supporters [exhibition]" : "支持機構 [展覽]"}
       />
       <ImageCard
+        className="max-w-[350px]"
+        firstClassname="col-span-1"
+        otherClassName="col-span-1"
         images={[
           {
             src: "/images/supports/5.png",
@@ -122,7 +128,7 @@ const Exhibition = () => {
         title={
           isEn
             ? "catalogue texts translation [exhibition catalogue]"
-            : "文章翻译 [展覽畫冊]"
+            : "文章翻譯 [展覽畫冊]"
         }
         data={
           isEn

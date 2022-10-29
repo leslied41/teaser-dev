@@ -14,8 +14,8 @@ const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
   return (
     <div className="bg-[#EEEEEE] relative">
-      <Hero setShowArtWork={setShowArtWork} />
       <MapStatic />
+      <Hero setShowArtWork={setShowArtWork} />
       {/* <MapComponent /> */}
       <NavList />
       {/* <Profile className="mt-20" /> */}
