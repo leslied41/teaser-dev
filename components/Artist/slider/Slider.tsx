@@ -3,6 +3,7 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import { ArrowIcon } from "../../icons";
 import Image from "next/image";
+import Skeleton from "@mui/material/Skeleton";
 
 export interface SliderProps {
   className?: string;
@@ -36,12 +37,20 @@ const Slider: FC<SliderProps> = ({
       <SplideTrack>
         {imageSrcs?.map((src) => (
           <SplideSlide key={src} className="relative">
-            <Image
-              layout="fill"
-              src={src}
-              alt={src}
-              className="w-full h-full object-contain"
-            />
+            {src ? (
+              <Image
+                layout="fill"
+                src={src}
+                alt={src}
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <Skeleton
+                variant="rectangular"
+                className="w-full h-full bg-[#6e6363]"
+                animation="pulse"
+              />
+            )}
           </SplideSlide>
         ))}
       </SplideTrack>

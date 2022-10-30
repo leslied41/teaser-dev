@@ -26,9 +26,10 @@ interface Props {
   order: number;
 }
 
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 const TitleAndSubtitle: FC<Props> = ({ className, obj, order }) => {
-  const canUseDOM = typeof window !== "undefined";
-  const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
   const eWidthRef = useRef<number>();
   const divRef = useRef<HTMLDivElement>(null);
   const rowRef = useRef(true);

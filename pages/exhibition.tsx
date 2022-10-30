@@ -1,21 +1,9 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import {
-  Three,
-  OperateButtonsGroup,
-  AddressInfo,
-  Details,
-} from "../components/Exhibition";
-import { FloorPlan } from "../components/icons";
-import {
-  GlobalLayout,
-  useGlobalContext,
-  Button,
-  Overlay,
-} from "../components/common";
+import { Three, OperateButtonsGroup, Details } from "../components/Exhibition";
+import { GlobalLayout, useGlobalContext } from "../components/common";
 import { useLocale } from "../hooks";
-import cn from "clsx";
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {
@@ -51,7 +39,7 @@ const Exhibition = () => {
           <Details className="mt-20" />
         </div>
       </div>
-      <div className="h-[calc(var(--vh)*100)] relative">
+      <div className="h-[calc(var(--vh)*90)] md:h-[calc(var(--vh)*100)] relative">
         <Canvas className={s.canvas}>
           {/* Canvas is responsive to fit the parent node, so you can control how big it is 
         by changing the parents width and height, in this case #canvas-container.*/}
