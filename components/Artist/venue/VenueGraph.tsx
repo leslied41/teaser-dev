@@ -17,7 +17,7 @@ const VenueGraph = ({ className, icon }: VenueGraphProps) => {
         </h2>
         <img
           src={icon ? icon : ""}
-          alt="test"
+          alt="venue graph"
           className="self-center max-w-[286px] max-h-[640px]"
         />
       </section>
