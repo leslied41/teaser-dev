@@ -14,7 +14,7 @@ export type Images = {
   src: string[];
 };
 export const hoyuenleung_list = [
-  { floorPlan: "/hoyuenleung/floorPlan.png" },
+  { floorPlan: "/hoyuenleung/floorplan.png" },
   { map: "/hoyuenleung/map.png" },
   {
     images: {
@@ -73,7 +73,7 @@ export const hoyuenleung_list = [
 ];
 
 export const koonwaibong_list = [
-  { floorPlan: "/koonwaibong/floorPlan.png" },
+  { floorPlan: "/koonwaibong/floorplan.png" },
   { map: "/koonwaibong/map.png" },
   {
     images: {
@@ -182,7 +182,7 @@ export const koonwaibong_list = [
 ];
 
 export const lamtungpang_list = [
-  { floorPlan: "/lamtungpang/floorPlan.png" },
+  { floorPlan: "/lamtungpang/floorplan.png" },
   { map: "/lamtungpang/map.png" },
   {
     images: {
@@ -241,7 +241,7 @@ export const lamtungpang_list = [
 ];
 
 export const leungkayin_list = [
-  { floorPlan: "/leungkayin/floorPlan.png" },
+  { floorPlan: "/leungkayin/floorplan.png" },
   { map: "/leungkayin/map.png" },
   {
     images: {
@@ -299,7 +299,7 @@ export const leungkayin_list = [
 ];
 
 export const wongchunhei_list = [
-  { floorPlan: "/wongchunhei/floorPlan.png" },
+  { floorPlan: "/wongchunhei/floorplan.png" },
   { map: "/wongchunhei/map.png" },
   {
     images: {
@@ -358,7 +358,7 @@ export const wongchunhei_list = [
 ];
 
 export const wonglaiching_list = [
-  { floorPlan: "/wonglaiching/floorPlan.png" },
+  { floorPlan: "/wonglaiching/floorplan.png" },
   { map: "/wonglaiching/map.png" },
   {
     images: {

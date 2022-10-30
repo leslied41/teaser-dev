@@ -16,7 +16,7 @@ const VenueGraph = ({ className, icon }: VenueGraphProps) => {
           {isEn ? "exhibition venue" : "展場"}
         </h2>
         <img
-          src="/hoyuenleung/map.png"
+          src={icon ? icon : ""}
           alt="venue graph"
           className="self-center max-w-[286px] max-h-[640px]"
         />
