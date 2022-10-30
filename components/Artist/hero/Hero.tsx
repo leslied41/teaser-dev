@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Button } from "../../common";
 import { useLocale } from "../../../hooks";
+import Image from "next/image";
 
 interface HeroProps {
   setShowArtWork: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,8 +15,9 @@ const Hero: FC<HeroProps> = ({ setShowArtWork, imageSrc }) => {
   };
   return (
     <section className="h-screen w-full relative">
-      <img
-        src={imageSrc}
+      <Image
+        layout="fill"
+        src={imageSrc ? imageSrc : ""}
         alt="artist work"
         className="w-full h-screen object-cover"
       />

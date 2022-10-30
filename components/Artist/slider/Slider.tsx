@@ -2,6 +2,7 @@ import React, { FC, useRef, useEffect, useState } from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import { ArrowIcon } from "../../icons";
+import Image from "next/image";
 
 export interface SliderProps {
   className?: string;
@@ -34,8 +35,13 @@ const Slider: FC<SliderProps> = ({
     >
       <SplideTrack>
         {imageSrcs?.map((src) => (
-          <SplideSlide key={src}>
-            <img src={src} alt={src} className="w-full h-full object-contain" />
+          <SplideSlide key={src} className="relative">
+            <Image
+              layout="fill"
+              src={src}
+              alt={src}
+              className="w-full h-full object-contain"
+            />
           </SplideSlide>
         ))}
       </SplideTrack>
