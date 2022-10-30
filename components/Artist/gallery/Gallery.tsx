@@ -3,13 +3,15 @@ import Slider from "../slider";
 import { CloseIcon } from "../../icons";
 import { ArtworkInfo } from "..";
 import cn from "clsx";
+import { Images } from "../../../pages/six/data";
 
 interface GalleryProps {
   showArtWork: boolean;
   setShowArtWork: React.Dispatch<React.SetStateAction<boolean>>;
+  images?: Images;
 }
 
-const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork }) => {
+const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork, images }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const closeGallery = () => {
@@ -34,8 +36,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork }) => {
         <div className="w-[280px]">
           <ArtworkInfo
             className="mt-6 ml-4"
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
+            info={images ? images.info : undefined}
           />
         </div>
         <div className="flex-1  h-full py-20  px-4">
@@ -43,6 +44,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork }) => {
             <Slider
               currentIndex={currentIndex}
               setCurrentIndex={setCurrentIndex}
+              imageSrcs={images ? images.src : undefined}
             />
           </div>
         </div>

@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
-import mapImage from "../../../public/images/map.png";
 import { useLocale } from "../../../hooks";
 
 interface Props {
   className?: string;
+  mapImage?: string;
 }
 
-const MapStatic = ({ className }: Props) => {
+const MapStatic = ({ className, mapImage }: Props) => {
   const isEn = useLocale();
+
   return (
     <div className="w-full h-screen relative">
       <Image
-        src={mapImage}
+        src={mapImage ? mapImage : "/hoyuenleung/images/1.jpg"}
         layout="fill"
         className="object-contain md:object-cover"
       />

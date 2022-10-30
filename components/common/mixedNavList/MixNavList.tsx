@@ -5,9 +5,9 @@ import { Button } from "..";
 import { NavArrowIcon, PlayButtonIcon, PauseIcon } from "../../icons";
 import cn from "clsx";
 
-type item = {
-  en: string;
-  cn: string;
+export type Item = {
+  en?: string;
+  cn?: string;
   link?: string;
   audio?: string;
   download?: string;
@@ -16,10 +16,13 @@ type item = {
   title_cn?: string;
   info?: string;
   info_cn?: string;
+  map?: string;
+  floorPlan?: string;
+  images?: any;
 };
 
 interface NavListProps {
-  list: item[];
+  list: Item[] | undefined;
   className: string;
   downloadClassName: string;
   linkClassName?: string;
@@ -63,7 +66,7 @@ const MixNavList: FC<NavListProps> = ({
           ["gap-y-20"]: gap,
         })}
       >
-        {list.map((l) => {
+        {list?.map((l) => {
           if (l.hasOwnProperty("download"))
             return (
               <li
@@ -101,11 +104,11 @@ const MixNavList: FC<NavListProps> = ({
                     <div className="flex flex-col">
                       <span>
                         {isEn
-                          ? `${l.en.split("/")[0]}/`
-                          : `${l.cn.split("/")[0]}/`}
+                          ? `${l.en?.split("/")[0]}/`
+                          : `${l.cn?.split("/")[0]}/`}
                       </span>
                       <span>
-                        {isEn ? l.en.split("/")[1] : l.cn.split("/")[1]}
+                        {isEn ? l.en?.split("/")[1] : l.cn?.split("/")[1]}
                       </span>
                     </div>
                     <NavArrowIcon className="shrink-0" />
@@ -145,7 +148,7 @@ const MixNavList: FC<NavListProps> = ({
                 )}
               >
                 <audio ref={audioRef}>
-                  <source src="/audio/audio.mp3" type="audio/mpeg" />
+                  <source src={l.audio} type="audio/mpeg" />
                 </audio>
                 <div className="flex justify-between items-center w-full uppercase">
                   <div className="flex flex-col">

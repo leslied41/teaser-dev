@@ -126,7 +126,7 @@ const CurrentLabel = () => {
           return { title: "黃進曦", location: "九龍群山" };
           break;
         case "thepeak":
-          return { title: "梁嘉賢", location: '"山頂' };
+          return { title: "梁嘉賢", location: "山頂" };
           break;
         case "northcoastofhongkongisland":
           return { title: "林東鵬", location: "港島北" };

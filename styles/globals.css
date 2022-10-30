@@ -81,3 +81,18 @@ a {
 .splide_pagination.splide_pagination--ltr {
   display: none;
 }
+
+.splide.is-initialized {
+  height: 100%;
+}
+.splide__track {
+  height: 100%;
+}
+
+.splide__list {
+  height: 100%;
+}
+
+.splide__slide {
+  height: 100%;
+}

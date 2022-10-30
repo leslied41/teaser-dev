@@ -4,9 +4,10 @@ import { useLocale } from "../../../hooks";
 
 interface HeroProps {
   setShowArtWork: React.Dispatch<React.SetStateAction<boolean>>;
+  imageSrc?: string;
 }
 
-const Hero: FC<HeroProps> = ({ setShowArtWork }) => {
+const Hero: FC<HeroProps> = ({ setShowArtWork, imageSrc }) => {
   const isEn = useLocale();
   const toggleArtWorkView = () => {
     setShowArtWork((prev) => !prev);
@@ -14,7 +15,7 @@ const Hero: FC<HeroProps> = ({ setShowArtWork }) => {
   return (
     <section className="h-screen w-full relative">
       <img
-        src="/tempo/tempo_artist_header.png"
+        src={imageSrc}
         alt="artist work"
         className="w-full h-screen object-cover"
       />

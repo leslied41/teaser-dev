@@ -5,14 +5,16 @@ import { ArrowIcon } from "../../icons";
 
 export interface SliderProps {
   className?: string;
-  currentIndex: number;
-  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+  currentIndex?: number;
+  setCurrentIndex?: React.Dispatch<React.SetStateAction<number>>;
+  imageSrcs?: string[];
 }
 
 const Slider: FC<SliderProps> = ({
   className,
   currentIndex,
   setCurrentIndex,
+  imageSrcs,
 }) => {
   const splideRef = useRef<any>(null);
   const [amountOfSlides, setAmountOfSlides] = useState<number>(0);
@@ -28,15 +30,14 @@ const Slider: FC<SliderProps> = ({
       aria-label="Artwork gallery"
       ref={splideRef}
       options={{ rewind: true }}
-      onMoved={(newIndex) => setCurrentIndex(newIndex.index)}
+      onMoved={(newIndex) => setCurrentIndex!(newIndex.index)}
     >
       <SplideTrack>
-        <SplideSlide>
-          <img src="/tempo/tempo_artist_header.png" alt="Image 1" />
-        </SplideSlide>
-        <SplideSlide>
-          <img src="/tempo/tempo_artist_header.png" alt="Image 2" />
-        </SplideSlide>
+        {imageSrcs?.map((src) => (
+          <SplideSlide key={src}>
+            <img src={src} alt={src} className="w-full h-full object-contain" />
+          </SplideSlide>
+        ))}
       </SplideTrack>
       <div className="splide__arrows">
         <button
@@ -50,7 +51,7 @@ const Slider: FC<SliderProps> = ({
         </button>
       </div>
       <ul className="fixed left-4 bottom-6">
-        <li>{`${currentIndex + 1} / ${amountOfSlides}`}</li>
+        <li>{`${currentIndex! + 1} / ${amountOfSlides}`}</li>
       </ul>
     </Splide>
   );

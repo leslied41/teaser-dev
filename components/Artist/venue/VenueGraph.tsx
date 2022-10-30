@@ -1,13 +1,13 @@
 import React from "react";
 import { useLocale } from "../../../hooks";
-import { VenueGraphIcon } from "../../icons";
 import cn from "clsx";
 
 interface VenueGraphProps {
   className: string;
+  icon?: string;
 }
 
-const VenueGraph = ({ className }: VenueGraphProps) => {
+const VenueGraph = ({ className, icon }: VenueGraphProps) => {
   const isEn = useLocale();
   return (
     <div className={cn("flex justify-center", className)}>
@@ -15,7 +15,11 @@ const VenueGraph = ({ className }: VenueGraphProps) => {
         <h2 className="text-xl text-main-color uppercase self-start">
           {isEn ? "exhibition venue" : "展場"}
         </h2>
-        <VenueGraphIcon className="self-center" />
+        <img
+          src={icon ? icon : ""}
+          alt="test"
+          className="self-center max-w-[286px] max-h-[640px]"
+        />
       </section>
     </div>
   );
