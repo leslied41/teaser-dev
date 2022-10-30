@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useLocale } from "../../../hooks";
 import { SliderProps } from "../slider/Slider";
 import cn from "clsx";
-import { Info } from "../../../pages/six/data";
+import { Info } from "../../../public/six/data";
 
 interface ArtworkInfoProps extends SliderProps {
   info?: Info;

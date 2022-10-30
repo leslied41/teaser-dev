@@ -3,7 +3,7 @@ import Slider from "../slider";
 import { CloseIcon } from "../../icons";
 import { ArtworkInfo } from "..";
 import cn from "clsx";
-import { Images } from "../../../pages/six/data";
+import { Images } from "../../../public/six/data";
 
 interface GalleryProps {
   showArtWork: boolean;

@@ -17,7 +17,7 @@ import {
   leungkayin_list,
   wongchunhei_list,
   wonglaiching_list,
-} from "./data";
+} from "../../public/six/data";
 
 const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
