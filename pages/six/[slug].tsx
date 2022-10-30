@@ -2,13 +2,12 @@ import React, { useState, useMemo } from "react";
 import { GlobalLayout } from "../../components/common";
 import {
   Hero,
-  MapComponent,
   MapStatic,
   NavList,
-  Profile,
   VenueGraph,
   Gallery,
 } from "../../components/Artist/";
+import { useDisableScroll } from "../../hooks";
 import { useRouter } from "next/router";
 import {
   hoyuenleung_list,
@@ -22,6 +21,7 @@ import {
 const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
   const router = useRouter();
+  useDisableScroll(showArtWork);
 
   let list = useMemo(() => {
     if (!router.query.slug) return [];

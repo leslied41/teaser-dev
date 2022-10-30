@@ -32,7 +32,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork, images }) => {
     <section
       aria-label="artwork view"
       className={cn("hidden", {
-        ["!block fixed inset-0 bg-black z-40 "]: showArtWork,
+        ["!block fixed inset-0 bg-black z-40"]: showArtWork,
       })}
     >
       <div className="flex flex-col md:flex-row relative h-screen ">

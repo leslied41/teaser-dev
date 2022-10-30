@@ -2,10 +2,12 @@ import React from "react";
 import { MainNav } from "..";
 import { LocaleSwitch, SocialMedia } from "..";
 import { useGlobalContext } from "..";
+import { useDisableScroll } from "../../../hooks";
 import cn from "clsx";
 
 const NavBar = () => {
   const { openNavbar } = useGlobalContext();
+  useDisableScroll(openNavbar);
 
   return (
     <div
