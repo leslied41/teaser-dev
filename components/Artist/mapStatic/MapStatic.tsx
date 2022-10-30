@@ -15,7 +15,7 @@ const MapStatic = ({ className, mapImage }: Props) => {
       <Image
         src={mapImage ? mapImage : "/hoyuenleung/images/1.jpg"}
         layout="fill"
-        className="object-contain md:object-cover"
+        className="object-cover"
       />
       <div className="absolute left-5 bottom-5">
         <p className="text-xl text-main-color uppercase">
