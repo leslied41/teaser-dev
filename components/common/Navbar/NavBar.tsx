@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <div
       className={cn(
-        "fixed inset-0 w-full h-screen bg-black z-20 transition-all duration-300 origin-center",
+        "fixed inset-0 w-full bg-black z-20 transition-all duration-300 origin-center",
         {
           ["scale-y-0"]: openNavbar === false,
         }

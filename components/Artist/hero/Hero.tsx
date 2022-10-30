@@ -14,12 +14,12 @@ const Hero: FC<HeroProps> = ({ setShowArtWork, imageSrc }) => {
     setShowArtWork((prev) => !prev);
   };
   return (
-    <section className="h-screen w-full relative">
+    <section className="h-[calc(var(--vh)*100)] w-full relative">
       <Image
         layout="fill"
         src={imageSrc ? imageSrc : ""}
         alt="artist work"
-        className="w-full h-screen object-cover"
+        className="w-full h-[calc(var(--vh)*100)] object-cover"
       />
       <Button
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"

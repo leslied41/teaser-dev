@@ -11,7 +11,7 @@ const MapStatic = ({ className, mapImage }: Props) => {
   const isEn = useLocale();
 
   return (
-    <div className="w-full h-screen relative">
+    <div className="w-full h-[calc(var(--vh)*100)] relative">
       <Image
         src={mapImage ? mapImage : "/hoyuenleung/images/1.jpg"}
         layout="fill"

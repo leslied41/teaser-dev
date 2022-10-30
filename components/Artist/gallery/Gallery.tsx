@@ -35,7 +35,7 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork, images }) => {
         ["!block fixed inset-0 bg-black z-40"]: showArtWork,
       })}
     >
-      <div className="flex flex-col md:flex-row relative h-screen ">
+      <div className="flex flex-col md:flex-row relative h-[calc(var(--vh)*100)]">
         <button
           onClick={closeGallery}
           className="absolute right-0 top-0"

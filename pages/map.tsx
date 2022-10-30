@@ -15,7 +15,7 @@ const Works = () => {
   return (
     <>
       <SEO title="map" />
-      <div className="h-screen w-full">
+      <div className="h-[calc(var(--vh)*100)] w-full">
         <Map />
       </div>
     </>

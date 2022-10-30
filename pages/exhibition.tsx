@@ -51,7 +51,7 @@ const Exhibition = () => {
           <Details className="mt-20" />
         </div>
       </div>
-      <div className="h-screen relative">
+      <div className="h-[calc(var(--vh)*100)] relative">
         <Canvas className={s.canvas}>
           {/* Canvas is responsive to fit the parent node, so you can control how big it is 
         by changing the parents width and height, in this case #canvas-container.*/}

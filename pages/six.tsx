@@ -13,7 +13,7 @@ const SixLocationsArtists = () => {
       return { color: "white" };
   };
   return (
-    <div className="px-5 md:px-10 h-screen flex justify-center items-center">
+    <div className="px-5 md:px-10 h-[calc(var(--vh)*100)] flex justify-center items-center">
       <nav
         aria-label="locations and artists navigations"
         className="max-w-[1200px]"
