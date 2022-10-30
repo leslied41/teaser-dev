@@ -13,7 +13,7 @@ const SixLocationsArtists = () => {
       return { color: "white" };
   };
   return (
-    <div className="px-10 h-screen flex justify-center items-center">
+    <div className="px-5 md:px-10 h-screen flex justify-center items-center">
       <nav
         aria-label="locations and artists navigations"
         className="max-w-[1200px]"
@@ -22,14 +22,14 @@ const SixLocationsArtists = () => {
           {data.map((e, i) => (
             <li
               key={`6locations-${e.en}`}
-              className={"text-xl text-main-color uppercase"}
+              className={"text-xm md:text-xl text-main-color uppercase"}
               style={style(i)}
             >
               <Link href={`/six/${e.slug}`}>
                 <a className={cn("flex items-center ")}>
                   <span>{isEn ? e.en : e.cn}</span>
                   {i !== data.length - 1 && (
-                    <span className="inline-block h-[56px] w-5 border-r-[1px] border-main-color"></span>
+                    <span className="inline-block h-[18px] md:h-[56px] w-4 md:w-5 border-r-[1px] border-main-color"></span>
                   )}
                 </a>
               </Link>

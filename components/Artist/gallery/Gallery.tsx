@@ -1,9 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useRef, useLayoutEffect, useEffect } from "react";
 import Slider from "../slider";
 import { CloseIcon } from "../../icons";
 import { ArtworkInfo } from "..";
 import cn from "clsx";
 import { Images } from "../../../public/six/data";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 interface GalleryProps {
   showArtWork: boolean;
@@ -13,15 +16,22 @@ interface GalleryProps {
 
 const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork, images }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [infoHeight, setInfoHeight] = useState<number>(0);
+  const infoRef = useRef<HTMLDivElement>(null);
 
   const closeGallery = () => {
     setShowArtWork(false);
   };
 
+  useIsomorphicLayoutEffect(() => {
+    if (!infoRef.current) return;
+    setInfoHeight(infoRef.current.getBoundingClientRect().height);
+  }, [showArtWork]);
+
   return (
     <section
       aria-label="artwork view"
-      className={cn("hidden ", {
+      className={cn("hidden", {
         ["!block fixed inset-0 bg-black z-40 "]: showArtWork,
       })}
     >
@@ -33,14 +43,17 @@ const Gallery: FC<GalleryProps> = ({ showArtWork, setShowArtWork, images }) => {
         >
           <CloseIcon />
         </button>
-        <div className="w-[280px]">
+        <div className="w-[280px] h-fit" ref={infoRef}>
           <ArtworkInfo
             className="mt-6 ml-4"
             info={images ? images.info : undefined}
           />
         </div>
-        <div className="flex-1  h-full py-20  px-4">
-          <div className="overflow-hidden h-[calc(100vh-160px)]">
+        <div className="flex-1  h-full md:py-20  px-4">
+          <div
+            className="overflow-hidden md:!h-[calc(100vh-160px)]"
+            style={{ height: `calc(100vh - ${infoHeight}px)` }}
+          >
             <Slider
               currentIndex={currentIndex}
               setCurrentIndex={setCurrentIndex}

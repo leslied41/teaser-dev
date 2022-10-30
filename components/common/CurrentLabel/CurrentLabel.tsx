@@ -149,25 +149,25 @@ const CurrentLabel = () => {
       {router.query.slug ? (
         <div
           className={cn(
-            "flex flex-row items-end justify-center fixed left-0 bottom-0   ",
+            "flex flex-row items-end justify-center fixed left-0 bottom-0",
             {
               ["hidden"]: router.pathname === "/",
               ["flex-col !items-start"]: isEn,
             }
           )}
         >
-          <p className="text-xl text-main-color uppercase bg-white px-2 pt-1 pb-1">
+          <p className="text-lg sm:text-xl text-main-color uppercase bg-white px-2 pt-1 pb-1">
             {isEn ? item?.location : item_cn?.location}
           </p>
           <p
             className={cn(
-              "text-lg-1 text-main-color uppercase h-fit bg-white px-2 pt-1 pb-1",
+              "text-m md:text-lg-1 text-main-color uppercase h-fit bg-white px-2 pt-1 pb-1",
               {
                 ["text-lg"]: isEn,
               }
             )}
           >
-            {isEn ? `—${item?.title} ` : `—${item_cn?.title}`}
+            {isEn ? item?.title : item_cn?.title}
           </p>
         </div>
       ) : (
@@ -177,7 +177,7 @@ const CurrentLabel = () => {
             { ["hidden"]: router.pathname === "/" }
           )}
         >
-          <p className="text-xl text-main-color uppercase">
+          <p className="text-lg md:text-xl text-main-color uppercase">
             {isEn ? item?.title : item_cn?.title}
           </p>
         </div>
