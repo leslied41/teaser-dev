@@ -1,16 +1,8 @@
-import React, {
-  FC,
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { FC, useRef, useEffect, useState } from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import { ArrowIcon } from "../../icons";
 import Image from "next/image";
-import Skeleton from "@mui/material/Skeleton";
 
 export interface SliderProps {
   className?: string;
@@ -27,22 +19,22 @@ const Slider: FC<SliderProps> = ({
 }) => {
   const splideRef = useRef<any>(null);
   const [amountOfSlides, setAmountOfSlides] = useState<number>(0);
-  const initialLoaded = useMemo(() => Array(imageSrcs!.length).fill(false), []);
-  const [loaded, setLoaded] = useState<Boolean[]>(initialLoaded);
+  // const initialLoaded = useMemo(() => Array(imageSrcs!.length).fill(false), []);
+  // const [loaded, setLoaded] = useState<Boolean[]>(initialLoaded);
 
   useEffect(() => {
     if (!splideRef.current) return;
     setAmountOfSlides(splideRef.current.slides.length);
   }, []);
 
-  const imgLoad = useCallback((i: number) => {
-    setLoaded((prev) =>
-      prev.map((l, index) => {
-        if (index === i) l = true;
-        return l;
-      })
-    );
-  }, []);
+  // const imgLoad = useCallback((i: number) => {
+  //   setLoaded((prev) =>
+  //     prev.map((l, index) => {
+  //       if (index === i) l = true;
+  //       return l;
+  //     })
+  //   );
+  // }, []);
 
   return (
     <Splide
@@ -62,16 +54,16 @@ const Slider: FC<SliderProps> = ({
               src={src}
               alt={src}
               className="w-full h-full object-contain"
-              onLoad={() => imgLoad(i)}
+              //onLoad={() => imgLoad(i)}
             />
 
-            {!loaded[i] && (
+            {/* {!loaded[i] && (
               <Skeleton
                 variant="rectangular"
                 className="w-full !h-ful"
                 animation="wave"
               />
-            )}
+            )} */}
           </SplideSlide>
         ))}
       </SplideTrack>
