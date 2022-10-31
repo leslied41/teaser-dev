@@ -83,11 +83,13 @@ const Artist = () => {
         className="mt-[250px] pb-[100px]"
         icon={list ? list[0]?.floorPlan : undefined}
       />
-      <Gallery
-        showArtWork={showArtWork}
-        setShowArtWork={setShowArtWork}
-        images={list ? list[2]?.images : undefined}
-      />
+      {showArtWork && (
+        <Gallery
+          showArtWork={showArtWork}
+          setShowArtWork={setShowArtWork}
+          images={list ? list[2]?.images : undefined}
+        />
+      )}
     </div>
   );
 };

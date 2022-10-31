@@ -1,4 +1,11 @@
-import React, { FC, useRef, useEffect, useState } from "react";
+import React, {
+  FC,
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import { ArrowIcon } from "../../icons";
@@ -20,10 +27,21 @@ const Slider: FC<SliderProps> = ({
 }) => {
   const splideRef = useRef<any>(null);
   const [amountOfSlides, setAmountOfSlides] = useState<number>(0);
+  const initialLoaded = useMemo(() => Array(imageSrcs!.length).fill(false), []);
+  const [loaded, setLoaded] = useState<Boolean[]>(initialLoaded);
 
   useEffect(() => {
     if (!splideRef.current) return;
     setAmountOfSlides(splideRef.current.slides.length);
+  }, []);
+
+  const imgLoad = useCallback((i: number) => {
+    setLoaded((prev) =>
+      prev.map((l, index) => {
+        if (index === i) l = true;
+        return l;
+      })
+    );
   }, []);
 
   return (
@@ -32,23 +50,26 @@ const Slider: FC<SliderProps> = ({
       aria-label="Artwork gallery"
       ref={splideRef}
       options={{ rewind: true }}
-      onMoved={(newIndex) => setCurrentIndex!(newIndex.index)}
+      onMoved={(newIndex) => {
+        setCurrentIndex!(newIndex.index);
+      }}
     >
       <SplideTrack>
-        {imageSrcs?.map((src) => (
+        {imageSrcs?.map((src, i) => (
           <SplideSlide key={src} className="relative">
-            {src ? (
-              <Image
-                layout="fill"
-                src={src}
-                alt={src}
-                className="w-full h-full object-contain"
-              />
-            ) : (
+            <Image
+              layout="fill"
+              src={src}
+              alt={src}
+              className="w-full h-full object-contain"
+              onLoad={() => imgLoad(i)}
+            />
+
+            {!loaded[i] && (
               <Skeleton
                 variant="rectangular"
-                className="w-full h-full bg-[#6e6363]"
-                animation="pulse"
+                className="w-full h-full bg-[#6e6363] "
+                animation="wave"
               />
             )}
           </SplideSlide>
