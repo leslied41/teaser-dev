@@ -24,7 +24,7 @@ const MapStatic = ({ className, mapImage }: Props) => {
       {!loaded && (
         <Skeleton
           variant="rectangular"
-          className="w-full h-full bg-[#6e6363]"
+          className="w-full !h-full bg-[#6e6363]"
           animation="pulse"
         />
       )}
