@@ -28,8 +28,8 @@ const Hero: FC<HeroProps> = ({ setShowArtWork, imageSrc }) => {
       {!loaded && (
         <Skeleton
           variant="rectangular"
-          className="w-full !h-full bg-[#6e6363]"
-          animation="pulse"
+          className="w-full !h-full"
+          animation="wave"
         />
       )}
 
