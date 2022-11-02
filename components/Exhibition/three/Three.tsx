@@ -15,11 +15,26 @@ const Three: FC<Props> = ({ order }) => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
 
-  const texture_one = useLoader(TextureLoader, "environment/1.jpg");
-  const texture_two = useLoader(TextureLoader, "environment/2.jpg");
-  const texture_three = useLoader(TextureLoader, "environment/3.jpg");
-  const texture_four = useLoader(TextureLoader, "environment/4.jpg");
-  const texture_five = useLoader(TextureLoader, "environment/5.jpg");
+  const texture_one = useLoader(
+    TextureLoader,
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/58cce5cd-2930-4d83-9279-3917bdfe2400/Teaser"
+  );
+  const texture_two = useLoader(
+    TextureLoader,
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/db9a0171-6b5a-4117-9571-cee7ded1bf00/Teaser"
+  );
+  const texture_three = useLoader(
+    TextureLoader,
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/67bbd72f-c220-48e5-78f9-17fe61db7100/Teaser"
+  );
+  const texture_four = useLoader(
+    TextureLoader,
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/5cca0eed-9331-45bb-8b81-517b5b2b2000/Teaser"
+  );
+  const texture_five = useLoader(
+    TextureLoader,
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/f927f0d1-9f1e-4b05-4fef-d5569a45cd00/Teaser"
+  );
 
   // const textures_one = useLoader(TextureLoader, [
   //   "/models/test/front.jpeg",
