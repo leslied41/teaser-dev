@@ -40,3 +40,4 @@ export const ThreeFive = memo(() => {
     </>
   );
 });
+ThreeFive.displayName = "ThreeFive";
