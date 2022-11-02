@@ -152,13 +152,20 @@ const MixNavList: FC<NavListProps> = ({
                 </audio>
                 <div className="flex justify-between items-center w-full uppercase">
                   <div className="flex flex-col">
-                    <span className="text-start">{isEn ? l.en : l.cn}</span>
-                    <span className="text-start">
-                      {isEn ? l.title : l.title_cn}
-                    </span>
-                    <span className="text-start text-sm normal-case">
-                      {isEn ? l.info : l.info_cn}
-                    </span>
+                    <div>
+                      <span className="text-start">
+                        {isEn ? l.title : l.title_cn}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-start text-sm normal-case">
+                        {isEn ? l.en : l.cn} {isEn ? ", " : "， "}
+                      </span>
+
+                      <span className="text-start text-sm normal-case">
+                        {isEn ? l.info : l.info_cn}
+                      </span>
+                    </div>
                   </div>
 
                   <button

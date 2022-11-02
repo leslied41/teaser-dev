@@ -8,9 +8,8 @@ import cn from "clsx";
 const SixLocationsArtists = () => {
   const isEn = useLocale();
   const style = (i: number) => {
-    if (isEn && [0, 1, 3, 4, 9, 10].includes(i)) return { color: "white" };
-    else if (!isEn && [3, 4, 6, 7, 8, 10].includes(i))
-      return { color: "white" };
+    if (isEn && [1, 3, 5, 7, 9].includes(i)) return { color: "white" };
+    else if (!isEn && [1, 3, 5, 7, 9].includes(i)) return { color: "white" };
   };
   return (
     <div className="px-5 md:px-10 h-[calc(var(--vh)*100)] flex justify-center items-center">

@@ -81,10 +81,7 @@ const Three: FC<Props> = ({ order }) => {
             attach={`material-${i}`}
           />
         ))} */}
-        <sphereBufferGeometry
-          attach="geometry"
-          args={order === 2 ? [150, 100, 100] : [100, 100, 100]}
-        />
+        <sphereBufferGeometry attach="geometry" args={[150, 100, 100]} />
 
         <meshBasicMaterial
           attach="material"

@@ -17,6 +17,12 @@ import {
   wongchunhei_list,
   wonglaiching_list,
 } from "../../public/six/data";
+import hoyuenleung_map from "../../public/hoyuenleung/map.png";
+import koonwaibong_map from "../../public/koonwaibong/map.png";
+import leungkayin_map from "../../public/leungkayin/map.png";
+import lamtungpang_map from "../../public/lamtungpang/map.png";
+import wongchunhei_map from "../../public/wongchunhei/map.png";
+import wonglaiching_map from "../../public/wonglaiching/map.png";
 
 const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
@@ -69,9 +75,55 @@ const Artist = () => {
     }
   }, [router.query.slug]);
 
+  let map_image = useMemo(() => {
+    if (!router.query.slug) return hoyuenleung_map;
+    if (
+      ["hoyuenleung", "yuenlong"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return hoyuenleung_map;
+    }
+    if (
+      ["koonwaibong", "outlyingislands"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return koonwaibong_map;
+    }
+    if (
+      ["leungkayin", "thepeak".toLowerCase()].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return leungkayin_map;
+    }
+    if (
+      ["lamtungpang", "NorthCoastofHongKongisland".toLowerCase()].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return lamtungpang_map;
+    }
+    if (
+      ["wongchunhei", "kowloonmountainranges"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return wongchunhei_map;
+    }
+    if (
+      ["wonglaiching", "pokfulam"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return wonglaiching_map;
+    }
+  }, [router.query.slug]);
+
   return (
     <div className="bg-[#EEEEEE] relative">
-      <MapStatic mapImage={list ? list[1]?.map : ""} />
+      <MapStatic mapImage={map_image!} />
       <Hero
         setShowArtWork={setShowArtWork}
         imageSrc={list ? list[2]?.images?.src[0] : ""}
