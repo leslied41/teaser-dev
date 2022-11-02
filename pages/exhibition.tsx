@@ -1,9 +1,18 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { Three, OperateButtonsGroup, Details } from "../components/Exhibition";
+import {
+  ThreeOne,
+  ThreeTwo,
+  ThreeThree,
+  ThreeFour,
+  ThreeFive,
+  OperateButtonsGroup,
+  Details,
+} from "../components/Exhibition";
 import { GlobalLayout, useGlobalContext } from "../components/common";
 import { useLocale } from "../hooks";
+import cn from "clsx";
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {
@@ -44,7 +53,19 @@ const Exhibition = () => {
           {/* Canvas is responsive to fit the parent node, so you can control how big it is 
         by changing the parents width and height, in this case #canvas-container.*/}
           <Suspense fallback={null}>
-            <Three order={numberOfExhibitions} />
+            {numberOfExhibitions === 0 ? (
+              <ThreeOne />
+            ) : numberOfExhibitions === 1 ? (
+              <ThreeTwo />
+            ) : numberOfExhibitions === 2 ? (
+              <ThreeThree />
+            ) : numberOfExhibitions === 3 ? (
+              <ThreeFour />
+            ) : numberOfExhibitions === 4 ? (
+              <ThreeFive />
+            ) : (
+              <></>
+            )}
           </Suspense>
         </Canvas>
 

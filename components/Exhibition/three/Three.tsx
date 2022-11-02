@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef } from "react";
+import React, { FC, Fragment, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -81,7 +81,7 @@ const Three: FC<Props> = ({ order }) => {
             attach={`material-${i}`}
           />
         ))} */}
-        <sphereBufferGeometry attach="geometry" args={[150, 100, 100]} />
+        <sphereGeometry attach="geometry" args={[150, 100, 100]} />
 
         <meshBasicMaterial
           attach="material"
