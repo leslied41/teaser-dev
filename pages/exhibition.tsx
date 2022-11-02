@@ -20,12 +20,12 @@ const Exhibition = () => {
     setShowDetails((prev) => !prev);
   };
   const handleIncrease = useCallback(() => {
-    if (numberOfExhibitions === 1) setNumberOfExhibitions(0);
+    if (numberOfExhibitions === 4) setNumberOfExhibitions(0);
     else setNumberOfExhibitions((prev) => prev + 1);
   }, [numberOfExhibitions]);
 
   const handleDecrease = useCallback(() => {
-    if (numberOfExhibitions === 0) setNumberOfExhibitions(1);
+    if (numberOfExhibitions === 0) setNumberOfExhibitions(4);
     else setNumberOfExhibitions((prev) => prev - 1);
   }, [numberOfExhibitions]);
 
