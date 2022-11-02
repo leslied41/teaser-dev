@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useMemo, useRef } from "react";
+import React, { memo, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
@@ -7,9 +7,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { angleToRadians } from "../../../utils/angle";
 import { useBreakpoints } from "../../../hooks";
 
-interface Props {}
-
-export const ThreeThree: FC<Props> = ({}) => {
+export const ThreeThree = memo(() => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
 
@@ -41,4 +39,4 @@ export const ThreeThree: FC<Props> = ({}) => {
       </mesh>
     </>
   );
-};
+});
