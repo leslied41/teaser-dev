@@ -10,7 +10,6 @@ import { useBreakpoints } from "../../../hooks";
 export const ThreeOne = memo(() => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
-
   const texture_one = useLoader(
     TextureLoader,
     "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/58cce5cd-2930-4d83-9279-3917bdfe2400/Teaser"
