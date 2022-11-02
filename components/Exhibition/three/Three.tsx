@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useMemo, useRef, useState } from "react";
+import React, { FC, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
