@@ -13,7 +13,7 @@ export const ThreeOne = memo(() => {
 
   const texture_one = useLoader(
     TextureLoader,
-    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/a2564dff-74dd-4f4e-3f21-b6ec57c19600/Teaser"
+    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/58cce5cd-2930-4d83-9279-3917bdfe2400/Teaser"
   );
 
   return (
