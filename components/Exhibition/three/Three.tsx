@@ -36,24 +36,6 @@ const Three: FC<Props> = ({ order }) => {
     "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/f927f0d1-9f1e-4b05-4fef-d5569a45cd00/Teaser"
   );
 
-  // const textures_one = useLoader(TextureLoader, [
-  //   "/models/test/front.jpeg",
-  //   "/models/test/back.jpeg",
-  //   "/models/test/top.jpeg",
-  //   "/models/test/bottom.jpeg",
-  //   "/models/test/left.jpeg",
-  //   "/models/test/right.jpeg",
-  // ]);
-
-  // const textures_two = useLoader(TextureLoader, [
-  //   "/models/test_2/front.jpeg",
-  //   "/models/test_2/back.jpeg",
-  //   "/models/test_2/top.jpeg",
-  //   "/models/test_2/bottom.jpeg",
-  //   "/models/test_2/left.jpeg",
-  //   "/models/test_2/right.jpeg",
-  // ]);
-
   const texture = useMemo(() => {
     let texture;
     if (order === 0) texture = texture_one;
@@ -87,15 +69,6 @@ const Three: FC<Props> = ({ order }) => {
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
 
       <mesh>
-        {/* <boxGeometry attach="geometry" args={[100, 100, 100]} /> */}
-        {/* {textures!.map((t, i) => (
-          <meshBasicMaterial
-            key={i}
-            map={t}
-            side={THREE.BackSide}
-            attach={`material-${i}`}
-          />
-        ))} */}
         <sphereGeometry attach="geometry" args={[150, 100, 100]} />
 
         <meshBasicMaterial
