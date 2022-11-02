@@ -1,16 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import {
-  Three,
-  ThreeOne,
-  ThreeTwo,
-  ThreeThree,
-  ThreeFour,
-  ThreeFive,
-  OperateButtonsGroup,
-  Details,
-} from "../components/Exhibition";
+import { Three, OperateButtonsGroup, Details } from "../components/Exhibition";
 import { GlobalLayout, useGlobalContext } from "../components/common";
 import { useLocale } from "../hooks";
 import s from "../styles/Exhibition.module.css";
