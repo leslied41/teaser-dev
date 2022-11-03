@@ -30,28 +30,45 @@ const Artist = () => {
   useDisableScroll(showArtWork);
   const isEn = useLocale();
 
-  let seo_title = useMemo(() => {
-    if (!router.query.slug) return { cn: "", en: "" };
+  const data = useMemo(() => {
+    if (!router.query.slug)
+      return {
+        seo_title: { cn: "何遠良/元朗", en: "Ho Yuenleung/Yuenlong" },
+        list: hoyuenleung_list,
+        map_image: hoyuenleung_map,
+      };
     if (
       ["hoyuenleung", "yuenlong"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
-      return { cn: "何遠良/元朗", en: "Ho Yuenleung/Yuenlong" };
+      return {
+        seo_title: { cn: "何遠良/元朗", en: "Ho Yuenleung/Yuenlong" },
+        list: hoyuenleung_list,
+        map_image: hoyuenleung_map,
+      };
     }
     if (
       ["koonwaibong", "outlyingislands"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
-      return { cn: "管偉邦/港島北", en: "Koon Waibong/Outlying islands" };
+      return {
+        seo_title: { cn: "管偉邦/港島北", en: "Koon Waibong/Outlying islands" },
+        list: koonwaibong_list,
+        map_image: koonwaibong_map,
+      };
     }
     if (
       ["leungkayin", "thepeak"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
-      return { cn: "梁嘉賢/山頂", en: "Leung Kayin/The peak" };
+      return {
+        seo_title: { cn: "梁嘉賢/山頂", en: "Leung Kayin/The peak" },
+        list: leungkayin_list,
+        map_image: leungkayin_map,
+      };
     }
     if (
       ["lamtungpang", "northcoastofhongkongisland"].includes(
@@ -59,8 +76,12 @@ const Artist = () => {
       )
     ) {
       return {
-        cn: "林東鵬/港島北",
-        en: "Lam Tungpang/North Coast of HongKong island",
+        seo_title: {
+          cn: "林東鵬/港島北",
+          en: "Lam Tungpang/North Coast of HongKong island",
+        },
+        list: lamtungpang_list,
+        map_image: lamtungpang_map,
       };
     }
     if (
@@ -69,8 +90,12 @@ const Artist = () => {
       )
     ) {
       return {
-        cn: "黃進曦/九龍群山",
-        en: "Wong Chunhei/Kowloon Mountain Ranges",
+        seo_title: {
+          cn: "黃進曦/九龍群山",
+          en: "Wong Chunhei/Kowloon Mountain Ranges",
+        },
+        list: wongchunhei_list,
+        map_image: wongchunhei_map,
       };
     }
     if (
@@ -79,125 +104,32 @@ const Artist = () => {
       )
     ) {
       return {
-        cn: "黃麗貞/薄扶林",
-        en: "Wong Laiching/Pokfulam",
+        seo_title: { cn: "黃麗貞/薄扶林", en: "Wong Laiching/Pokfulam" },
+        list: wonglaiching_list,
+        map_image: wonglaiching_map,
       };
-    }
-  }, [router.query.slug]);
-
-  let list = useMemo(() => {
-    if (!router.query.slug) return [];
-    if (
-      ["hoyuenleung", "yuenlong"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return hoyuenleung_list;
-    }
-    if (
-      ["koonwaibong", "outlyingislands"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return koonwaibong_list;
-    }
-    if (
-      ["leungkayin", "thepeak"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return leungkayin_list;
-    }
-    if (
-      ["lamtungpang", "northcoastofhongkongisland"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return lamtungpang_list;
-    }
-    if (
-      ["wongchunhei", "kowloonmountainranges"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return wongchunhei_list;
-    }
-    if (
-      ["wonglaiching", "pokfulam"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return wonglaiching_list;
-    }
-  }, [router.query.slug]);
-
-  let map_image = useMemo(() => {
-    if (!router.query.slug) return hoyuenleung_map;
-    if (
-      ["hoyuenleung", "yuenlong"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return hoyuenleung_map;
-    }
-    if (
-      ["koonwaibong", "outlyingislands"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return koonwaibong_map;
-    }
-    if (
-      ["leungkayin", "thepeak"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return leungkayin_map;
-    }
-    if (
-      ["lamtungpang", "northcoastofhongkongisland"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return lamtungpang_map;
-    }
-    if (
-      ["wongchunhei", "kowloonmountainranges"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return wongchunhei_map;
-    }
-    if (
-      ["wonglaiching", "pokfulam"].includes(
-        (router.query.slug as string).toLowerCase()
-      )
-    ) {
-      return wonglaiching_map;
     }
   }, [router.query.slug]);
 
   return (
     <>
-      <SEO title={isEn ? seo_title?.en : seo_title?.cn} />
+      <SEO title={isEn ? data?.seo_title?.en : data?.seo_title?.cn} />
       <div className="bg-[#EEEEEE] relative">
-        <MapStatic mapImage={map_image!} />
+        <MapStatic mapImage={data?.map_image!} />
         <Hero
           setShowArtWork={setShowArtWork}
-          imageSrc={list ? list[2]?.images?.src[0] : ""}
+          imageSrc={data?.list ? data?.list[2]?.images?.src[0] : ""}
         />
-        {/* <MapComponent /> */}
-        <NavList list={list} />
-        {/* <Profile className="mt-20" /> */}
+        <NavList list={data?.list} />
         <VenueGraph
           className="mt-[250px] pb-[100px]"
-          icon={list ? list[0]?.floorPlan : undefined}
+          icon={data?.list ? data?.list[0]?.floorPlan : undefined}
         />
         {showArtWork && (
           <Gallery
             showArtWork={showArtWork}
             setShowArtWork={setShowArtWork}
-            images={list ? list[2]?.images : undefined}
+            images={data?.list ? data?.list[2]?.images : undefined}
           />
         )}
       </div>
