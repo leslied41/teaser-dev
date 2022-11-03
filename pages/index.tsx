@@ -90,7 +90,6 @@ const Home = () => {
   return (
     <div className="absolute inset-0 w-full h-full">
       <ProgressBar className="fixed top-0 w-full " index={indexRef.current} />
-      {/* <MainNav className="fixed top-3 z-10" /> */}
       {data.map((item, i) => {
         if (i === indexRef.current)
           return (
