@@ -11,10 +11,7 @@ export const ThreeTwo = memo(() => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
 
-  const texture_two = useLoader(
-    TextureLoader,
-    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/db9a0171-6b5a-4117-9571-cee7ded1bf00/Teaser"
-  );
+  const texture_two = useLoader(TextureLoader, "/environment/2.jpeg");
 
   return (
     <>
