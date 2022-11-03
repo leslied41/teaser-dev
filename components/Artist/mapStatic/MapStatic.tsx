@@ -17,7 +17,7 @@ const MapStatic = ({ className, mapImage }: Props) => {
   return (
     <div className="w-full h-fit relative tracking-normal text-[0]">
       {["wonglaiching", "pokfulam"].includes(
-        (router.query.slug as string).toLowerCase()
+        (router.query.slug as string)?.toLowerCase()
       ) ? (
         <img
           src="/wonglaiching/map.png"

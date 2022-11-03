@@ -46,14 +46,14 @@ const Artist = () => {
       return koonwaibong_list;
     }
     if (
-      ["leungkayin", "thepeak".toLowerCase()].includes(
+      ["leungkayin", "thepeak"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
       return leungkayin_list;
     }
     if (
-      ["lamtungpang", "NorthCoastofHongKongisland".toLowerCase()].includes(
+      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
@@ -92,14 +92,14 @@ const Artist = () => {
       return koonwaibong_map;
     }
     if (
-      ["leungkayin", "thepeak".toLowerCase()].includes(
+      ["leungkayin", "thepeak"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
       return leungkayin_map;
     }
     if (
-      ["lamtungpang", "NorthCoastofHongKongisland".toLowerCase()].includes(
+      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
