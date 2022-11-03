@@ -12,6 +12,7 @@ export const ThreeFour = memo(({}) => {
   const { isMobile } = useBreakpoints();
 
   const texture_four = useLoader(TextureLoader, "/environment/4.jpeg");
+  texture_four.encoding = THREE.sRGBEncoding;
 
   return (
     <>
@@ -28,9 +29,8 @@ export const ThreeFour = memo(({}) => {
       />
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
 
-      <mesh>
+      <mesh scale={[-1, 1, 1]}>
         <sphereGeometry attach="geometry" args={[150, 100, 100]} />
-
         <meshBasicMaterial
           attach="material"
           map={texture_four}

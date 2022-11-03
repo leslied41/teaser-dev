@@ -25,6 +25,8 @@ export const ThreeOne = memo(({ setLoading }: ThreeProps) => {
       };
     }
   );
+  texture_one.encoding = THREE.sRGBEncoding;
+  //resolve the issue that image looks white than original image
 
   return (
     <>
@@ -41,10 +43,11 @@ export const ThreeOne = memo(({ setLoading }: ThreeProps) => {
       />
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
 
-      <mesh>
+      <mesh scale={[-1, 1, 1]}>
+        {/* this scale is to invert image horizontally */}
         <sphereGeometry attach="geometry" args={[100, 100, 100]} />
-
         <meshBasicMaterial
+          toneMapped={false}
           attach="material"
           map={texture_one}
           side={THREE.BackSide}

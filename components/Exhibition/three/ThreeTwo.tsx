@@ -12,6 +12,7 @@ export const ThreeTwo = memo(() => {
   const { isMobile } = useBreakpoints();
 
   const texture_two = useLoader(TextureLoader, "/environment/2.jpeg");
+  texture_two.encoding = THREE.sRGBEncoding;
 
   return (
     <>
@@ -28,9 +29,8 @@ export const ThreeTwo = memo(() => {
       />
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
 
-      <mesh>
+      <mesh scale={[-1, 1, 1]}>
         <sphereGeometry attach="geometry" args={[100, 100, 100]} />
-
         <meshBasicMaterial
           attach="material"
           map={texture_two}
