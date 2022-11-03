@@ -7,13 +7,24 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { angleToRadians } from "../../../utils/angle";
 import { useBreakpoints } from "../../../hooks";
 
-export const ThreeOne = memo(() => {
+export interface ThreeProps {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const ThreeOne = memo(({ setLoading }: ThreeProps) => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
 
   const texture_one = useLoader(
     TextureLoader,
-    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/58cce5cd-2930-4d83-9279-3917bdfe2400/Teaser"
+    "/environment/1.jpeg",
+    (loader) => {
+      loader.manager.onStart = () => {
+        setLoading(true);
+      };
+      loader.manager.onLoad = () => {
+        setLoading(false);
+      };
+    }
   );
 
   return (

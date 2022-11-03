@@ -11,10 +11,7 @@ export const ThreeFive = memo(() => {
   const orbitControlRef = useRef<OrbitControlsImpl>(null);
   const { isMobile } = useBreakpoints();
 
-  const texture_five = useLoader(
-    TextureLoader,
-    "https://imagedelivery.net/InxrMycX3ahlhQ5v8IGWZQ/f927f0d1-9f1e-4b05-4fef-d5569a45cd00/Teaser"
-  );
+  const texture_five = useLoader(TextureLoader, "/environment/5.jpeg");
 
   return (
     <>
