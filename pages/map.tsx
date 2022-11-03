@@ -14,7 +14,7 @@ const Works = () => {
   if (!isLoaded) return <div>Loading...</div>;
   return (
     <>
-      <SEO title="map" />
+      <SEO title="Map" />
       <div className="h-[calc(var(--vh)*100)] w-full">
         <Map />
       </div>

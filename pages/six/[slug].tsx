@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { GlobalLayout } from "../../components/common";
+import { GlobalLayout, SEO } from "../../components/common";
 import {
   Hero,
   MapStatic,
@@ -7,7 +7,7 @@ import {
   VenueGraph,
   Gallery,
 } from "../../components/Artist/";
-import { useDisableScroll } from "../../hooks";
+import { useDisableScroll, useLocale } from "../../hooks";
 import { useRouter } from "next/router";
 import {
   hoyuenleung_list,
@@ -28,6 +28,62 @@ const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
   const router = useRouter();
   useDisableScroll(showArtWork);
+  const isEn = useLocale();
+
+  let seo_title = useMemo(() => {
+    if (!router.query.slug) return { cn: "", en: "" };
+    if (
+      ["hoyuenleung", "yuenlong"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return { cn: "何遠良/元朗", en: "Ho Yuenleung/Yuenlong" };
+    }
+    if (
+      ["koonwaibong", "outlyingislands"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return { cn: "管偉邦/港島北", en: "Koon Waibong/Outlying islands" };
+    }
+    if (
+      ["leungkayin", "thepeak"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return { cn: "梁嘉賢/山頂", en: "Leung Kayin/The peak" };
+    }
+    if (
+      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return {
+        cn: "林東鵬/港島北",
+        en: "Lam Tungpang/North Coast of HongKong island",
+      };
+    }
+    if (
+      ["wongchunhei", "kowloonmountainranges"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return {
+        cn: "黃進曦/九龍群山",
+        en: "Wong Chunhei/Kowloon Mountain Ranges",
+      };
+    }
+    if (
+      ["wonglaiching", "pokfulam"].includes(
+        (router.query.slug as string).toLowerCase()
+      )
+    ) {
+      return {
+        cn: "黃麗貞/薄扶林",
+        en: "Wong Laiching/Pokfulam",
+      };
+    }
+  }, [router.query.slug]);
 
   let list = useMemo(() => {
     if (!router.query.slug) return [];
@@ -53,7 +109,7 @@ const Artist = () => {
       return leungkayin_list;
     }
     if (
-      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
+      ["lamtungpang", "northcoastofhongkongisland"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
@@ -99,7 +155,7 @@ const Artist = () => {
       return leungkayin_map;
     }
     if (
-      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
+      ["lamtungpang", "northcoastofhongkongisland"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
@@ -122,27 +178,30 @@ const Artist = () => {
   }, [router.query.slug]);
 
   return (
-    <div className="bg-[#EEEEEE] relative">
-      <MapStatic mapImage={map_image!} />
-      <Hero
-        setShowArtWork={setShowArtWork}
-        imageSrc={list ? list[2]?.images?.src[0] : ""}
-      />
-      {/* <MapComponent /> */}
-      <NavList list={list} />
-      {/* <Profile className="mt-20" /> */}
-      <VenueGraph
-        className="mt-[250px] pb-[100px]"
-        icon={list ? list[0]?.floorPlan : undefined}
-      />
-      {showArtWork && (
-        <Gallery
-          showArtWork={showArtWork}
+    <>
+      <SEO title={isEn ? seo_title?.en : seo_title?.cn} />
+      <div className="bg-[#EEEEEE] relative">
+        <MapStatic mapImage={map_image!} />
+        <Hero
           setShowArtWork={setShowArtWork}
-          images={list ? list[2]?.images : undefined}
+          imageSrc={list ? list[2]?.images?.src[0] : ""}
         />
-      )}
-    </div>
+        {/* <MapComponent /> */}
+        <NavList list={list} />
+        {/* <Profile className="mt-20" /> */}
+        <VenueGraph
+          className="mt-[250px] pb-[100px]"
+          icon={list ? list[0]?.floorPlan : undefined}
+        />
+        {showArtWork && (
+          <Gallery
+            showArtWork={showArtWork}
+            setShowArtWork={setShowArtWork}
+            images={list ? list[2]?.images : undefined}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <GlobalProvider>
-      <SEO />
       <div className={isEn ? "en" : "cn"}>
         <Layout>
           <Component {...pageProps} />

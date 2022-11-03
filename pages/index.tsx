@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { TitleAndSubtitle, ProgressBar, VideoBg } from "../components/Landing";
-import { GlobalLayout, MainNav } from "../components/common";
+import { GlobalLayout, SEO } from "../components/common";
+import { useLocale } from "../hooks";
 import { data } from "../public/Artists/data";
 import cn from "clsx";
 var debounce = require("lodash.debounce");
@@ -10,6 +11,7 @@ const Home = () => {
   const indexRef = useRef<number>(0);
   const touchStartPositionRef = useRef<number>();
   const currentPositionRef = useRef<number>();
+  const isEn = useLocale();
 
   const wheel = (e: WheelEvent) => {
     if (e.deltaY > 0) {
@@ -88,29 +90,32 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <ProgressBar
-        className="fixed top-0 w-full z-10"
-        index={indexRef.current}
-      />
-      {data.map((item, i) => {
-        if (i === indexRef.current)
-          return (
-            <TitleAndSubtitle
-              key={i}
-              className={cn("fixed bottom-0 left-0 z-10")}
-              obj={data[indexRef.current]}
-              order={i}
-            />
-          );
-      })}
-      <VideoBg
-        index={indexRef.current}
-        updateIndexRef={updateIndexRef}
-        setUpdate={setUpdate}
-        update={update}
-      />
-    </div>
+    <>
+      <SEO title={isEn ? "Home" : "主頁"} />
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <ProgressBar
+          className="fixed top-0 w-full z-10"
+          index={indexRef.current}
+        />
+        {data.map((item, i) => {
+          if (i === indexRef.current)
+            return (
+              <TitleAndSubtitle
+                key={i}
+                className={cn("fixed bottom-0 left-0 z-10")}
+                obj={data[indexRef.current]}
+                order={i}
+              />
+            );
+        })}
+        <VideoBg
+          index={indexRef.current}
+          updateIndexRef={updateIndexRef}
+          setUpdate={setUpdate}
+          update={update}
+        />
+      </div>
+    </>
   );
 };
 Home.Layout = GlobalLayout;
