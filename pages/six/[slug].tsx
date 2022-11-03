@@ -54,7 +54,7 @@ const Artist = () => {
       return { cn: "梁嘉賢/山頂", en: "Leung Kayin/The peak" };
     }
     if (
-      ["lamtungpang", "NorthCoastofHongKongisland"].includes(
+      ["lamtungpang", "northcoastofhongkongisland"].includes(
         (router.query.slug as string).toLowerCase()
       )
     ) {
