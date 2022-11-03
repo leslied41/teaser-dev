@@ -2,6 +2,7 @@ import React from "react";
 import { useLocale, useImageLoading } from "../../../hooks";
 import Skeleton from "@mui/material/Skeleton";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/router";
 
 interface Props {
   className?: string;
@@ -11,14 +12,25 @@ interface Props {
 const MapStatic = ({ className, mapImage }: Props) => {
   const isEn = useLocale();
   const { loaded, imgLoad } = useImageLoading();
+  const router = useRouter();
 
   return (
     <div className="w-full h-fit relative tracking-normal text-[0]">
-      <Image
-        src={mapImage}
-        className="object-cover min-w-full"
-        onLoad={imgLoad}
-      />
+      {["wonglaiching", "pokfulam"].includes(
+        (router.query.slug as string).toLowerCase()
+      ) ? (
+        <img
+          src="/wonglaiching/map.png"
+          alt="map image"
+          className="object-cover min-w-full"
+        />
+      ) : (
+        <Image
+          src={mapImage}
+          className="object-cover min-w-full"
+          onLoad={imgLoad}
+        />
+      )}
 
       {!loaded && (
         <Skeleton
