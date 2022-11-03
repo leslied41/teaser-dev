@@ -17,11 +17,11 @@ const Three: FC<Props> = ({ order }) => {
 
   const [texture_one, texture_two, texture_three, texture_four, texture_five] =
     useLoader(TextureLoader, [
-      "environment/1.jpg",
-      "environment/2.jpg",
-      "environment/3.jpg",
-      "environment/4.jpg",
-      "environment/5.jpg",
+      "/environment/1.jpg",
+      "/environment/2.jpg",
+      "/environment/3.jpg",
+      "/environment/4.jpg",
+      "/environment/5.jpg",
     ]);
 
   const texture = useMemo(() => {
