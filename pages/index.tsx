@@ -89,13 +89,16 @@ const Home = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      <ProgressBar className="fixed top-0 w-full " index={indexRef.current} />
+      <ProgressBar
+        className="fixed top-0 w-full z-10"
+        index={indexRef.current}
+      />
       {data.map((item, i) => {
         if (i === indexRef.current)
           return (
             <TitleAndSubtitle
               key={i}
-              className={cn("fixed bottom-0 left-0")}
+              className={cn("fixed bottom-0 left-0 z-10")}
               obj={data[indexRef.current]}
               order={i}
             />

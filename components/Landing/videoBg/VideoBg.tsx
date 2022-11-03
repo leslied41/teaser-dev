@@ -70,7 +70,7 @@ const VideoBg: FC<Props> = ({ index, updateIndexRef, setUpdate, update }) => {
           preload="auto"
           ref={elRefs[i]}
           muted
-          className={cn("h-full w-full object-cover hidden ", {
+          className={cn("fixed inset-0 h-full w-full object-cover hidden", {
             ["!block"]: index === i,
           })}
         >
