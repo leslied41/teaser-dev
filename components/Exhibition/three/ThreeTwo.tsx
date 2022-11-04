@@ -23,8 +23,8 @@ export const ThreeTwo = memo(() => {
         rotateSpeed={isMobile ? -0.6 : -0.15} //reverse the rotate direction when dragging mouse
         minDistance={0}
         maxDistance={70}
-        minPolarAngle={angleToRadians(70)}
-        maxPolarAngle={angleToRadians(110)}
+        minPolarAngle={angleToRadians(50)}
+        maxPolarAngle={angleToRadians(120)}
         enableZoom={false}
       />
       <PerspectiveCamera makeDefault position={[0, 5, 70]} fov={35} />
