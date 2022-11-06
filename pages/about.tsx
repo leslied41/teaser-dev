@@ -14,7 +14,7 @@ const About = () => {
           {isEn ? "about this project" : "計畫概述"}
         </h1>
         <section aria-label="introduction" className="mt-20">
-          <p className={cn("text-m-1", { ["tracking-wide"]: !isEn })}>
+          <p className={cn("text-m-1", { ["tracking-wide leading-8"]: !isEn })}>
             {isEn
               ? `HERE & THERE is an exhibition project originated from a research project titled
  ‘An Exploration of Landscape Aesthetic, Hong Kong Scenic Sites and
@@ -84,7 +84,7 @@ const About = () => {
           </section>
           <section
             aria-label="chinese version"
-            className={cn("hidden", { ["!block"]: !isEn })}
+            className={cn("hidden", { ["!block leading-5"]: !isEn })}
           >
             <div>
               <p>

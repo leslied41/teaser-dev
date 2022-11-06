@@ -24,7 +24,9 @@ const SixLocationsArtists = () => {
             {data.map((e, i) => (
               <li
                 key={`6locations-${e.en}`}
-                className={"text-xm md:text-xl text-main-color uppercase"}
+                className={cn("text-xm md:text-xl text-main-color uppercase", {
+                  ["md:leading-[60px]"]: !isEn,
+                })}
                 style={style(i)}
               >
                 <Link href={`/six/${e.slug}`}>

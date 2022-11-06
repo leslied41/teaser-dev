@@ -16,7 +16,9 @@ const Details: FC<DetailsProps> = ({ className }) => {
     <div className={cn(className, "max-w-[600px] pb-20 ")}>
       <div className="flex flex-col gap-y-5">
         <section aria-label="details introduction">
-          <p className="text-m">{isEn ? intro.en : intro.cn}</p>
+          <p className={cn("text-m", { ["leading-7"]: !isEn })}>
+            {isEn ? intro.en : intro.cn}
+          </p>
         </section>
         <section>
           <h2 className="text-main-color text-m">
@@ -24,7 +26,7 @@ const Details: FC<DetailsProps> = ({ className }) => {
           </h2>
           <ul>
             {(isEn ? exhibition.date.en : exhibition.date.cn).map((d) => (
-              <li key={d} className="text-m">
+              <li key={d} className={cn("text-m", { ["leading-7"]: !isEn })}>
                 {d}
               </li>
             ))}
@@ -59,8 +61,8 @@ const Details: FC<DetailsProps> = ({ className }) => {
           title={isEn ? "artists" : "藝術家"}
           data={isEn ? artists.en : artists.cn}
           Heading="h2"
-          headingClassName="text-m"
-          bodyClassName="text-lg uppercase"
+          headingClassName={cn("text-m", { ["leading-7"]: !isEn })}
+          bodyClassName={cn("text-lg uppercase", { ["leading-9"]: !isEn })}
           link
         />
         <TextCard

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { useLocale } from "../../../hooks";
 import { Button } from "../../common";
+import cn from "clsx";
 
 interface CardProps {
   title: string;
@@ -25,7 +26,9 @@ const ArchiveCard: FC<CardProps> = ({
 
   return (
     <section className="py-20 border-b-[1px] border-main-color">
-      <h2 className="text-lg text-main-color">{isEn ? title : title_cn} </h2>
+      <h2 className={cn("text-lg text-main-color", { ["leading-9"]: !isEn })}>
+        {isEn ? title : title_cn}{" "}
+      </h2>
       <p className="text-m-1 uppercase text-main-color">
         {isEn ? subtitle : subtitle_cn}
       </p>

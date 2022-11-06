@@ -13,7 +13,7 @@ export const items = [
   },
   {
     title: `Travel Biweekly`,
-    title_cn: `《旅行雙週刊》`,
+    title_cn: "《旅行雙週刊》",
     subtitle: `Wah Kiu Yat Po 
     [華僑日報] [vol. 1-411]`,
     subtitle_cn: `

@@ -3,6 +3,7 @@ import { useLocale } from "../hooks";
 import { ArchiveCard } from "../components/archives";
 import { NormalPageLayout, SEO } from "../components/common";
 import { introduction, items } from "../public/pagesData/archives";
+import cn from "clsx";
 
 const Archives = () => {
   const isEn = useLocale();
@@ -14,7 +15,7 @@ const Archives = () => {
         <h1 className="text-lg uppercase text-main-color">
           {isEn ? "archives" : "檔案"}
         </h1>
-        <p className="text-m-1 mt-20">
+        <p className={cn("text-m-1 mt-20", { ["leading-8"]: !isEn })}>
           {isEn ? introduction.en : introduction.cn}
         </p>
       </section>
