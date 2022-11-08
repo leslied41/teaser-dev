@@ -42,11 +42,17 @@ const WorkflowItem: FC<Props> = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p className="text-xl text-main-color uppercase">{title}</p>
+            <p
+              className={cn("text-lg-1 text-main-color uppercase", {
+                ["text-lg"]: isEn,
+              })}
+            >
+              {title}
+            </p>
             <p
               className={cn(
-                "mt-4",
-                { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                "mt-4 text-m-1-cn",
+                { ["text-m-1"]: isEn },
                 contentClassName
               )}
             >
@@ -56,11 +62,17 @@ const WorkflowItem: FC<Props> = ({
         ) : src ? (
           <Link href={`/${src}`}>
             <a className={cn({ ["hover:opacity-70"]: src })}>
-              <p className="text-xl text-main-color uppercase">{title}</p>
+              <p
+                className={cn("text-lg-1 text-main-color uppercase", {
+                  ["text-lg"]: isEn,
+                })}
+              >
+                {title}
+              </p>
               <p
                 className={cn(
-                  "mt-4",
-                  { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                  "mt-4 text-m-1-cn",
+                  { ["text-m-1"]: isEn },
                   contentClassName
                 )}
               >
@@ -70,11 +82,17 @@ const WorkflowItem: FC<Props> = ({
           </Link>
         ) : (
           <>
-            <p className="text-xl text-main-color uppercase">{title}</p>
+            <p
+              className={cn("text-lg-1 text-main-color uppercase", {
+                ["text-lg"]: isEn,
+              })}
+            >
+              {title}
+            </p>
             <p
               className={cn(
-                "mt-4",
-                { ["text-m-1"]: isEn, ["text-m-1-cn"]: !isEn },
+                "mt-4 text-m-1-cn",
+                { ["text-m-1"]: isEn },
                 contentClassName
               )}
             >

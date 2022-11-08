@@ -1,5 +1,6 @@
 import WorkflowItem from "../workflowItem";
 import { useLocale } from "../../../hooks";
+import cn from "clsx";
 interface Props {}
 
 const Workflow = (props: Props) => {
@@ -14,6 +15,7 @@ const Workflow = (props: Props) => {
             ? "[It generated the first GRF proposal in 2016]"
             : "[2016年製成第一份GRF計劃書]"
         }
+        outsideLink="https://cerg1.ugc.edu.hk/cergprod/scrrm00542.jsp?proj_id=12606618&old_proj_id=22606618&proj_title=&isname=koon&ioname=&institution=HKBU&subject=&pages=1&year=&theSubmit=12606618"
       />
       <WorkflowItem
         year={2017}
@@ -32,7 +34,7 @@ const Workflow = (props: Props) => {
             : "[研究轉化成數個檔案]"
         }
         src="archives"
-        contentClassName={isEn ? "!text-lg " : "!text-lg-1"}
+        contentClassName={cn("text-xlg", { ["text-lg"]: !isEn })}
       />
       <WorkflowItem
         year={2020}
@@ -51,7 +53,7 @@ const Workflow = (props: Props) => {
         }
         content={isEn ? "6 LOCATIONS / 6 ARITST" : "[六處地方 / 六位藝術家]"}
         src="six"
-        contentClassName={isEn ? "!text-lg " : "!text-lg-1"}
+        contentClassName={cn("text-xlg", { ["text-lg"]: !isEn })}
       />
       <WorkflowItem
         last

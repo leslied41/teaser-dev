@@ -17,6 +17,7 @@ import {
   SEO,
 } from "../components/common";
 import { useLocale } from "../hooks";
+import cn from "clsx";
 import s from "../styles/Exhibition.module.css";
 
 const Exhibition = () => {
@@ -49,7 +50,11 @@ const Exhibition = () => {
       <div>
         <div className="flex  justify-center pt-[337px] pb-[100px]">
           <div className="max-w-[600px]">
-            <h1 className="text-lg uppercase text-main-color">
+            <h1
+              className={cn("text-lg-2 uppercase text-main-color", {
+                ["text-lg-1"]: isEn,
+              })}
+            >
               {isEn ? "exhibition" : "展覽"}
             </h1>
             <Details className="mt-20" />

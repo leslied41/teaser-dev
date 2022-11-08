@@ -11,7 +11,7 @@ const CurrentLabel = () => {
     if (!router.query.slug) {
       switch (router.pathname) {
         case "/about":
-          return { title: "about" };
+          return { title: "about us" };
           break;
         case "/archives":
           return { title: "archives" };
