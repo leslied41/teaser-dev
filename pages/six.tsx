@@ -29,7 +29,7 @@ const SixLocationsArtists = () => {
                 })}
                 style={style(i)}
               >
-                <Link href={`/exhibition/${e.slug}`}>
+                <Link href={`/${e.slug}`}>
                   <a className={cn("flex items-center ")}>
                     <span>{isEn ? e.en : e.cn}</span>
                     {i !== data.length - 1 && (

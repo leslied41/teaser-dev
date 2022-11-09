@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from "react";
-import { GlobalLayout, SEO } from "../../components/common";
+import { GlobalLayout, SEO } from "../components/common";
 import {
   Hero,
   MapStatic,
   NavList,
   VenueGraph,
   Gallery,
-} from "../../components/Artist/";
-import { useDisableScroll, useLocale } from "../../hooks";
+} from "../components/Artist";
+import { useDisableScroll, useLocale } from "../hooks";
 import { useRouter } from "next/router";
 import {
   hoyuenleung_list,
@@ -16,13 +16,13 @@ import {
   leungkayin_list,
   wongchunhei_list,
   wonglaiching_list,
-} from "../../public/six/data";
-import hoyuenleung_map from "../../public/hoyuenleung/map.png";
-import koonwaibong_map from "../../public/koonwaibong/map.png";
-import leungkayin_map from "../../public/leungkayin/map.png";
-import lamtungpang_map from "../../public/lamtungpang/map.png";
-import wongchunhei_map from "../../public/wongchunhei/map.png";
-import wonglaiching_map from "../../public/wonglaiching/map.png";
+} from "../public/six/data";
+import hoyuenleung_map from "../public/hoyuenleung/map.png";
+import koonwaibong_map from "../public/koonwaibong/map.png";
+import leungkayin_map from "../public/leungkayin/map.png";
+import lamtungpang_map from "../public/lamtungpang/map.png";
+import wongchunhei_map from "../public/wongchunhei/map.png";
+import wonglaiching_map from "../public/wonglaiching/map.png";
 
 const Artist = () => {
   const [showArtWork, setShowArtWork] = useState(false);
