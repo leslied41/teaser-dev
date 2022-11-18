@@ -24,12 +24,10 @@ export const supportsData: SupportsData = {
         "Chan Pui, Pedith ",
       ],
       "Research Archive Development [research]": ["Ting Wing Yan, Vivian"],
-      "sponsor [research]": ["Research Grants Council "],
     },
     cn: {
       "研究團隊 [研究]": ["丁穎茵", "陳蓓"],
       "研究檔案 [研究]": ["丁穎茵"],
-      "贊助 [研究]": ["研究資助局"],
     },
   },
   exhibition: {

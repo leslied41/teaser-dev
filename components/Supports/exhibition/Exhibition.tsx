@@ -36,9 +36,7 @@ const Exhibition = () => {
             ? supportsData.exhibition.en.essaylist
             : supportsData.exhibition.cn.essaylist
         }
-        title={
-          isEn ? `essaylist [exhibition catalogue]` : `學術文章 [展覽畫冊]`
-        }
+        title={isEn ? `essayist [exhibition catalogue]` : `學術文章 [展覽畫冊]`}
       />
       <ImageCard
         firstClassname="col-span-2"
@@ -49,6 +47,7 @@ const Exhibition = () => {
           isEn ? "one of the co-presenter [exhibition]" : "呈現機構之一 [展覽]"
         }
       />
+
       <ImageCard
         className="max-w-[350px]"
         firstClassname="col-span-2"
@@ -68,6 +67,10 @@ const Exhibition = () => {
           },
         ]}
         title={isEn ? "supporters [exhibition]" : "支持機構 [展覽]"}
+      />
+      <TextCard
+        data={isEn ? ["Research Grants Council"] : ["研究資助局"]}
+        title={isEn ? `sponsor [research]` : `贊助 [研究]`}
       />
       <ImageCard
         className="max-w-[350px]"
