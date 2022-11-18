@@ -30,6 +30,16 @@ const Exhibition = () => {
         title={isEn ? `curator [exhibition]` : `策展人 [展覽]`}
       />
       <Research />
+      <TextCard
+        data={
+          isEn
+            ? supportsData.exhibition.en.essaylist
+            : supportsData.exhibition.cn.essaylist
+        }
+        title={
+          isEn ? `essaylist [exhibition catalogue]` : `學術文章 [展覽畫冊]`
+        }
+      />
       <ImageCard
         firstClassname="col-span-2"
         images={[

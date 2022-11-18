@@ -96,8 +96,8 @@ const Details: FC<DetailsProps> = ({ className }) => {
           title={isEn ? "artists" : "藝術家"}
           data={isEn ? artists.en : artists.cn}
           Heading="h2"
-          headingClassName={cn("text-lg-2", { ["leading-7"]: !isEn })}
-          bodyClassName={cn("text-lg-1 uppercase", { ["leading-9"]: !isEn })}
+          headingClassName={cn("text-m-1-cn", { ["text-m-1"]: isEn })}
+          bodyClassName={cn("text-m-1-cn", { ["text-m-1"]: isEn })}
           link
         />
         <TextCard

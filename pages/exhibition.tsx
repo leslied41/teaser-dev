@@ -29,7 +29,7 @@ const Exhibition = () => {
 
   useEffect(() => {
     if (setOpenNavbar) setOpenNavbar(false);
-  }, []);
+  }, [setOpenNavbar]);
 
   const toggleDetails = () => {
     setShowDetails((prev) => !prev);

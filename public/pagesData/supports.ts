@@ -42,6 +42,7 @@ export const supportsData: SupportsData = {
         "Wong Lai Ching, Fiona",
       ],
       curator: ["Ting Wing Yan, Vivian"],
+      essaylist: ["Chan Pui, Pedith"],
       sponsors: [
         "Val Chow",
         "Mike S K Lui",
@@ -74,6 +75,7 @@ export const supportsData: SupportsData = {
     cn: {
       participant_artists: ["何遠良", "林東鵬", "梁嘉賢", "黃進曦", "黃麗貞"],
       curator: ["丁穎茵"],
+      essaylist: ["陳蓓"],
       sponsors: [
         "周翩洋大律師",
         "呂世杰大律師",
